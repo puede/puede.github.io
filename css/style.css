@@ -193,6 +193,7 @@ body {
   left: 0;
   z-index: -1;
   opacity: 0.8;
+  background: #d2eefe;
 }
 .article-date,
 .article-category-link,
