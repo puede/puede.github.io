@@ -8,17 +8,23 @@
   
     <meta name="keywords" content="perla,perla's blog" />
   
-  <meta name="description" content="Composer是什么? 简单来说，Composer 是一个新的安装包管理工具，服务于 PHP 生态系统。它实际上包含了两个部分：Composer 和 Packagist。 1.Composer绿色安装 下载 composer.phar    https://getcomposer.org/download/">
+  <meta name="description" content="Composer是什么? 简单来说，Composer 是一个新的安装包管理工具，服务于 PHP 生态系统。它实际上包含了两个部分：Composer 和 Packagist。 1.Composer绿色安装下载 composer.phar1https://getcomposer.org/download/    下载完成后">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Composer下载安装">
 <meta property="og:url" content="http://localhost:4000/2017/11/16/composer下载安装/index.html">
 <meta property="og:site_name" content="puede">
-<meta property="og:description" content="Composer是什么? 简单来说，Composer 是一个新的安装包管理工具，服务于 PHP 生态系统。它实际上包含了两个部分：Composer 和 Packagist。 1.Composer绿色安装 下载 composer.phar    https://getcomposer.org/download/">
+<meta property="og:description" content="Composer是什么? 简单来说，Composer 是一个新的安装包管理工具，服务于 PHP 生态系统。它实际上包含了两个部分：Composer 和 Packagist。 1.Composer绿色安装下载 composer.phar1https://getcomposer.org/download/    下载完成后将composer.phar 拷贝到  wamp/php 目录下,然后目录下(w">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-11-16T09:27:39.150Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/composer-1.PNG">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/composer-2.PNG">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/%E4%B8%8B%E8%BD%BDtp5.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/composer-3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/composer%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB.jpg">
+<meta property="og:updated_time" content="2017-11-17T01:25:18.373Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Composer下载安装">
-<meta name="twitter:description" content="Composer是什么? 简单来说，Composer 是一个新的安装包管理工具，服务于 PHP 生态系统。它实际上包含了两个部分：Composer 和 Packagist。 1.Composer绿色安装 下载 composer.phar    https://getcomposer.org/download/">
+<meta name="twitter:description" content="Composer是什么? 简单来说，Composer 是一个新的安装包管理工具，服务于 PHP 生态系统。它实际上包含了两个部分：Composer 和 Packagist。 1.Composer绿色安装下载 composer.phar1https://getcomposer.org/download/    下载完成后将composer.phar 拷贝到  wamp/php 目录下,然后目录下(w">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/puede/tupian/master/composer-1.PNG">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -124,12 +130,27 @@
             
             <p>Composer是什么?</p>
 <p>简单来说，Composer 是一个新的安装包管理工具，服务于 PHP 生态系统。它实际上包含了两个部分：Composer 和 Packagist。</p>
-<p>1.Composer绿色安装</p>
-<p>下载 composer.phar    <a href="https://getcomposer.org/download/" target="_blank" rel="noopener">https://getcomposer.org/download/</a>   </p>
+<h3 id="1-Composer绿色安装"><a href="#1-Composer绿色安装" class="headerlink" title="1.Composer绿色安装"></a>1.Composer绿色安装</h3><p>下载 composer.phar<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">https:</span>//getcomposer<span class="meta">.org</span>/download/</span><br></pre></td></tr></table></figure></p>
+<p>  <img src="https://raw.githubusercontent.com/puede/tupian/master/composer-1.PNG" alt="composer.phar"></p>
+<p>下载完成后将composer.phar 拷贝到  wamp/php 目录下,<br>然后目录下(wamp/php )新建 composer.bat 文件,编辑并写入以下内容<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@php %~dp0composer.phar %*</span><br></pre></td></tr></table></figure></p>
+<p>保存并右击以管理员身份运行,如果运行出错,打开php.ini 找到无关的  .dll文件 注释 如php_pdo_firebird.dll。<br>把你的php路径加入到环境变量, 在新的终端中输入 composer 出现以下结果,则安装成功。</p>
+<p><img src="https://raw.githubusercontent.com/puede/tupian/master/composer-2.PNG" alt="composer安装"></p>
+<h3 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h3><p>可以使用以下命令下载thinkphp5</p>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">composer </span><span class="built_in">create-project</span> <span class="string">topthink/</span><span class="string">think </span><span class="string">tp5 </span><span class="built_in">--prefer-dist</span></span><br></pre></td></tr></table></figure>
+<p>安装成功,<br><img src="https://raw.githubusercontent.com/puede/tupian/master/%E4%B8%8B%E8%BD%BDtp5.jpg" alt="composer安装tp5成功"></p>
+<p>如果出现以下错误</p>
+<p><img src="https://raw.githubusercontent.com/puede/tupian/master/composer-3.png" alt="composer安装tp5"></p>
+<p>解决方法:</p>
+<p>php.ini中  extension=php_openssl.dll  解除注释  (记得重启apache)<br>或者终端中 输入composer config -g – disable-tls true </p>
+<p>3.composer声明依赖关系<br>在项目根目录下(例如:D:\wamp\apache2\htdocs\git)新建文件夹phpexcel,里面建一个composer.json 写入<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"require"</span>: &#123;</span><br><span class="line">        <span class="attr">"monolog/monolog"</span>: <span class="string">"1.2.*"</span>,</span><br><span class="line"></span><br><span class="line">        <span class="attr">"phpoffice/phpexcel"</span>: <span class="string">"1.8.*"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://raw.githubusercontent.com/puede/tupian/master/composer%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB.jpg" alt="依赖关系"></p>
+<p>然后composer.install 在文件夹下就会看到新增的文件</p>
+<p>然后在D:\wamp\apache2\htdocs\git\phpexcel文件夹下新建index.php写入<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">   </span></span><br><span class="line"><span class="php">    <span class="keyword">require</span> <span class="string">'vendor/autoload.php'</span>;</span></span><br><span class="line"><span class="php">    $objPHPExcel=<span class="keyword">new</span> PHPExcel();</span></span><br><span class="line"><span class="php">    var_dump($objPHPExcel);</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>这段代码的作用是引入自动加载文件,<br>然后在浏览器访问你的phpexcel的地址,就会出现自动加载的内容,测试成功。</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2017年11月16日 17:27</p>
+        <p>最后更新： 2017年11月17日 09:25</p>
         <p>原始链接： <a class="post-url" href="/2017/11/16/composer下载安装/" title="Composer下载安装">http://localhost:4000/2017/11/16/composer下载安装/</a></p>
         <footer>
             <a href="http://localhost:4000">
@@ -203,6 +224,12 @@
 </article>
 
 
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-Composer绿色安装"><span class="post-toc-text">1.Composer绿色安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-使用"><span class="post-toc-text">2. 使用</span></a></li></ol>
+        </nav>
+    </aside>
+    
 
 <nav id="article-nav">
   
