@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/%E4%B8%8B%E8%BD%BDtp5.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/composer-3.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/composer%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB.jpg">
-<meta property="og:updated_time" content="2017-11-17T01:25:18.373Z">
+<meta property="og:updated_time" content="2017-11-17T01:30:01.183Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Composer下载安装">
 <meta name="twitter:description" content="Composer是什么? 简单来说，Composer 是一个新的安装包管理工具，服务于 PHP 生态系统。它实际上包含了两个部分：Composer 和 Packagist。 1.Composer绿色安装下载 composer.phar1https://getcomposer.org/download/    下载完成后将composer.phar 拷贝到  wamp/php 目录下,然后目录下(w">
@@ -142,7 +142,7 @@
 <p><img src="https://raw.githubusercontent.com/puede/tupian/master/composer-3.png" alt="composer安装tp5"></p>
 <p>解决方法:</p>
 <p>php.ini中  extension=php_openssl.dll  解除注释  (记得重启apache)<br>或者终端中 输入composer config -g – disable-tls true </p>
-<p>3.composer声明依赖关系<br>在项目根目录下(例如:D:\wamp\apache2\htdocs\git)新建文件夹phpexcel,里面建一个composer.json 写入<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"require"</span>: &#123;</span><br><span class="line">        <span class="attr">"monolog/monolog"</span>: <span class="string">"1.2.*"</span>,</span><br><span class="line"></span><br><span class="line">        <span class="attr">"phpoffice/phpexcel"</span>: <span class="string">"1.8.*"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="3-composer声明依赖关系"><a href="#3-composer声明依赖关系" class="headerlink" title="3.composer声明依赖关系"></a>3.composer声明依赖关系</h3><p>在项目根目录下(例如:D:\wamp\apache2\htdocs\git)新建文件夹phpexcel,里面建一个composer.json 写入<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"require"</span>: &#123;</span><br><span class="line">        <span class="attr">"monolog/monolog"</span>: <span class="string">"1.2.*"</span>,</span><br><span class="line"></span><br><span class="line">        <span class="attr">"phpoffice/phpexcel"</span>: <span class="string">"1.8.*"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p><img src="https://raw.githubusercontent.com/puede/tupian/master/composer%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB.jpg" alt="依赖关系"></p>
 <p>然后composer.install 在文件夹下就会看到新增的文件</p>
 <p>然后在D:\wamp\apache2\htdocs\git\phpexcel文件夹下新建index.php写入<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">   </span></span><br><span class="line"><span class="php">    <span class="keyword">require</span> <span class="string">'vendor/autoload.php'</span>;</span></span><br><span class="line"><span class="php">    $objPHPExcel=<span class="keyword">new</span> PHPExcel();</span></span><br><span class="line"><span class="php">    var_dump($objPHPExcel);</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure></p>
@@ -150,7 +150,7 @@
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2017年11月17日 09:25</p>
+        <p>最后更新： 2017年11月17日 09:30</p>
         <p>原始链接： <a class="post-url" href="/2017/11/16/composer下载安装/" title="Composer下载安装">http://localhost:4000/2017/11/16/composer下载安装/</a></p>
         <footer>
             <a href="http://localhost:4000">
@@ -226,7 +226,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-Composer绿色安装"><span class="post-toc-text">1.Composer绿色安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-使用"><span class="post-toc-text">2. 使用</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-Composer绿色安装"><span class="post-toc-text">1.Composer绿色安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-使用"><span class="post-toc-text">2. 使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3-composer声明依赖关系"><span class="post-toc-text">3.composer声明依赖关系</span></a></li></ol>
         </nav>
     </aside>
     
