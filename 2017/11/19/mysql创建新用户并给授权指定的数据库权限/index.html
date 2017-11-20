@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="puede">
 <meta property="og:description" content="mysql创建新用户并给授权指定的数据库权限一、要求:设置新用户为:new_user 密码为:123456 二: 步骤: 终端登录数据库mysql -uroot -p  创建用户:CREATE USER &amp;#39;新用户用户名&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;密码&amp;#39;;例如:CREATE USER &amp;#39;new_user&amp;#39;@&amp;#39;%&amp;#">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-11-20T08:55:26.756Z">
+<meta property="og:updated_time" content="2017-11-20T08:58:27.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="mysql创建新用户并给授权指定的数据库权限">
 <meta name="twitter:description" content="mysql创建新用户并给授权指定的数据库权限一、要求:设置新用户为:new_user 密码为:123456 二: 步骤: 终端登录数据库mysql -uroot -p  创建用户:CREATE USER &amp;#39;新用户用户名&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;密码&amp;#39;;例如:CREATE USER &amp;#39;new_user&amp;#39;@&amp;#39;%&amp;#">
@@ -132,16 +132,19 @@
 </li>
 <li><p>创建数据库:<br><code>create database new_lmlq;</code></p>
 </li>
-<li><p>为新用户授权<br><code>grant 权限 on 想授权的数据库.* to &#39;新用户&#39;@&#39;%&#39;;</code><br><code>grant all privileges on 想授权的数据库.* to &#39;新用户&#39;@&#39;%&#39;;</code><br><code>grant all privileges on new_lmlq.* to &#39;new_lmlq&#39;@&#39;%&#39;;</code><br>注: all 可以替换为 select,delete,update,create,drop</p>
-</li>
-<li><p>刷新系统权限表<br><code>flush privileges;</code></p>
-</li>
+<li>为新用户授权<br><code>grant 权限 on 想授权的数据库.* to &#39;新用户&#39;@&#39;%&#39;;</code><br><code>grant all privileges on 想授权的数据库.* to &#39;新用户&#39;@&#39;%&#39;;</code><br><code>grant all privileges on new_lmlq.* to &#39;new_lmlq&#39;@&#39;%&#39;;</code></li>
+</ol>
+<ul>
+<li>all 可以替换为 select,delete,update,create,drop<br>*</li>
+</ul>
+<ol>
+<li>刷新系统权限表<br><code>flush privileges;</code></li>
 <li>导入SQL文件<br><code>source sql.sql</code></li>
 </ol>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2017年11月20日 16:55</p>
+        <p>最后更新： 2017年11月20日 16:58</p>
         <p>原始链接： <a class="post-url" href="/2017/11/19/mysql创建新用户并给授权指定的数据库权限/" title="mysql创建新用户并给授权指定的数据库权限">http://localhost:4000/2017/11/19/mysql创建新用户并给授权指定的数据库权限/</a></p>
         <footer>
             <a href="http://localhost:4000">
