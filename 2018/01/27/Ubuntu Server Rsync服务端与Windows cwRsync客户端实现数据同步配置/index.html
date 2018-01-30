@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/4.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/5.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/6.jpg">
-<meta property="og:updated_time" content="2018-01-30T00:52:01.367Z">
+<meta property="og:updated_time" content="2018-01-30T00:53:18.678Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置">
 <meta name="twitter:description" content="Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间 一. 需要的工具下载cwRsyncServer服务器端与客户端的安装文件： 服务端下载：cwRsyncServer_4.0">
@@ -134,7 +134,7 @@
 <p>客户端下载：<a href="https://pan.baidu.com/share/link?shareid=903891290&amp;uk=118355419" target="_blank" rel="noopener">cwRsync_4.0.5_Installer.zip</a></p>
 <p>server:122.152.193.160</p>
 <p>client:192.168.7.20</p>
-<h3 id="服务器端"><a href="#服务器端" class="headerlink" title="服务器端"></a>服务器端</h3><ol>
+<h3 id="二-服务器端"><a href="#二-服务器端" class="headerlink" title="二. 服务器端"></a>二. 服务器端</h3><ol>
 <li><p>ubuntu server 默认已安装rsync，但是rsync服务默认不是启动的，我们要修改下面的文件$sudo vi /etc/default/rsync<br>RSYNC_ENABLE=false    #false改true</p>
 </li>
 <li><p>修改配置文件/etc/rsyncd.conf</p>
@@ -180,7 +180,7 @@
 <p>refuse options = checksum dry-run #定义一些不允许客户对该模块使用的命令选项列表</p>
 <p>dont compress = <em>.gz </em>.tgz <em>.zip </em>.z <em>.rpm </em>.deb <em>.iso </em>.bz2 *.tbz #告诉rysnc那些文件在传输前不用压缩，默认已设定压缩包不再进行压缩</p>
 </blockquote>
-<h3 id="下面我们来定义自己的conf文件"><a href="#下面我们来定义自己的conf文件" class="headerlink" title="下面我们来定义自己的conf文件"></a>下面我们来定义自己的conf文件</h3><p><img src="https://raw.githubusercontent.com/puede/tupian/master/1.jpg" alt="rsyncd.conf"></p>
+<h2 id="下面我们来定义自己的conf文件"><a href="#下面我们来定义自己的conf文件" class="headerlink" title="下面我们来定义自己的conf文件"></a>下面我们来定义自己的conf文件</h2><p><img src="https://raw.githubusercontent.com/puede/tupian/master/1.jpg" alt="rsyncd.conf"></p>
 <p>配置完之后,ESC :wq保存退出</p>
 <ol>
 <li>创建一个密码文件<br><img src="https://raw.githubusercontent.com/puede/tupian/master/2.jpg" alt="rsyncd.secrets"></li>
@@ -192,7 +192,7 @@
 <li>启动rsync</li>
 </ol>
 <p>sudo /etc/init.d/rsync start</p>
-<h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><p>我们再来看一下客户端的操作，一般客户端不需要进行特殊的配置，直接同步即可.</p>
+<h3 id="三-客户端"><a href="#三-客户端" class="headerlink" title="三. 客户端"></a>三. 客户端</h3><p>我们再来看一下客户端的操作，一般客户端不需要进行特殊的配置，直接同步即可.</p>
 <ol>
 <li>安装rsync</li>
 </ol>
@@ -208,14 +208,14 @@
 <p><img src="https://raw.githubusercontent.com/puede/tupian/master/4.jpg" alt="telnet"></p>
 <p>出现@RSYNCD: 31.0 等类似文字，则说明客户端连接服务端正常。</p>
 <p><img src="https://raw.githubusercontent.com/puede/tupian/master/5.jpg" alt="telnet"></p>
-<h3 id="同步文件"><a href="#同步文件" class="headerlink" title="同步文件"></a>同步文件</h3><p>想同步到哪 就在那个目录下面cmder</p>
+<h3 id="四-同步文件"><a href="#四-同步文件" class="headerlink" title="四. 同步文件"></a>四. 同步文件</h3><p>想同步到哪 就在那个目录下面cmder</p>
 <p>同步线上的/var/www 目录到本地etc/目录下</p>
 <p>rrsync -avz root@122.152.193.160:/var/www  tbu/                                        </p>
 <p><img src="https://raw.githubusercontent.com/puede/tupian/master/6.jpg" alt="tongbu">             </p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年01月30日 08:52</p>
+        <p>最后更新： 2018年01月30日 08:53</p>
         <p>原始链接： <a class="post-url" href="/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/" title="Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置">http://localhost:4000/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/</a></p>
         <footer>
             <a href="http://localhost:4000">
@@ -291,7 +291,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一-需要的工具"><span class="post-toc-text">一. 需要的工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务器端"><span class="post-toc-text">服务器端</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#下面我们来定义自己的conf文件"><span class="post-toc-text">下面我们来定义自己的conf文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#客户端"><span class="post-toc-text">客户端</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#同步文件"><span class="post-toc-text">同步文件</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一-需要的工具"><span class="post-toc-text">一. 需要的工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二-服务器端"><span class="post-toc-text">二. 服务器端</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#下面我们来定义自己的conf文件"><span class="post-toc-text">下面我们来定义自己的conf文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三-客户端"><span class="post-toc-text">三. 客户端</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四-同步文件"><span class="post-toc-text">四. 同步文件</span></a></li></ol>
         </nav>
     </aside>
     
