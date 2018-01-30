@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/4.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/5.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/6.jpg">
-<meta property="og:updated_time" content="2018-01-30T03:20:34.083Z">
+<meta property="og:updated_time" content="2018-01-30T07:41:01.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置">
 <meta name="twitter:description" content="Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间 一. 需要的工具下载cwRsyncServer服务器端与客户端的安装文件： 服务端下载：cwRsyncServer_4.0">
@@ -211,12 +211,39 @@
 <p><img src="https://raw.githubusercontent.com/puede/tupian/master/5.jpg" alt="telnet"></p>
 <h3 id="四-同步文件"><a href="#四-同步文件" class="headerlink" title="四. 同步文件"></a>四. 同步文件</h3><p>想同步到哪 就在那个目录下面cmder</p>
 <p>同步线上的/var/www 目录到本地etc/目录下</p>
-<p>rrsync -avz root@122.152.193.160:/var/www  tbu/                                        </p>
+<p>rsync -avz root@122.152.193.160:/var/www  tbu/  </p>
 <p><img src="https://raw.githubusercontent.com/puede/tupian/master/6.jpg" alt="tongbu">             </p>
+<h3 id="五-Rsync命令详解"><a href="#五-Rsync命令详解" class="headerlink" title="五. Rsync命令详解"></a>五. Rsync命令详解</h3><p>Rsync的命令格式可以为以下六种：</p>
+<p>　　rsync [OPTION]… SRC DEST</p>
+<p>　　rsync [OPTION]… SRC [USER@]HOST:DEST</p>
+<p>　　rsync [OPTION]… [USER@]HOST:SRC DEST</p>
+<p>　　rsync [OPTION]… [USER@]HOST::SRC DEST</p>
+<p>　　rsync [OPTION]… SRC [USER@]HOST::DEST</p>
+<p>　　rsync [OPTION]… rsync://[USER@]HOST[:PORT]/SRC [DEST]</p>
+<p>　　<br>对应于以上六种命令格式，rsync有六种不同的工作模式：</p>
+<p>　　(1)拷贝本地文件。当SRC和DES路径信息都不包含有单个冒号”:“分隔符时就启动这种工作模式。</p>
+<p>如：rsync -a /data /backup</p>
+<p>　　(2)使用一个远程shell程序(如rsh、ssh)来实现将本地机器的内容拷贝到远程机器。当DST路径地址包含单个冒号”:“分隔符时启动 该模式。</p>
+<p>如：rsync -avz *.c foo:src</p>
+<p>　　(3)使用一个远程shell程序(如rsh、ssh)来实现将远程机器的内容拷贝到本地机器。当SRC地址路径包含单个冒号”:“分隔符时启动 该模式。</p>
+<p>如：rsync -avz foo:src/bar /data</p>
+<p>　　(4)从远程rsync服务器中拷贝文件到本地机。当SRC路径信息包含”::“分隔符时启动该模式。</p>
+<p>如：rsync -av root@172.16.78.192::www /databack</p>
+<p>　　(5)从本地机器拷贝文件到远程rsync服务器中。当DST路径信息包含”::“分隔符时启动该模式。</p>
+<p>如：rsync -av /databack root@172.16.78.192::www</p>
+<p>　　(6)列远程机的文件列表。这类似于rsync传输，不过只要在命令中省略掉本地机信息即可。</p>
+<p>如：rsync -v rsync://172.16.78.192/www</p>
+<h3 id="六、部分错误的解决办法"><a href="#六、部分错误的解决办法" class="headerlink" title="六、部分错误的解决办法"></a>六、部分错误的解决办法</h3><p>1.’rsync’ 不是内部或外部命令，也不是可运行的程序或批处理文件。<br>加环境变量<br>path = e:\Program Files (x86)\cwRsync\bin</p>
+<p>2.rsync: failed to connect to 192.168.7.20: Connection timed out (116)<br>rsync error: error in socket IO (code 10) at clientserver.c(122) [Receiver=3.0.7]<br>网络通畅，服务器端允许访问端口 873</p>
+<p>3.@ERROR: invalid uid nobody<br>rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>指定uid gid<br>uid = 0<br>gid = 0</p>
+<p>4.@ERROR: chdir failed<br>rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>path目录配置的正确，得存在<br>解决：服务器端同步目录没有权限，cwrsync默认用户是Svcwrsync。为同步目录添加用户Svcwrsync权限。<br>也可以通过 菜单–cwRsyncServer–02. Prep a Dir for Upload 配置目录权限<br>除完全控制和特殊权限外的所有权限</p>
+<p>5.@ERROR: auth failed on module test<br>rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>客户端设置<br>a.在命令上要指定好用户名<br>b.密码文件只写密码<br>rsyncd.secrets文件<br>rsyncpass<br>c.用户名密码都要正确</p>
+<p>6.Unexpected local arg: /cygdrive/d/rsyncBackup<br>If arg is a remote file/dir, prefix it with a colon (:).<br>rsync error: syntax or usage error (code 1) at main.c(1218) [Receiver=3.0.7]<br>不一定是这个路径有问题，可能是–password-file路径中有空格，服务器端没问题，客户端好像不行</p>
+<p>7.password file must be owned by root when running as root<br>continuing without password file<br>Password:<br>设置密码访问权限chown.exe可从服务器端拷贝过来<br>chmod -c 600 /cygdrive/c/etc/rsyncd.secrets<br>chown administrator /cygdrive/c/etc/rsyncd.secrets<br>  服务器端不设也可以</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年01月30日 11:20</p>
+        <p>最后更新： 2018年01月30日 15:41</p>
         <p>原始链接： <a class="post-url" href="/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/" title="Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置">http://localhost:4000/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/</a></p>
         <footer>
             <a href="http://localhost:4000">
@@ -292,7 +319,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一-需要的工具"><span class="post-toc-text">一. 需要的工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二-服务器端"><span class="post-toc-text">二. 服务器端</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三-客户端"><span class="post-toc-text">三. 客户端</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四-同步文件"><span class="post-toc-text">四. 同步文件</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一-需要的工具"><span class="post-toc-text">一. 需要的工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二-服务器端"><span class="post-toc-text">二. 服务器端</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三-客户端"><span class="post-toc-text">三. 客户端</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四-同步文件"><span class="post-toc-text">四. 同步文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五-Rsync命令详解"><span class="post-toc-text">五. Rsync命令详解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#六、部分错误的解决办法"><span class="post-toc-text">六、部分错误的解决办法</span></a></li></ol>
         </nav>
     </aside>
     
