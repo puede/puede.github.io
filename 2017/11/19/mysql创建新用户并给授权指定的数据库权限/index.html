@@ -2,127 +2,43 @@
 <html>
 <head>
   <meta charset="utf-8">
-  
-  <title>mysql创建新用户并给授权指定的数据库权限 | puede</title>
+  <title>mysql创建新用户并给授权指定的数据库权限 | lyyourc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
   
-    <meta name="keywords" content="perla,perla's blog" />
-  
-  <meta name="description" content="mysql创建新用户并给授权指定的数据库权限一、要求:设置新用户为:new_user 密码为:123456 二: 步骤: 终端登录数据库mysql -uroot -p  创建用户:CREATE USER &amp;#39;新用户用户名&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY">
-<meta property="og:type" content="article">
-<meta property="og:title" content="mysql创建新用户并给授权指定的数据库权限">
-<meta property="og:url" content="http://localhost:4000/2017/11/19/mysql创建新用户并给授权指定的数据库权限/index.html">
-<meta property="og:site_name" content="puede">
-<meta property="og:description" content="mysql创建新用户并给授权指定的数据库权限一、要求:设置新用户为:new_user 密码为:123456 二: 步骤: 终端登录数据库mysql -uroot -p  创建用户:CREATE USER &amp;#39;新用户用户名&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;密码&amp;#39;;例如:CREATE USER &amp;#39;new_user&amp;#39;@&amp;#39;%&amp;#">
-<meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-11-20T09:03:19.044Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="mysql创建新用户并给授权指定的数据库权限">
-<meta name="twitter:description" content="mysql创建新用户并给授权指定的数据库权限一、要求:设置新用户为:new_user 密码为:123456 二: 步骤: 终端登录数据库mysql -uroot -p  创建用户:CREATE USER &amp;#39;新用户用户名&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;密码&amp;#39;;例如:CREATE USER &amp;#39;new_user&amp;#39;@&amp;#39;%&amp;#">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css">
-  <script src="/js/pace.min.js"></script>
-  
-
-  
-  
-
 </head>
 
 <body>
-  <div id="container">
-      <header id="header">
-    <div id="banner"></div>
-    <div id="header-outer">
-        <div id="header-menu" class="header-menu-pos animated">
-            <div class="header-menu-container">
-                <a href="/" class="left">
-                    <span class="site-title">perla&#39;s blog</span>
-                </a>
-                <nav id="header-menu-nav" class="right">
-                    
-                    <a  href="/">
-                        <i class="fa fa-home"></i>
-                        <span>Home</span>
-                    </a>
-                    
-                    <a  href="/archives">
-                        <i class="fa fa-archive"></i>
-                        <span>Archives</span>
-                    </a>
-                    
-                    <a  href="/about">
-                        <i class="fa fa-user"></i>
-                        <span>About</span>
-                    </a>
-                    
-                </nav>
-                <a class="mobile-header-menu-button">
-                    <i class="fa fa-bars"></i>
-                </a>
-            </div>
-        </div>
-        <div id="header-row">
-            <div id="logo">
-                <a href="/">
-                    <img src="/images/logo.png" alt="logo">
-                </a>
-            </div>
-            <div class="header-info">
-                <div id="header-title">
-                    
-                    <h2>
-                        perla&#39;s blog
-                    </h2>
-                    
-                </div>
-                <div id="header-description">
-                    
-                </div>
-            </div>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                </div>
-            </nav>
-        </div>
-    </div>
-</header>
-      <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-mysql创建新用户并给授权指定的数据库权限" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  <nav class="app-nav">
+  
     
-      <header class="article-header">
-        
+      <a href="/.">home</a>
+    
   
-    <h1 class="post-title" itemprop="name">
-      mysql创建新用户并给授权指定的数据库权限
-    </h1>
-    <div class="post-title-bar">
-      <ul>
-          
-        <li>
-          <i class="fa fa-calendar"></i>  2017-11-19
-        </li>
-        <li>
-          <i class="fa fa-eye"></i>
-          <span id="busuanzi_value_page_pv"></span>
-        </li>
-      </ul>
-    </div>
+    
+      <a href="/archives">archive</a>
+    
   
+    
+      <a href="/atom.xml">rss</a>
+    
+  
+</nav>
 
-          
-      </header>
-    
-    <div class="article-entry post-content" itemprop="articleBody">
-      
-            
-            <h2 id="mysql创建新用户并给授权指定的数据库权限"><a href="#mysql创建新用户并给授权指定的数据库权限" class="headerlink" title="mysql创建新用户并给授权指定的数据库权限"></a>mysql创建新用户并给授权指定的数据库权限</h2><h3 id="一、要求"><a href="#一、要求" class="headerlink" title="一、要求:"></a>一、要求:</h3><p><code>设置新用户为:new_user 密码为:123456</code></p>
+  <main class="post">
+  <article>
+  <h1 class="article-title">
+    <a href="/2017/11/19/mysql创建新用户并给授权指定的数据库权限/">mysql创建新用户并给授权指定的数据库权限</a>
+  </h1>
+
+  <section class="article-meta">
+    <p class="article-date">十一月 19 2017</p>
+  </section>
+
+  <section class="article-entry">
+    <h2 id="mysql创建新用户并给授权指定的数据库权限"><a href="#mysql创建新用户并给授权指定的数据库权限" class="headerlink" title="mysql创建新用户并给授权指定的数据库权限"></a>mysql创建新用户并给授权指定的数据库权限</h2><h3 id="一、要求"><a href="#一、要求" class="headerlink" title="一、要求:"></a>一、要求:</h3><p><code>设置新用户为:new_user 密码为:123456</code></p>
 <h3 id="二-步骤"><a href="#二-步骤" class="headerlink" title="二: 步骤:"></a>二: 步骤:</h3><ol>
 <li><p>终端登录数据库<br><code>mysql -uroot -p</code></p>
 </li>
@@ -147,244 +63,78 @@
 <li>导入SQL文件<br><code>source sql.sql</code></li>
 </ol>
 
-            <div class="post-copyright">
-    <div class="content">
-        <p>最后更新： 2017年11月20日 17:03</p>
-        <p>原始链接： <a class="post-url" href="/2017/11/19/mysql创建新用户并给授权指定的数据库权限/" title="mysql创建新用户并给授权指定的数据库权限">http://localhost:4000/2017/11/19/mysql创建新用户并给授权指定的数据库权限/</a></p>
-        <footer>
-            <a href="http://localhost:4000">
-                <img src="/images/logo.png" alt="perla">
-                perla
-            </a>
-        </footer>
-    </div>
-</div>
-
-      
-    </div>
-    <footer class="article-footer">
-        
-        
-<div class="post-share">
-    <a href="javascript:;" id="share-sub" class="post-share-fab">
-        <i class="fa fa-share-alt"></i>
-    </a>
-    <div class="post-share-list" id="share-list">
-        <ul class="share-icons">
-          <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://localhost:4000/2017/11/19/mysql创建新用户并给授权指定的数据库权限/&title=《mysql创建新用户并给授权指定的数据库权限》 — puede&pic=http://localhost:4000images/logo.png" data-title="微博">
-              <i class="fa fa-weibo"></i>
-            </a>
-          </li>
-          <li>
-            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
-              <i class="fa fa-weixin"></i>
-            </a>
-          </li>
-          <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://localhost:4000/2017/11/19/mysql创建新用户并给授权指定的数据库权限/&title=《mysql创建新用户并给授权指定的数据库权限》 — puede&source=橙子" data-title="QQ">
-              <i class="fa fa-qq"></i>
-            </a>
-          </li>
-          <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2017/11/19/mysql创建新用户并给授权指定的数据库权限/" data-title="Facebook">
-              <i class="fa fa-facebook"></i>
-            </a>
-          </li>
-          <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mysql创建新用户并给授权指定的数据库权限》 — puede&url=http://localhost:4000/2017/11/19/mysql创建新用户并给授权指定的数据库权限/&via=http://localhost:4000" data-title="Twitter">
-              <i class="fa fa-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://localhost:4000/2017/11/19/mysql创建新用户并给授权指定的数据库权限/" data-title="Google+">
-              <i class="fa fa-google-plus"></i>
-            </a>
-          </li>
-        </ul>
-     </div>
-</div>
-<div class="post-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;" id="wxShare-close">×</a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://localhost:4000/2017/11/19/mysql创建新用户并给授权指定的数据库权限/" alt="微信分享二维码">
-</div>
-
-<div class="mask"></div>
-
-        
-        <ul class="article-footer-menu">
-            
-            
-        </ul>
-        
-    </footer>
-  </div>
+  </section>
 </article>
 
+  <div class="sharing grid">
+  <section class="profile grid-item grid">
+    <img class="avatar" src="http://7xrcp8.com1.z0.glb.clouddn.com/avatar.png" alt="avatar" />
+    <div class="grid-item">
+      <p class="title"> lyyourc </p>
+      <p class="subtitle"> You Are The JavaScript In My HTML </p>
+    <div>
+  </section>
 
-    <aside class="post-toc-pos post-toc-top" id="post-toc">
-        <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#mysql创建新用户并给授权指定的数据库权限"><span class="post-toc-text">mysql创建新用户并给授权指定的数据库权限</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一、要求"><span class="post-toc-text">一、要求:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二-步骤"><span class="post-toc-text">二: 步骤:</span></a></li></ol></li></ol>
-        </nav>
-    </aside>
-    
+  <section class="share-btns">
+    <!-- <p> share it if you like it~ </p> -->
+    <a
+  class="twitter-share-button"
+  data-size="large"
+  data-via="DrakeLeung"
+  href="https://twitter.com/intent/tweet?text= id="mysql创建新用户并给授权指"
+>
+  Tweet
+</a>
 
-<nav id="article-nav">
-  
-    <a href="/2017/12/27/phpmyadmin（mysql）导入数据库大小限制/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          phpmyadmin（mysql）导入数据库大小限制
-        
-      </span>
-    </a>
-  
-  
-    <a href="/2017/11/16/composer下载安装/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">Composer下载安装</span>
-      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
-    </a>
-  
-</nav>
-
-
-
-    
-</section>
-        
-      </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-      <p>
-        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
-        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
-      &copy; 2018 perla<br>
-      </p>
-    </div>
-  </div>
-</footer>
-    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
 <script>
-  var mihoConfig = {
-      root: "http://localhost:4000",
-      animate: true,
-      isHome: false,
-      share: true
-  }
+  window.twttr = (function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0],
+    t = window.twttr || {};
+  if (d.getElementById(id)) return t;
+  js = d.createElement(s);
+  js.id = id;
+  js.src = "https://platform.twitter.com/widgets.js";
+  js.async = true;
+  fjs.parentNode.insertBefore(js, fjs);
+
+  t._e = [];
+  t.ready = function(f) {
+    t._e.push(f);
+  };
+
+  return t;
+}(document, "script", "twitter-wjs"));
 </script>
-<div class="sidebar">
-    <div id="sidebar-search" title="Search">
-        <i class="fa fa-search"></i>
-    </div>
-    <div id="sidebar-category" title="Categories">
-        <i class="fa fa-book"></i>
-    </div>
-    <div id="sidebar-tag" title="Tags">
-        <i class="fa fa-tags"></i>
-    </div>
-    <div id="sidebar-top">
-        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
-    </div>
-</div>
-<div class="sidebar-menu-box" id="sidebar-menu-box">
-    <div class="sidebar-menu-box-container">
-        <div id="sidebar-menu-box-categories">
-            
-        </div>
-        <div id="sidebar-menu-box-tags">
-            
-        </div>
-    </div>
-    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
-</div>
-<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
-    <div class="mobile-header-menu-container">
-        <span class="title">Menus</span>
-        <ul class="mobile-header-menu-navbar">
-            
-            <li>
-                <a  href="/">
-                    <i class="fa fa-home"></i><span>Home</span>
-                </a>
-            </li>
-            
-            <li>
-                <a  href="/archives">
-                    <i class="fa fa-archive"></i><span>Archives</span>
-                </a>
-            </li>
-            
-            <li>
-                <a  href="/about">
-                    <i class="fa fa-user"></i><span>About</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    <div class="mobile-header-tag-container">
-        <span class="title">Tags</span>
-        <div id="mobile-header-container-tags">
-            
-        </div>
-    </div>
-</div>
-<div class="search-wrap">
-    <span class="search-close">&times;</span>
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-            <i class="icon icon-lg icon-chevron-left"></i>
-        </a>
-        <input class="search-field" placeholder="Search..." id="keywords">
-        <a id="search-submit" href="javascript:;">
-            <i class="fa fa-search"></i>
-        </a>
-    <div class="search-container" id="search-container">
-        <ul class="search-result" id="search-result">
-        </ul>
-    </div>
+
+  </section>
 </div>
 
-<div id="search-tpl">
-    <li class="search-result-item">
-        <a href="{url}" class="search-item-li">
-            <span class="search-item-li-title" title="{title}">{title}</span>
-        </a>
-    </li>
-</div>
-<script src="/js/search.js"></script>
-<script src="/js/main.js"></script>
 
-
-  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
-  <div id="particles"></div>
-  <script src="/js/particles.js"></script>
-
-
-
-
-
-
-
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
-  <script src="/js/animate.js"></script>
-
+  
+    
+<section class="article-comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
+</section>
+
+<script>
+  var disqus_shortname = 'drakeleung';
+  
+  var disqus_url = 'http://localhost:4000/2017/11/19/mysql创建新用户并给授权指定的数据库权限/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+  
+</main>
+
 </body>
 </html>

@@ -2,507 +2,146 @@
 <html>
 <head>
   <meta charset="utf-8">
-  
-  <title>puede</title>
+  <title>lyyourc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/css/app.css">
+  <!-- <link rel='stylesheet' href='http://fonts.useso.com/css?family=Source+Code+Pro'> -->
   
-    <meta name="keywords" content="perla,perla's blog" />
-  
-  <meta name="description" content="橙子">
-<meta property="og:type" content="website">
-<meta property="og:title" content="puede">
-<meta property="og:url" content="http://localhost:4000/index.html">
-<meta property="og:site_name" content="puede">
-<meta property="og:description" content="橙子">
-<meta property="og:locale" content="zh-CN">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="puede">
-<meta name="twitter:description" content="橙子">
-  
-  
-    <link rel="icon" href="/favicon.ico">
-  
-  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css">
-  <script src="/js/pace.min.js"></script>
-  
-
-  
-  
-
 </head>
 
 <body>
-  <div id="container">
-      <header id="header">
-    <div id="banner"></div>
-    <div id="header-outer">
-        <div id="header-menu" class="header-menu-pos animated">
-            <div class="header-menu-container">
-                <a href="/" class="left">
-                    <span class="site-title">perla&#39;s blog</span>
-                </a>
-                <nav id="header-menu-nav" class="right">
-                    
-                    <a  href="/">
-                        <i class="fa fa-home"></i>
-                        <span>Home</span>
-                    </a>
-                    
-                    <a  href="/archives">
-                        <i class="fa fa-archive"></i>
-                        <span>Archives</span>
-                    </a>
-                    
-                    <a  href="/about">
-                        <i class="fa fa-user"></i>
-                        <span>About</span>
-                    </a>
-                    
-                </nav>
-                <a class="mobile-header-menu-button">
-                    <i class="fa fa-bars"></i>
-                </a>
-            </div>
-        </div>
-        <div id="header-row">
-            <div id="logo">
-                <a href="/">
-                    <img src="/images/logo.png" alt="logo">
-                </a>
-            </div>
-            <div class="header-info">
-                <div id="header-title">
-                    
-                    <h2>
-                        perla&#39;s blog
-                    </h2>
-                    
-                </div>
-                <div id="header-description">
-                    
-                </div>
-            </div>
-            <nav class="header-nav">
-                <div class="social">
-                    
-                </div>
-            </nav>
-        </div>
-    </div>
+  <nav class="app-nav">
+  
+    
+      <a class="active" href="/.">home</a>
+    
+  
+    
+      <a href="/archives">archive</a>
+    
+  
+    
+      <a href="/atom.xml">rss</a>
+    
+  
+</nav>
+
+  <header class="app-header">
+  <section class="banner">
+    <!-- http://daverupert.com/2015/12/intrinsic-placeholders-with-picture/ -->
+    <div class="placeholder"></div>
+    <img
+      class="banner-small"
+      data-src="http://7xrcp8.com1.z0.glb.clouddn.com/banner-large.png"
+      src="http://7xrcp8.com1.z0.glb.clouddn.com/banner-small.png"
+      alt="banner"
+    >
+  </section>
+
+  <section class="description">
+    <img class="avatar" src="http://7xrcp8.com1.z0.glb.clouddn.com/avatar.png" alt="avatar" />
+    <h1 class="title"> lyyourc </h1>
+    <h3 class="subtitle"> You Are The JavaScript In My HTML </h3>
+  </section>
+
+  <ul class="social-list">
+    <a href="https://twitter.com/DrakeLeung">Twitter</a>
+    <a href="https://github.com/DrakeLeung">GitHub</a>
+    <a href="http://weibo.com/cha12chalyc">Weibo</a>
+  </ul>
 </header>
-      <div class="outer">
-        <section id="main" class="body-wrap">
+
+<main class="index">
   
-    <article id="post-Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/"  >Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置</a>
-    </h1>
-  
+    <article>
+      <h1 class="article-title">
+        <a href="/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/">Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置</a>
+      </h1>
 
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/" >
-                
-                <img src="https://github.com/puede/tupian/blob/master/banner.jpg?raw=true" alt="Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置" title="Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间
-一. 需要的工具下载cwRsyncServer服务器端与客户端的安装文件：
-服务端下载：cwRs...
-            </p>
-        </div>
-      
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2018-01-27</li>
-            
-            
-        </ul>
-        
-            <a href="/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-phpmyadmin（mysql）导入数据库大小限制" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/27/phpmyadmin（mysql）导入数据库大小限制/"  >phpmyadmin（mysql）导入数据库大小限制</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2017/12/27/phpmyadmin（mysql）导入数据库大小限制/" >
-                
-                <img src="http://localhost:4000/images/banner.jpg" alt="phpmyadmin（mysql）导入数据库大小限制" title="phpmyadmin（mysql）导入数据库大小限制">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                
-找到php的配置文件php.ini
-
-修改php.ini里面的上传文件的限制,数值根据你需要上传的数据库文件大小而定.
-
-
-upload_max_filesize
-memory_limit
-post_max_size
-
-
-
-重启apache          
-
-
-
-            </p>
-        </div>
-      
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2017-12-27</li>
-            
-            
-        </ul>
-        
-            <a href="/2017/12/27/phpmyadmin（mysql）导入数据库大小限制/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-mysql创建新用户并给授权指定的数据库权限" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/19/mysql创建新用户并给授权指定的数据库权限/"  >mysql创建新用户并给授权指定的数据库权限</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2017/11/19/mysql创建新用户并给授权指定的数据库权限/" >
-                
-                <img src="http://localhost:4000/images/banner.jpg" alt="mysql创建新用户并给授权指定的数据库权限" title="mysql创建新用户并给授权指定的数据库权限">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                mysql创建新用户并给授权指定的数据库权限一、要求:设置新用户为:new_user 密码为:123456
-二: 步骤:
-终端登录数据库mysql -uroot -p
-
-创建用户:CREATE USER &#39;新用户用户名&#39;@&#39;%&#39; IDENTIFIED BY &#39;密码&#39;;例如:CREATE USER &#39;new_user&...
-            </p>
-        </div>
-      
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2017-11-19</li>
-            
-            
-        </ul>
-        
-            <a href="/2017/11/19/mysql创建新用户并给授权指定的数据库权限/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-composer下载安装" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/16/composer下载安装/"  >Composer下载安装</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2017/11/16/composer下载安装/" >
-                
-                <img src="http://localhost:4000/images/banner.jpg" alt="Composer下载安装" title="Composer下载安装">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                Composer是什么?
-简单来说，Composer 是一个新的安装包管理工具，服务于 PHP 生态系统。它实际上包含了两个部分：Composer 和 Packagist。
-1.Composer绿色安装下载 composer.phar1https://getcomposer.org/download/
-  
-下载完成后将composer.phar 拷贝到  wamp/ph...
-            </p>
-        </div>
-      
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2017-11-16</li>
-            
-            
-        </ul>
-        
-            <a href="/2017/11/16/composer下载安装/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-    <article id="post-上传本地代码到github" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/16/上传本地代码到github/"  >上传本地代码到github</a>
-    </h1>
-  
-
-          
-      </header>
-    
-    <div class="article-entry " itemprop="articleBody">
-      
-        <div class="article-img">
-            <a href="/2017/11/16/上传本地代码到github/" >
-                
-                <img src="http://localhost:4000/images/banner.jpg" alt="上传本地代码到github" title="上传本地代码到github">
-                
-            </a>
-        </div>
-        <div class="article-feed">
-            <p>
-                
-
- 第一步. 建立git仓库–在本地项目根目录下执行git命令
-
-git init
-
- 第二步. 将项目的所有文件添加到git仓库中
-
-git add .
-
- 第三步. 将add的文件commit到仓库
-
-git commit -m”注释”
-
- 第四步. 在github上创建自己的Repository，创建页面如下图所示：
-
-第五步. 点击create-reposito...
-            </p>
-        </div>
-      
-    </div>
-    <footer class="article-footer">
-        
-        <ul class="article-footer-menu">
-            
-                <li><i class="fa fa-calendar"></i>2017-11-16</li>
-            
-            
-        </ul>
-        
-            <a href="/2017/11/16/上传本地代码到github/#more" class="article-more-link" >more&gt;&gt;</a>
-        
-    </footer>
-  </div>
-</article>
-
-
-  
-
-</section>
+      <div class="article-entry">
         
       </div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
 
+      <div class="article-meta">
+        <span class="article-date">1月 27 2018</span>
+      </div>
+    </article>
+  
+    <article>
+      <h1 class="article-title">
+        <a href="/2017/12/27/phpmyadmin（mysql）导入数据库大小限制/">phpmyadmin（mysql）导入数据库大小限制</a>
+      </h1>
 
-      <p>
-        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
-        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
-      &copy; 2018 perla<br>
-      </p>
-    </div>
-  </div>
+      <div class="article-entry">
+        
+      </div>
+
+      <div class="article-meta">
+        <span class="article-date">12月 27 2017</span>
+      </div>
+    </article>
+  
+    <article>
+      <h1 class="article-title">
+        <a href="/2017/11/19/mysql创建新用户并给授权指定的数据库权限/">mysql创建新用户并给授权指定的数据库权限</a>
+      </h1>
+
+      <div class="article-entry">
+        
+      </div>
+
+      <div class="article-meta">
+        <span class="article-date">11月 19 2017</span>
+      </div>
+    </article>
+  
+    <article>
+      <h1 class="article-title">
+        <a href="/2017/11/16/composer下载安装/">Composer下载安装</a>
+      </h1>
+
+      <div class="article-entry">
+        
+      </div>
+
+      <div class="article-meta">
+        <span class="article-date">11月 16 2017</span>
+      </div>
+    </article>
+  
+    <article>
+      <h1 class="article-title">
+        <a href="/2017/11/16/上传本地代码到github/">上传本地代码到github</a>
+      </h1>
+
+      <div class="article-entry">
+        
+      </div>
+
+      <div class="article-meta">
+        <span class="article-date">11月 16 2017</span>
+      </div>
+    </article>
+  
+
+  <nav class="page-nav">
+  <span class="page-number current">1</span>
+</nav>
+
+</main>
+
+<footer class="app-footer">
+  <p>
+    Written by
+    <a href="https://github.com/DrakeLeung/hexo-theme-again">
+      Drake Leung
+    </a>
+  </p>
+  <p> Powered by <a href="https://hexo.io"> Hexo </a> <p>
 </footer>
-    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
-<script>
-  var mihoConfig = {
-      root: "http://localhost:4000",
-      animate: true,
-      isHome: true,
-      share: true
-  }
-</script>
-<div class="sidebar">
-    <div id="sidebar-search" title="Search">
-        <i class="fa fa-search"></i>
-    </div>
-    <div id="sidebar-category" title="Categories">
-        <i class="fa fa-book"></i>
-    </div>
-    <div id="sidebar-tag" title="Tags">
-        <i class="fa fa-tags"></i>
-    </div>
-    <div id="sidebar-top">
-        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
-    </div>
-</div>
-<div class="sidebar-menu-box" id="sidebar-menu-box">
-    <div class="sidebar-menu-box-container">
-        <div id="sidebar-menu-box-categories">
-            
-        </div>
-        <div id="sidebar-menu-box-tags">
-            
-        </div>
-    </div>
-    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
-</div>
-<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
-    <div class="mobile-header-menu-container">
-        <span class="title">Menus</span>
-        <ul class="mobile-header-menu-navbar">
-            
-            <li>
-                <a  href="/">
-                    <i class="fa fa-home"></i><span>Home</span>
-                </a>
-            </li>
-            
-            <li>
-                <a  href="/archives">
-                    <i class="fa fa-archive"></i><span>Archives</span>
-                </a>
-            </li>
-            
-            <li>
-                <a  href="/about">
-                    <i class="fa fa-user"></i><span>About</span>
-                </a>
-            </li>
-            
-        </ul>
-    </div>
-    <div class="mobile-header-tag-container">
-        <span class="title">Tags</span>
-        <div id="mobile-header-container-tags">
-            
-        </div>
-    </div>
-</div>
-<div class="search-wrap">
-    <span class="search-close">&times;</span>
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-            <i class="icon icon-lg icon-chevron-left"></i>
-        </a>
-        <input class="search-field" placeholder="Search..." id="keywords">
-        <a id="search-submit" href="javascript:;">
-            <i class="fa fa-search"></i>
-        </a>
-    <div class="search-container" id="search-container">
-        <ul class="search-result" id="search-result">
-        </ul>
-    </div>
-</div>
 
-<div id="search-tpl">
-    <li class="search-result-item">
-        <a href="{url}" class="search-item-li">
-            <span class="search-item-li-title" title="{title}">{title}</span>
-        </a>
-    </li>
-</div>
-<script src="/js/search.js"></script>
-<script src="/js/main.js"></script>
+<script src="/js/app.js"></script>
 
-
-  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
-  <div id="particles"></div>
-  <script src="/js/particles.js"></script>
-
-
-
-
-
-
-
-  <link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
-  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
-  <script src="/js/animate.js"></script>
-
-  </div>
 </body>
 </html>
