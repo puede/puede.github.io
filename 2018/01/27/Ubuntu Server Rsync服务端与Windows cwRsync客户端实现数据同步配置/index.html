@@ -20,7 +20,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/4.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/5.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/6.jpg">
-<meta property="og:updated_time" content="2018-01-31T01:27:31.317Z">
+<meta property="og:updated_time" content="2018-01-31T01:29:21.736Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置">
 <meta name="twitter:description" content="Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间 一. 需要的工具下载cwRsyncServer服务器端与客户端的安装文件： 服务端下载：cwRsyncServer_4.0">
@@ -263,10 +263,13 @@
 </ol>
 <p>$ rsync -avz –exclude=”fileA1.txt” –exclude=”fileA2.txt”  –delete-excluded  dirA/ dirB/</p>
 <p>rsyncd.conf</p>
-<h1 id="sample-rsyncd-conf-configuration-file"><a href="#sample-rsyncd-conf-configuration-file" class="headerlink" title="sample rsyncd.conf configuration file"></a>sample rsyncd.conf configuration file</h1><h1 id="GLOBAL-OPTIONS"><a href="#GLOBAL-OPTIONS" class="headerlink" title="GLOBAL OPTIONS"></a>GLOBAL OPTIONS</h1><p>#motd file=/etc/motd<br>log file=/var/log/rsyncd  </p>
-<h1 id="for-pid-file-do-not-use-var-run-rsync-pid-if"><a href="#for-pid-file-do-not-use-var-run-rsync-pid-if" class="headerlink" title="for pid file, do not use /var/run/rsync.pid if"></a>for pid file, do not use /var/run/rsync.pid if</h1><h1 id="you-are-going-to-run-rsync-out-of-the-init-d-script"><a href="#you-are-going-to-run-rsync-out-of-the-init-d-script" class="headerlink" title="you are going to run rsync out of the init.d script."></a>you are going to run rsync out of the init.d script.</h1><p> pid file=/var/run/rsyncd.pid<br>syslog facility=daemon  </p>
+<p>#sample rsyncd.conf configuration file  </p>
+<p>#GLOBAL OPTIONS  </p>
+<p>#motd file=/etc/motd<br>log file=/var/log/rsyncd  </p>
+<p>#for pid file, do not use /var/run/rsync.pid if  </p>
+<p>#you are going to run rsync out of the init.d script.<br> pid file=/var/run/rsyncd.pid<br>syslog facility=daemon  </p>
 <p>#socket options=  </p>
-<h1 id="MODULE-OPTIONS"><a href="#MODULE-OPTIONS" class="headerlink" title="MODULE OPTIONS"></a>MODULE OPTIONS</h1><p>[my_rsync_bk] #名字可以任意命名，只要客户端的rsync命令一致<br>        port = 873<br>        comment = public archive<br>        path = /var/www/pub   #指定路径，如果没有这个目录自己建。<br>        use chroot = no  </p>
+<p>#MODULE OPTIONS<br>[my_rsync_bk] #名字可以任意命名，只要客户端的rsync命令一致<br>        port = 873<br>        comment = public archive<br>        path = /var/www/pub   #指定路径，如果没有这个目录自己建。<br>        use chroot = no  </p>
 <pre><code>#max connections=10  
 lock file = /var/lock/rsyncd  
 #the default for read only is yes...  
@@ -293,7 +296,7 @@ dont compress = *.gz *.tgz *.zip *.z *.rpm *.deb *.iso *.bz2 *.tbz
 </code></pre>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2018年01月31日 09:27</p>
+        <p>最后更新： 2018年01月31日 09:29</p>
         <p>原始链接： <a class="post-url" href="/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/" title="Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置">http://localhost:4000/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/</a></p>
         <footer>
             <a href="http://localhost:4000">
@@ -369,7 +372,7 @@ dont compress = *.gz *.tgz *.zip *.z *.rpm *.deb *.iso *.bz2 *.tbz
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一-需要的工具"><span class="post-toc-text">一. 需要的工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二-服务器端"><span class="post-toc-text">二. 服务器端</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三-客户端"><span class="post-toc-text">三. 客户端</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四-同步文件"><span class="post-toc-text">四. 同步文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五-Rsync命令详解"><span class="post-toc-text">五. Rsync命令详解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#六-部分错误的解决办法"><span class="post-toc-text">六. 部分错误的解决办法</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#sample-rsyncd-conf-configuration-file"><span class="post-toc-text">sample rsyncd.conf configuration file</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#GLOBAL-OPTIONS"><span class="post-toc-text">GLOBAL OPTIONS</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#for-pid-file-do-not-use-var-run-rsync-pid-if"><span class="post-toc-text">for pid file, do not use /var/run/rsync.pid if</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#you-are-going-to-run-rsync-out-of-the-init-d-script"><span class="post-toc-text">you are going to run rsync out of the init.d script.</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#MODULE-OPTIONS"><span class="post-toc-text">MODULE OPTIONS</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一-需要的工具"><span class="post-toc-text">一. 需要的工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二-服务器端"><span class="post-toc-text">二. 服务器端</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三-客户端"><span class="post-toc-text">三. 客户端</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四-同步文件"><span class="post-toc-text">四. 同步文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五-Rsync命令详解"><span class="post-toc-text">五. Rsync命令详解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#六-部分错误的解决办法"><span class="post-toc-text">六. 部分错误的解决办法</span></a></li></ol>
         </nav>
     </aside>
     
