@@ -1,27 +1,85 @@
 <!DOCTYPE html>
-<html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-CN">
 <head>
-    
-
-    
-
-    
-
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
 
 
-    <meta charset="utf-8">
-    
-    
-    
-    
-    <title>yangxc</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    
-    <meta name="theme-color" content="#3F51B5">
-    
-    
-    <meta name="keywords" content="">
-    <meta name="description" content="橙子">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="橙子">
 <meta property="og:type" content="website">
 <meta property="og:title" content="yangxc">
 <meta property="og:url" content="http://yoursite.com/index.html">
@@ -31,556 +89,1590 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="yangxc">
 <meta name="twitter:description" content="橙子">
-    
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
-    <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
-    
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/"/>
+
+
+
+
+
+  <title>yangxc</title>
+  
+
+
+
+
+
+
+
 
 </head>
 
-<body>
-    <div id="loading" class="active"></div>
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
 
-    <aside id="menu"  >
-  <div class="inner flex-row-vertical">
-    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
-        <i class="icon icon-lg icon-close"></i>
-    </a>
-    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
-      <div class="brand">
-        <a href="/" class="avatar waves-effect waves-circle waves-light">
-          <img src="/img/avatar.jpg">
-        </a>
-        <hgroup class="introduce">
-          <h5 class="nickname">perla</h5>
-          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
-        </hgroup>
-      </div>
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yangxc</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
     </div>
-    <div class="scroll-wrap flex-col">
-      <ul class="nav">
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
         
-            <li class="waves-block waves-effect active">
-              <a href="/"  >
-                <i class="icon icon-lg icon-home"></i>
-                主页
-              </a>
-            </li>
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
         
-            <li class="waves-block waves-effect">
-              <a href="/archives"  >
-                <i class="icon icon-lg icon-archives"></i>
-                Archives
-              </a>
-            </li>
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="perla">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yangxc">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <li class="waves-block waves-effect">
-              <a href="/tags"  >
-                <i class="icon icon-lg icon-tags"></i>
-                Tags
-              </a>
-            </li>
         
-            <li class="waves-block waves-effect">
-              <a href="/categories"  >
-                <i class="icon icon-lg icon-th-list"></i>
-                Categories
-              </a>
-            </li>
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/" itemprop="url">Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置</a></h1>
         
-            <li class="waves-block waves-effect">
-              <a href="https://github.com/yscoder" target="_blank" >
-                <i class="icon icon-lg icon-github"></i>
-                Github
-              </a>
-            </li>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-27T14:00:00+08:00">
+                2018-01-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
         
-            <li class="waves-block waves-effect">
-              <a href="http://www.weibo.com/ysweb" target="_blank" >
-                <i class="icon icon-lg icon-weibo"></i>
-                Weibo
-              </a>
-            </li>
+          
+            <p>Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间</p>
+<h3 id="一-需要的工具"><a href="#一-需要的工具" class="headerlink" title="一. 需要的工具"></a>一. 需要的工具</h3><p>下载cwRsyncServer服务器端与客户端的安装文件：</p>
+<p>服务端下载：<a href="https://pan.baidu.com/share/link?shareid=901516432&amp;uk=118355419" title="服务端下载" target="_blank" rel="noopener">cwRsyncServer_4.0.5_Installer.zip</a></p>
+<p>客户端下载：<a href="https://pan.baidu.com/share/link?shareid=903891290&amp;uk=118355419" target="_blank" rel="noopener">cwRsync_4.0.5_Installer.zip</a></p>
+<p>server:111.111.111.111</p>
+<p>client:192.168.7.20</p>
+<h3 id="二-服务器端"><a href="#二-服务器端" class="headerlink" title="二. 服务器端"></a>二. 服务器端</h3><ol>
+<li><p>ubuntu server 默认已安装rsync，但是rsync服务默认不是启动的，我们要修改下面的文件$sudo vi /etc/default/rsync<br>RSYNC_ENABLE=false    #false改true</p>
+</li>
+<li><p>修改配置文件/etc/rsyncd.conf</p>
+</li>
+</ol>
+<p>我们先来查看一下这个文件<br>$sudo cat /etc/rsyncd.conf</p>
+<blockquote>
+<p> #sample rsyncd.conf configuration file</p>
+<p>#GLOBAL OPTIONS</p>
+<p>#motd file=/etc/motd #登录欢迎信息</p>
+<p>#log file=/var/log/rsyncd #日志文件</p>
+<p>#for pid file, do not use &gt;/var/run/rsync.pid if</p>
+<p>#you are going to run rsync out of the init.d script.<br>pid file=/var/run/rsyncd.pid #进程编号</p>
+<p>#指定rsync发送日志消息给syslog时的消息级别，常见的消息级别是：uth, authpriv, cron, daemon, ftp, kern, lpr, mail, news, security, sys-log, user, uucp, local0, local1, local2, local3,local4, local5, local6和local7。默认值是daemon。</p>
+<p>#syslog facility=daemon #执行系统日志记录活动</p>
+<p>#自定义tcp选项，默认是关闭的</p>
+<p>#socket options=</p>
+<p>#以下是模块信息，我们可以创建多个模块</p>
+<p>#MODULE OPTIONS</p>
+<p>[ftp]</p>
+<p>comment = public archive #模块描述</p>
+<p>path = /var/www/pub #需要同步的路径</p>
+<p>use chroot = yes #默认是yes|true，如果为true，那么在rsync在传输文件以前首先chroot到path参数指定的目录下。这样做的原因是实现额外的安全防护，但是缺点是需要root权限，并且不能备份指向外部的符号连接指向的目录文件。</p>
+<p>#max connections=10 #最大连接数</p>
+<p>lock file = /var/lock/rsyncd #指定支持max connections参数的锁文件。</p>
+<p>#the default for read only is yes<br>read only = yes #只读选项</p>
+<p>list = yes #客户请求时可用模块时是否列出该模块</p>
+<p>uid = nobody #设定该模块传输文件时守护进程应该具有的uid</p>
+<p>gid = nogroup #设定该模块传输文件时守护进程应具有的gid，此项与uid配合可以确定文件的访问权限</p>
+<p>#exclude = #用来指定多个由空格隔开的多个模式列表，并将其添加到exclude列表中。这等同于在客户端命令中使用–exclude来指定模式，不过配置文件中指定的exlude模式不会传递给客户端，而仅仅应用于服务器。一个模块只能指定一个exlude选项，但是可以在模式前面使用”-“和”+”来指定是exclude还是include    #这个我的理解是排除目录中不需同步的文件</p>
+<p>#exclude from = #可以指定一个包含exclude模式定义的文件名</p>
+<p>#include = #与exclude相似</p>
+<p>#include from = #可以指定一个包含include模式定义的文件名</p>
+<p>#auth users = #该选项指定由空格或逗号分隔的用户名列表，只有这些用户才允许连接该模块。这里的用户和系统用户没有任何关系。如果”auth users”被设置，那么客户端发出对该模块的连接请求以后会被rsync请求challenged进行验证身份这里使用的 challenge/response认证协议。用户的名和密码以明文方式存放在”secrets file”选项指定的文件中。默认情况下无需密码就可以连接模块(也就是匿名方式)</p>
+<p>#secrets file =/etc/rsyncd.secrets #该文件每行包含一个username:password对，以明文方式存储，只有在auth users被定义时，此选项才生效。同时我们需要将此文件权限设置为0600</p>
+<p>strict modes = yes #该选项指定是否监测密码文件的权限，如果该选项值为true那么密码文件只能被rsync服务器运行身份的用户访问，其他任何用户不可以访问该文件。默认值为true</p>
+<p>#hosts allow = #允许的主机</p>
+<p>#hosts deny = #拒绝访问的主机</p>
+<p>ignore errors = no #设定rsync服务器在运行delete操作时是否忽略I/O错误</p>
+<p>ignore nonreadable = yes #设定rysnc服务器忽略那些没有访问文件权限的用户</p>
+<p>transfer logging = no #使rsync服务器使用ftp格式的文件来记录下载和上载操作在自己单独的日志中</p>
+<p>#log format = %t: host %h (%a) %o %f (%l bytes). Total %b bytes. #设定日志格式<br>timeout = 600 #超时设置(秒)</p>
+<p>refuse options = checksum dry-run #定义一些不允许客户对该模块使用的命令选项列表</p>
+<p>dont compress = <em>.gz </em>.tgz <em>.zip </em>.z <em>.rpm </em>.deb <em>.iso </em>.bz2 *.tbz #告诉rysnc那些文件在传输前不用压缩，默认已设定压缩包不再进行压缩</p>
+</blockquote>
+<p>然后定义自己的conf文件</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/puede/tupian/master/1.jpg" alt="rsyncd.conf" title="">
+                </div>
+                <div class="image-caption">rsyncd.conf</div>
+            </figure>
+<p>配置完之后,ESC :wq保存退出</p>
+<ol>
+<li>创建一个密码文件<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/puede/tupian/master/2.jpg" alt="rsyncd.secrets" title="">
+                </div>
+                <div class="image-caption">rsyncd.secrets</div>
+            </figure>
+</li>
+</ol>
+<p>$sudo vi /etc/rsyncd.secrets</p>
+<p>写入 ursy:123</p>
+<p>$sudo chmod 0600 /etc/rsyncd.secrets    </p>
+<ol>
+<li>启动rsync</li>
+</ol>
+<p>sudo /etc/init.d/rsync start</p>
+<h3 id="三-客户端"><a href="#三-客户端" class="headerlink" title="三. 客户端"></a>三. 客户端</h3><p>我们再来看一下客户端的操作，一般客户端不需要进行特殊的配置，直接同步即可.</p>
+<ol>
+<li>安装rsync</li>
+</ol>
+<p>将下载的客户端rsync解压安装在本地,另外必须配置环境变量</p>
+<ol>
+<li>创建一个密码文件<br>$vi tbu/rsync.pwd 输入123，保存 密码要与服务器端设置的一致</li>
+</ol>
+<p>chmod 0600 tbu/rsync.pwd</p>
+<p>chown 普通用户:普通用户组 tbu/rsync.pwd</p>
+<ol>
+<li>测试服务器rsync的连通性</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/puede/tupian/master/4.jpg" alt="telnet" title="">
+                </div>
+                <div class="image-caption">telnet</div>
+            </figure>
+<p>出现@RSYNCD: 31.0 等类似文字，则说明客户端连接服务端正常。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/puede/tupian/master/5.jpg" alt="telnet" title="">
+                </div>
+                <div class="image-caption">telnet</div>
+            </figure>
+<h3 id="四-同步文件"><a href="#四-同步文件" class="headerlink" title="四. 同步文件"></a>四. 同步文件</h3><p>双向</p>
+<p>rsync -avzP . root@111.111.111.111:/var/www</p>
+<p> rsync -avzP src root@111.111.111.111:des</p>
+<p>想同步到哪 就在那个目录下面cmder</p>
+<p>同步线上的/var/www 目录到本地etc/目录下</p>
+<p>rsync -avz root@111.111.111.111:/var/www  tbu/  </p>
+<p><img src="https://raw.githubusercontent.com/puede/tupian/master/6.jpg" alt="tongbu">             </p>
+<h3 id="五-Rsync命令详解"><a href="#五-Rsync命令详解" class="headerlink" title="五. Rsync命令详解"></a>五. Rsync命令详解</h3><p>Rsync的命令格式可以为以下六种：</p>
+<p>　　rsync [OPTION]… SRC DEST</p>
+<p>　　rsync [OPTION]… SRC [USER@]HOST:DEST</p>
+<p>　　rsync [OPTION]… [USER@]HOST:SRC DEST</p>
+<p>　　rsync [OPTION]… [USER@]HOST::SRC DEST</p>
+<p>　　rsync [OPTION]… SRC [USER@]HOST::DEST</p>
+<p>　　rsync [OPTION]… rsync://[USER@]HOST[:PORT]/SRC [DEST]</p>
+<p>　　<br>对应于以上六种命令格式，rsync有六种不同的工作模式：</p>
+<p>　　(1)拷贝本地文件。当SRC和DES路径信息都不包含有单个冒号”:“分隔符时就启动这种工作模式。</p>
+<p>如：rsync -a /data /backup</p>
+<p>　　(2)使用一个远程shell程序(如rsh、ssh)来实现将本地机器的内容拷贝到远程机器。当DST路径地址包含单个冒号”:“分隔符时启动 该模式。</p>
+<p>如：rsync -avz *.c foo:src</p>
+<p>　　(3)使用一个远程shell程序(如rsh、ssh)来实现将远程机器的内容拷贝到本地机器。当SRC地址路径包含单个冒号”:“分隔符时启动 该模式。</p>
+<p>如：rsync -avz foo:src/bar /data</p>
+<p>　　(4)从远程rsync服务器中拷贝文件到本地机。当SRC路径信息包含”::“分隔符时启动该模式。</p>
+<p>如：rsync -av root@172.16.78.192::www /databack</p>
+<p>　　(5)从本地机器拷贝文件到远程rsync服务器中。当DST路径信息包含”::“分隔符时启动该模式。</p>
+<p>如：rsync -av /databack root@172.16.78.192::www</p>
+<p>　　(6)列远程机的文件列表。这类似于rsync传输，不过只要在命令中省略掉本地机信息即可。</p>
+<p>如：rsync -v rsync://172.16.78.192/www</p>
+<h3 id="六-部分错误的解决办法"><a href="#六-部分错误的解决办法" class="headerlink" title="六. 部分错误的解决办法"></a>六. 部分错误的解决办法</h3><p>1.’rsync’ 不是内部或外部命令，也不是可运行的程序或批处理文件。<br>加环境变量<br>path = e:\Program Files (x86)\cwRsync\bin</p>
+<p>2.rsync: failed to connect to 192.168.7.20: Connection timed out (116)<br>rsync error: error in socket IO (code 10) at clientserver.c(122) [Receiver=3.0.7]<br>网络通畅，服务器端允许访问端口 873</p>
+<p>3.@ERROR: invalid uid nobody<br>rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>指定uid gid<br>uid = 0<br>gid = 0</p>
+<p>4.@ERROR: chdir failed<br>rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>path目录配置的正确，得存在<br>解决：服务器端同步目录没有权限，cwrsync默认用户是Svcwrsync。为同步目录添加用户Svcwrsync权限。<br>也可以通过 菜单–cwRsyncServer–02. Prep a Dir for Upload 配置目录权限<br>除完全控制和特殊权限外的所有权限</p>
+<p>5.@ERROR: auth failed on module test<br>rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>客户端设置<br>a.在命令上要指定好用户名<br>b.密码文件只写密码<br>rsyncd.secrets文件<br>rsyncpass<br>c.用户名密码都要正确</p>
+<p>6.Unexpected local arg: /cygdrive/d/rsyncBackup<br>If arg is a remote file/dir, prefix it with a colon (:).<br>rsync error: syntax or usage error (code 1) at main.c(1218) [Receiver=3.0.7]<br>不一定是这个路径有问题，可能是–password-file路径中有空格，服务器端没问题，客户端好像不行</p>
+<p>7.password file must be owned by root when running as root<br>continuing without password file<br>Password:<br>设置密码访问权限chown.exe可从服务器端拷贝过来<br>chmod -c 600 /cygdrive/c/etc/rsyncd.secrets<br>chown administrator /cygdrive/c/etc/rsyncd.secrets<br>服务器端不设也可以</p>
+<p>### </p>
+<ol>
+<li><p>将dirA的所有文件同步到dirB内，并删除dirB内多余的文件</p>
+<p>$ rsync -avz –delete  dirA/ dirB/</p>
+</li>
+</ol>
+<ol>
+<li>将dirA的所有文件同步到dirB，但是在dirB内除了fileB3.txt这个文件不删之外，其他的都删除。</li>
+</ol>
+<p>$ rsync -avz –delete –exclude “fileB3.txt”  dirA/  dirB/</p>
+<ol>
+<li>将dirA目录内的fileA1.txt和fileA2.txt不同步到dirB目录内。</li>
+</ol>
+<p>$ rsync -avz –exclude=”fileA1.txt” –exclude=”fileA2.txt” dirA/ dirB/</p>
+<ol>
+<li>将dirA目录内的fileA1.txt和fileA2.txt不同步到dirB目录内，并且在dirB目录内删除多余的文件。</li>
+</ol>
+<p>$ rsync -avz –exclude=”fileA1.txt” –exclude=”fileA2.txt” –delete  dirA/ dirB/</p>
+<ol>
+<li>将dirA目录内的fileA1.txt和fileA2.txt不同步到dirB目录内，并且在dirB目录内删除多余的文件，同时，如果dirB内有fileA2.txt和fileA1.txt这两个被排除同步的文件，仍然将其删除。</li>
+</ol>
+<p>$ rsync -avz –exclude=”fileA1.txt” –exclude=”fileA2.txt”  –delete-excluded  dirA/ dirB/</p>
+<p>rsyncd.conf</p>
+<p>#sample rsyncd.conf configuration file  </p>
+<p>#GLOBAL OPTIONS  </p>
+<p>#motd file=/etc/motd<br>log file=/var/log/rsyncd  </p>
+<p>#for pid file, do not use /var/run/rsync.pid if  </p>
+<p>#you are going to run rsync out of the init.d script.<br> pid file=/var/run/rsyncd.pid<br>syslog facility=daemon  </p>
+<p>#socket options=  </p>
+<p>#MODULE OPTIONS<br>[my_rsync_bk] #名字可以任意命名，只要客户端的rsync命令一致<br>        port = 873<br>        comment = public archive<br>        path = /my_rsync_bk   #指定路径，如果没有这个目录自己建。<br>        use chroot = no  </p>
+<pre><code>#max connections=10  
+lock file = /var/lock/rsyncd  
+#the default for read only is yes...  
+read only = yes  
+list = yes  
+uid = nobody  
+gid = nogroup  
+#exclude =   
+#exclude from =   
+#include =  
+#include from =  
+auth users = ursy   #rsync连接时的用户名，要和客户端rsync的命令一致  
+secrets file = /etc/rsyncd.secrets #这里是保存密码的地方，如果屏蔽掉就不用密码了  
+strict modes = yes  
+hosts allow = 192.168.7.20 111.111.111.111 123.160.246.142 #运行的客户端ip  
+#hosts deny =  
+ignore errors = yes  
+ignore nonreadable = yes  
+transfer logging = yes  
+log format = %t: host %h (%a) %o %f (%l bytes). Total %b bytes.  
+timeout = 600  
+refuse options = checksum dry-run  
+dont compress = *.gz *.tgz *.zip *.z *.rpm *.deb *.iso *.bz2 *.tbz  
+</code></pre>
+          
         
-            <li class="waves-block waves-effect">
-              <a href="/custom"  >
-                <i class="icon icon-lg icon-link"></i>
-                测试
-              </a>
-            </li>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/27/test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="perla">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yangxc">
+    </span>
+
+    
+      <header class="post-header">
+
         
-      </ul>
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/01/27/test/" itemprop="url">Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-27T14:00:00+08:00">
+                2018-01-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间</p>
+<h3 id="一-需要的工具"><a href="#一-需要的工具" class="headerlink" title="一. 需要的工具"></a>一. 需要的工具</h3><p>下载cwRsyncServer服务器端与客户端的安装文件：</p>
+<p>服务端下载：<a href="https://pan.baidu.com/share/link?shareid=901516432&amp;uk=118355419" title="服务端下载" target="_blank" rel="noopener">cwRsyncServer_4.0.5_Installer.zip</a></p>
+<p>客户端下载：<a href="https://pan.baidu.com/share/link?shareid=903891290&amp;uk=118355419" target="_blank" rel="noopener">cwRsync_4.0.5_Installer.zip</a></p>
+<p>server:122.152.193.160</p>
+<p>client:192.168.7.20</p>
+<h3 id="二-服务器端"><a href="#二-服务器端" class="headerlink" title="二. 服务器端"></a>二. 服务器端</h3><ol>
+<li><p>ubuntu server 默认已安装rsync，但是rsync服务默认不是启动的，我们要修改下面的文件$sudo vi /etc/default/rsync<br>RSYNC_ENABLE=false    #false改true</p>
+</li>
+<li><p>修改配置文件/etc/rsyncd.conf</p>
+</li>
+</ol>
+<p>我们先来查看一下这个文件<br>$sudo cat /etc/rsyncd.conf<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">sample rsyncd.conf configuration file</span></span><br><span class="line"><span class="meta">#</span><span class="bash">GLOBAL OPTIONS</span></span><br><span class="line"><span class="meta">#</span><span class="bash">motd file=/etc/motd <span class="comment">#登录欢迎信息</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="built_in">log</span> file=/var/<span class="built_in">log</span>/rsyncd <span class="comment">#日志文件</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="keyword">for</span> pid file, <span class="keyword">do</span> not use &gt;/var/run/rsync.pid <span class="keyword">if</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">you are going to run rsync out of the init.d script.</span></span><br><span class="line">pid file=/var/run/rsyncd.pid #进程编号</span><br><span class="line"><span class="meta">#</span><span class="bash">指定rsync发送日志消息给syslog时的消息级别，常见的消息级别是：uth, authpriv, cron, daemon, ftp, kern, lpr, mail, news, security, sys-log, user, uucp, local0, local1, local2, local3,local4, local5, local6和local7。默认值是daemon。</span></span><br><span class="line"><span class="meta">#</span><span class="bash">syslog facility=daemon <span class="comment">#执行系统日志记录活动</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">自定义tcp选项，默认是关闭的</span></span><br><span class="line"><span class="meta">#</span><span class="bash">socket options=</span></span><br><span class="line"><span class="meta">#</span><span class="bash">以下是模块信息，我们可以创建多个模块</span></span><br><span class="line"><span class="meta">#</span><span class="bash">MODULE OPTIONS</span></span><br><span class="line">[ftp]</span><br><span class="line">comment = public archive #模块描述</span><br><span class="line">path = /var/www/pub #需要同步的路径</span><br><span class="line">use chroot = yes #默认是yes|true，如果为true，那么在rsync在传输文件以前首先chroot到path参数指定的目录下。这样做的原因是实现额外的安全防护，但是缺点是需要root权限，并且不能备份指向外部的符号连接指向的目录文件。</span><br><span class="line"><span class="meta">#</span><span class="bash">max connections=10 <span class="comment">#最大连接数</span></span></span><br><span class="line">lock file = /var/lock/rsyncd #指定支持max connections参数的锁文件。</span><br><span class="line"><span class="meta">#</span><span class="bash">the default <span class="keyword">for</span> <span class="built_in">read</span> only is yes</span></span><br><span class="line">read only = yes #只读选项</span><br><span class="line">list = yes #客户请求时可用模块时是否列出该模块</span><br><span class="line">uid = nobody #设定该模块传输文件时守护进程应该具有的uid</span><br><span class="line">gid = nogroup #设定该模块传输文件时守护进程应具有的gid，此项与uid配合可以确定文件的访问权限</span><br><span class="line"><span class="meta">#</span><span class="bash">exclude = <span class="comment">#用来指定多个由空格隔开的多个模式列表，并将其添加到exclude列表中。这等同于在客户端命令中使用--exclude来指定模式，不过配置文件中指定的exlude模式不会传递给客户端，而仅仅应用于服务器。一个模块只能指定一个exlude选项，但是可以在模式前面使用"-"和"+"来指定是exclude还是include    #这个我的理解是排除目录中不需同步的文件</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">exclude from = <span class="comment">#可以指定一个包含exclude模式定义的文件名</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">include = <span class="comment">#与exclude相似</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">include from = <span class="comment">#可以指定一个包含include模式定义的文件名</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">auth users = <span class="comment">#该选项指定由空格或逗号分隔的用户名列表，只有这些用户才允许连接该模块。这里的用户和系统用户没有任何关系。如果"auth users"被设置，那么客户端发出对该模块的连接请求以后会被rsync请求challenged进行验证身份这里使用的 challenge/response认证协议。用户的名和密码以明文方式存放在"secrets file"选项指定的文件中。默认情况下无需密码就可以连接模块(也就是匿名方式)</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">secrets file =/etc/rsyncd.secrets <span class="comment">#该文件每行包含一个username:password对，以明文方式存储，只有在auth users被定义时，此选项才生效。同时我们需要将此文件权限设置为0600</span></span></span><br><span class="line">strict modes = yes #该选项指定是否监测密码文件的权限，如果该选项值为true那么密码文件只能被rsync服务器运行身份的用户访问，其他任何用户不可以访问该文件。默认值为true</span><br><span class="line"><span class="meta">#</span><span class="bash">hosts allow = <span class="comment">#允许的主机</span></span></span><br><span class="line"><span class="meta">#</span><span class="bash">hosts deny = <span class="comment">#拒绝访问的主机</span></span></span><br><span class="line">ignore errors = no #设定rsync服务器在运行delete操作时是否忽略I/O错误</span><br><span class="line">ignore nonreadable = yes #设定rysnc服务器忽略那些没有访问文件权限的用户</span><br><span class="line">transfer logging = no #使rsync服务器使用ftp格式的文件来记录下载和上载操作在自己单独的日志中</span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="built_in">log</span> format = %t: host %h (%a) %o %f (%l bytes). Total %b bytes. <span class="comment">#设定日志格式</span></span></span><br><span class="line">timeout = 600 #超时设置(秒)</span><br><span class="line">refuse options = checksum dry-run #定义一些不允许客户对该模块使用的命令选项列表</span><br><span class="line">dont compress = *.gz *.tgz *.zip *.z *.rpm *.deb *.iso *.bz2 *.tbz #告诉rysnc那些文件在传输前不用压缩，默认已设定压缩包不再进行压缩</span><br></pre></td></tr></table></figure></p>
+<p>然后定义自己的conf文件</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/puede/tupian/master/1.jpg" alt="rsyncd.conf" title="">
+                </div>
+                <div class="image-caption">rsyncd.conf</div>
+            </figure>
+<p>配置完之后,ESC :wq保存退出</p>
+<ol>
+<li>创建一个密码文件<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/puede/tupian/master/2.jpg" alt="rsyncd.secrets" title="">
+                </div>
+                <div class="image-caption">rsyncd.secrets</div>
+            </figure>
+</li>
+</ol>
+<p>$sudo vi /etc/rsyncd.secrets</p>
+<p>写入 ursy:123</p>
+<p>$sudo chmod 0600 /etc/rsyncd.secrets    </p>
+<ol>
+<li>启动rsync</li>
+</ol>
+<p>sudo /etc/init.d/rsync start</p>
+<h3 id="三-客户端"><a href="#三-客户端" class="headerlink" title="三. 客户端"></a>三. 客户端</h3><p>我们再来看一下客户端的操作，一般客户端不需要进行特殊的配置，直接同步即可.</p>
+<ol>
+<li>安装rsync</li>
+</ol>
+<p>将下载的客户端rsync解压安装在本地,另外必须配置环境变量</p>
+<ol>
+<li>创建一个密码文件<br>$vi tbu/rsync.pwd 输入123，保存 密码要与服务器端设置的一致</li>
+</ol>
+<p>chmod 0600 tbu/rsync.pwd</p>
+<p>chown 普通用户:普通用户组 tbu/rsync.pwd</p>
+<ol>
+<li>测试服务器rsync的连通性</li>
+</ol>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/puede/tupian/master/4.jpg" alt="telnet" title="">
+                </div>
+                <div class="image-caption">telnet</div>
+            </figure>
+<p>出现@RSYNCD: 31.0 等类似文字，则说明客户端连接服务端正常。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/puede/tupian/master/5.jpg" alt="telnet" title="">
+                </div>
+                <div class="image-caption">telnet</div>
+            </figure>
+<h3 id="四-同步文件"><a href="#四-同步文件" class="headerlink" title="四. 同步文件"></a>四. 同步文件</h3><p>双向</p>
+<p>rsync -avzP . root@122.152.193.160:/var/www</p>
+<p> rsync -avzP src root@122.152.193.160:des</p>
+<p>想同步到哪 就在那个目录下面cmder</p>
+<p>同步线上的/var/www 目录到本地etc/目录下</p>
+<p>rsync -avz root@122.152.193.160:/var/www  tbu/  </p>
+<p><img src="https://raw.githubusercontent.com/puede/tupian/master/6.jpg" alt="tongbu">             </p>
+<h3 id="五-Rsync命令详解"><a href="#五-Rsync命令详解" class="headerlink" title="五. Rsync命令详解"></a>五. Rsync命令详解</h3><p>Rsync的命令格式可以为以下六种：</p>
+<p>　　rsync [OPTION]… SRC DEST</p>
+<p>　　rsync [OPTION]… SRC [USER@]HOST:DEST</p>
+<p>　　rsync [OPTION]… [USER@]HOST:SRC DEST</p>
+<p>　　rsync [OPTION]… [USER@]HOST::SRC DEST</p>
+<p>　　rsync [OPTION]… SRC [USER@]HOST::DEST</p>
+<p>　　rsync [OPTION]… rsync://[USER@]HOST[:PORT]/SRC [DEST]</p>
+<p>　　<br>对应于以上六种命令格式，rsync有六种不同的工作模式：</p>
+<p>　　(1)拷贝本地文件。当SRC和DES路径信息都不包含有单个冒号”:“分隔符时就启动这种工作模式。</p>
+<p>如：rsync -a /data /backup</p>
+<p>　　(2)使用一个远程shell程序(如rsh、ssh)来实现将本地机器的内容拷贝到远程机器。当DST路径地址包含单个冒号”:“分隔符时启动 该模式。</p>
+<p>如：rsync -avz *.c foo:src</p>
+<p>　　(3)使用一个远程shell程序(如rsh、ssh)来实现将远程机器的内容拷贝到本地机器。当SRC地址路径包含单个冒号”:“分隔符时启动 该模式。</p>
+<p>如：rsync -avz foo:src/bar /data</p>
+<p>　　(4)从远程rsync服务器中拷贝文件到本地机。当SRC路径信息包含”::“分隔符时启动该模式。</p>
+<p>如：rsync -av root@172.16.78.192::www /databack</p>
+<p>　　(5)从本地机器拷贝文件到远程rsync服务器中。当DST路径信息包含”::“分隔符时启动该模式。</p>
+<p>如：rsync -av /databack root@172.16.78.192::www</p>
+<p>　　(6)列远程机的文件列表。这类似于rsync传输，不过只要在命令中省略掉本地机信息即可。</p>
+<p>如：rsync -v rsync://172.16.78.192/www</p>
+<h3 id="六-部分错误的解决办法"><a href="#六-部分错误的解决办法" class="headerlink" title="六. 部分错误的解决办法"></a>六. 部分错误的解决办法</h3><p>1.’rsync’ 不是内部或外部命令，也不是可运行的程序或批处理文件。<br>加环境变量<br>path = e:\Program Files (x86)\cwRsync\bin</p>
+<p>2.rsync: failed to connect to 192.168.7.20: Connection timed out (116)<br>rsync error: error in socket IO (code 10) at clientserver.c(122) [Receiver=3.0.7]<br>网络通畅，服务器端允许访问端口 873</p>
+<p>3.@ERROR: invalid uid nobody<br>rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>指定uid gid<br>uid = 0<br>gid = 0</p>
+<p>4.@ERROR: chdir failed<br>rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>path目录配置的正确，得存在<br>解决：服务器端同步目录没有权限，cwrsync默认用户是Svcwrsync。为同步目录添加用户Svcwrsync权限。<br>也可以通过 菜单–cwRsyncServer–02. Prep a Dir for Upload 配置目录权限<br>除完全控制和特殊权限外的所有权限</p>
+<p>5.@ERROR: auth failed on module test<br>rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>客户端设置<br>a.在命令上要指定好用户名<br>b.密码文件只写密码<br>rsyncd.secrets文件<br>rsyncpass<br>c.用户名密码都要正确</p>
+<p>6.Unexpected local arg: /cygdrive/d/rsyncBackup<br>If arg is a remote file/dir, prefix it with a colon (:).<br>rsync error: syntax or usage error (code 1) at main.c(1218) [Receiver=3.0.7]<br>不一定是这个路径有问题，可能是–password-file路径中有空格，服务器端没问题，客户端好像不行</p>
+<p>7.password file must be owned by root when running as root<br>continuing without password file<br>Password:<br>设置密码访问权限chown.exe可从服务器端拷贝过来<br>chmod -c 600 /cygdrive/c/etc/rsyncd.secrets<br>chown administrator /cygdrive/c/etc/rsyncd.secrets<br>服务器端不设也可以</p>
+<p>### </p>
+<ol>
+<li><p>将dirA的所有文件同步到dirB内，并删除dirB内多余的文件</p>
+<p>$ rsync -avz –delete  dirA/ dirB/</p>
+</li>
+</ol>
+<ol>
+<li>将dirA的所有文件同步到dirB，但是在dirB内除了fileB3.txt这个文件不删之外，其他的都删除。</li>
+</ol>
+<p>$ rsync -avz –delete –exclude “fileB3.txt”  dirA/  dirB/</p>
+<ol>
+<li>将dirA目录内的fileA1.txt和fileA2.txt不同步到dirB目录内。</li>
+</ol>
+<p>$ rsync -avz –exclude=”fileA1.txt” –exclude=”fileA2.txt” dirA/ dirB/</p>
+<ol>
+<li>将dirA目录内的fileA1.txt和fileA2.txt不同步到dirB目录内，并且在dirB目录内删除多余的文件。</li>
+</ol>
+<p>$ rsync -avz –exclude=”fileA1.txt” –exclude=”fileA2.txt” –delete  dirA/ dirB/</p>
+<ol>
+<li>将dirA目录内的fileA1.txt和fileA2.txt不同步到dirB目录内，并且在dirB目录内删除多余的文件，同时，如果dirB内有fileA2.txt和fileA1.txt这两个被排除同步的文件，仍然将其删除。</li>
+</ol>
+<p>$ rsync -avz –exclude=”fileA1.txt” –exclude=”fileA2.txt”  –delete-excluded  dirA/ dirB/</p>
+<p>rsyncd.conf</p>
+<p>#sample rsyncd.conf configuration file  </p>
+<p>#GLOBAL OPTIONS  </p>
+<p>#motd file=/etc/motd<br>log file=/var/log/rsyncd  </p>
+<p>#for pid file, do not use /var/run/rsync.pid if  </p>
+<p>#you are going to run rsync out of the init.d script.<br> pid file=/var/run/rsyncd.pid<br>syslog facility=daemon  </p>
+<p>#socket options=  </p>
+<p>#MODULE OPTIONS<br>[my_rsync_bk] #名字可以任意命名，只要客户端的rsync命令一致<br>        port = 873<br>        comment = public archive<br>        path = /my_rsync_bk   #指定路径，如果没有这个目录自己建。<br>        use chroot = no  </p>
+<pre><code>#max connections=10  
+lock file = /var/lock/rsyncd  
+#the default for read only is yes...  
+read only = yes  
+list = yes  
+uid = nobody  
+gid = nogroup  
+#exclude =   
+#exclude from =   
+#include =  
+#include from =  
+auth users = ursy   #rsync连接时的用户名，要和客户端rsync的命令一致  
+secrets file = /etc/rsyncd.secrets #这里是保存密码的地方，如果屏蔽掉就不用密码了  
+strict modes = yes  
+hosts allow = 192.168.7.20 122.152.193.160 123.160.246.142 #运行的客户端ip  
+#hosts deny =  
+ignore errors = yes  
+ignore nonreadable = yes  
+transfer logging = yes  
+log format = %t: host %h (%a) %o %f (%l bytes). Total %b bytes.  
+timeout = 600  
+refuse options = checksum dry-run  
+dont compress = *.gz *.tgz *.zip *.z *.rpm *.deb *.iso *.bz2 *.tbz  
+</code></pre>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/27/phpmyadmin（mysql）导入数据库大小限制/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="perla">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yangxc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/27/phpmyadmin（mysql）导入数据库大小限制/" itemprop="url">phpmyadmin（mysql）导入数据库大小限制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-27T14:30:00+08:00">
+                2017-12-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><p>找到php的配置文件php.ini</p>
+</li>
+<li><p>修改php.ini里面的上传文件的限制,数值根据你需要上传的数据库文件大小而定.</p>
+<blockquote>
+<ul>
+<li>upload_max_filesize</li>
+<li>memory_limit</li>
+<li>post_max_size</li>
+</ul>
+</blockquote>
+</li>
+<li><p>重启apache          </p>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/19/mysql创建新用户并给授权指定的数据库权限/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="perla">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yangxc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/19/mysql创建新用户并给授权指定的数据库权限/" itemprop="url">mysql创建新用户并给授权指定的数据库权限</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-19T11:25:42+08:00">
+                2017-11-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="mysql创建新用户并给授权指定的数据库权限"><a href="#mysql创建新用户并给授权指定的数据库权限" class="headerlink" title="mysql创建新用户并给授权指定的数据库权限"></a>mysql创建新用户并给授权指定的数据库权限</h2><h3 id="一、要求"><a href="#一、要求" class="headerlink" title="一、要求:"></a>一、要求:</h3><p><code>设置新用户为:new_user 密码为:123456</code></p>
+<h3 id="二-步骤"><a href="#二-步骤" class="headerlink" title="二: 步骤:"></a>二: 步骤:</h3><ol>
+<li><p>终端登录数据库<br><code>mysql -uroot -p</code></p>
+</li>
+<li><p>创建用户:<br><code>CREATE USER &#39;新用户用户名&#39;@&#39;%&#39; IDENTIFIED BY &#39;密码&#39;;</code><br>例如:<br><code>CREATE USER &#39;new_user&#39;@&#39;%&#39; IDENTIFIED BY &#39;123456&#39;;</code> </p>
+</li>
+</ol>
+<ul>
+<li><p>‘%’ – 所有情况都能访问</p>
+</li>
+<li><p>‘localhost’ – 本机才能访问</p>
+</li>
+<li><p>‘111.222.33.44’ – 指定 ip 才能访问</p>
+</li>
+</ul>
+<ol>
+<li>创建数据库:<br><code>create database new_lmlq;</code></li>
+<li>为新用户授权<br><code>grant 权限 on 想授权的数据库.* to &#39;新用户&#39;@&#39;%&#39;;</code><br><code>grant all privileges on 想授权的数据库.* to &#39;新用户&#39;@&#39;%&#39;;</code><br><code>grant all privileges on new_lmlq.* to &#39;new_lmlq&#39;@&#39;%&#39;;</code></li>
+</ol>
+<p><em>all 可以替换为 select,delete,update,create,drop</em></p>
+<ol>
+<li>刷新系统权限表<br><code>flush privileges;</code></li>
+<li>导入SQL文件<br><code>source sql.sql</code></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/16/composer下载安装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="perla">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yangxc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/16/composer下载安装/" itemprop="url">Composer下载安装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-16T17:24:15+08:00">
+                2017-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Composer是什么?</p>
+<p>简单来说，Composer 是一个新的安装包管理工具，服务于 PHP 生态系统。它实际上包含了两个部分：Composer 和 Packagist。</p>
+<h3 id="1-Composer绿色安装"><a href="#1-Composer绿色安装" class="headerlink" title="1.Composer绿色安装"></a>1.Composer绿色安装</h3><p>下载 composer.phar<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">https:</span>//getcomposer<span class="meta">.org</span>/download/</span><br></pre></td></tr></table></figure></p>
+<p>  <img src="https://raw.githubusercontent.com/puede/tupian/master/composer-1.PNG" alt="composer.phar"></p>
+<p>下载完成后将composer.phar 拷贝到  wamp/php 目录下,<br>然后目录下(wamp/php )新建 composer.bat 文件,编辑并写入以下内容<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@php %~dp0composer.phar %*</span><br></pre></td></tr></table></figure></p>
+<p>保存并右击以管理员身份运行,如果运行出错,打开php.ini 找到无关的  .dll文件 注释 如php_pdo_firebird.dll。<br>把你的php路径加入到环境变量, 在新的终端中输入 composer 出现以下结果,则安装成功。</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/puede/tupian/master/composer-2.PNG" alt="composer安装" title="">
+                </div>
+                <div class="image-caption">composer安装</div>
+            </figure>
+<h3 id="2-使用"><a href="#2-使用" class="headerlink" title="2. 使用"></a>2. 使用</h3><p>可以使用以下命令下载thinkphp5</p>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">composer </span><span class="built_in">create-project</span> <span class="string">topthink/</span><span class="string">think </span><span class="string">tp5 </span><span class="built_in">--prefer-dist</span></span><br></pre></td></tr></table></figure>
+<p>安装成功,<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/puede/tupian/master/%E4%B8%8B%E8%BD%BDtp5.jpg" alt="composer安装tp5成功" title="">
+                </div>
+                <div class="image-caption">composer安装tp5成功</div>
+            </figure></p>
+<p>如果出现以下错误</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/puede/tupian/master/composer-3.png" alt="composer安装tp5" title="">
+                </div>
+                <div class="image-caption">composer安装tp5</div>
+            </figure>
+<p>解决方法:</p>
+<p>php.ini中  extension=php_openssl.dll  解除注释  (记得重启apache)<br>或者终端中 输入composer config -g – disable-tls true </p>
+<h3 id="3-composer声明依赖关系"><a href="#3-composer声明依赖关系" class="headerlink" title="3.composer声明依赖关系"></a>3.composer声明依赖关系</h3><p>在项目根目录下(例如:D:\wamp\apache2\htdocs\git)新建文件夹phpexcel,里面建一个composer.json 写入<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"require"</span>: &#123;</span><br><span class="line">        <span class="attr">"monolog/monolog"</span>: <span class="string">"1.2.*"</span>,</span><br><span class="line"></span><br><span class="line">        <span class="attr">"phpoffice/phpexcel"</span>: <span class="string">"1.8.*"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/puede/tupian/master/composer%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB.jpg" alt="依赖关系" title="">
+                </div>
+                <div class="image-caption">依赖关系</div>
+            </figure>
+<p>然后composer.install 在文件夹下就会看到新增的文件</p>
+<p>然后在D:\wamp\apache2\htdocs\git\phpexcel文件夹下新建index.php写入<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">   </span></span><br><span class="line"><span class="php">    <span class="keyword">require</span> <span class="string">'vendor/autoload.php'</span>;</span></span><br><span class="line"><span class="php">    $objPHPExcel=<span class="keyword">new</span> PHPExcel();</span></span><br><span class="line"><span class="php">    var_dump($objPHPExcel);</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure></p>
+<p>这段代码的作用是引入自动加载文件,<br>然后在浏览器访问你的phpexcel的地址,就会出现自动加载的内容,测试成功。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/16/上传本地代码到github/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="perla">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yangxc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/16/上传本地代码到github/" itemprop="url">上传本地代码到github</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-16T15:48:02+08:00">
+                2017-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <!-- 上传本地代码到github -->
+<!-- perla -->
+<p> 第一步. 建立git仓库–在本地项目根目录下执行git命令</p>
+<blockquote>
+<p>git init</p>
+</blockquote>
+<p> 第二步. 将项目的所有文件添加到git仓库中</p>
+<blockquote>
+<p>git add .</p>
+</blockquote>
+<p> 第三步. 将add的文件commit到仓库</p>
+<blockquote>
+<p>git commit -m”注释”</p>
+</blockquote>
+<p> 第四步. 在github上创建自己的Repository，创建页面如下图所示：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/puede/tupian/master/create-pro.png" alt="create-repository" title="">
+                </div>
+                <div class="image-caption">create-repository</div>
+            </figure>
+<p>第五步. 点击create-repository </p>
+<p><img src="https://raw.githubusercontent.com/puede/tupian/master/created.PNG" alt="此处输入图片的描述"></p>
+<p>第六步. 将本地的仓库关联到github上</p>
+<blockquote>
+<p>git remote add origin git@github.com:puede/puede.git</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="https://raw.githubusercontent.com/puede/tupian/master/1.png" alt="此处输入图片的描述" title="">
+                </div>
+                <div class="image-caption">此处输入图片的描述</div>
+            </figure>
+<p>第七步. 上传github之前,先pull一下</p>
+<blockquote>
+<p>git pull origin master</p>
+</blockquote>
+<p>第八步. 上传代码到github</p>
+<blockquote>
+<p>git push -u origin master</p>
+</blockquote>
+<hr>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+
+
+          </div>
+          
+
+
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
   </div>
-</aside>
 
-    <main id="main">
-        <header class="top-header" id="header">
-    <div class="flex-row">
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
-          <i class="icon icon-lg icon-navicon"></i>
-        </a>
-        <div class="flex-col header-title ellipsis">yangxc</div>
-        
-        <div class="search-wrap" id="search-wrap">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
-                <i class="icon icon-lg icon-chevron-left"></i>
-            </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
-            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
-                <i class="icon icon-lg icon-search"></i>
-            </a>
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">perla</p>
+              <p class="site-description motion-element" itemprop="description">橙子</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">Artikel</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
         </div>
-        
-        
-        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
-            <i class="icon icon-lg icon-share-alt"></i>
-        </a>
-        
+      </section>
+
+      
+
+      
+
     </div>
-</header>
-<header class="content-header index-header">
+  </aside>
 
-    <div class="container fade-scale">
-        <h1 class="title">yangxc</h1>
-        <h5 class="subtitle">
-            
-                
-            
-        </h5>
-    </div>
-
-    
-
-
-</header>
-
-<div class="container body-wrap">
-
-    <ul class="post-list">
-    
-        <li class="post-list-item fade">
-            <article id="post-Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-01-27 14:00:00" datetime="2018-01-27T06:00:00.000Z"  itemprop="datePublished">2018-01-27</time>
 
         
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/">Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间
-一. 需要的工具下载cwRsyncServer服务器端与客户端的安装文件：
-服务端下载：cwRsyncServer_...
-    
-
-        <a href="/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-test"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018-01-27 14:00:00" datetime="2018-01-27T06:00:00.000Z"  itemprop="datePublished">2018-01-27</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/01/27/test/">Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间
-一. 需要的工具下载cwRsyncServer服务器端与客户端的安装文件：
-服务端下载：cwRsyncServer_...
-    
-
-        <a href="/2018/01/27/test/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-phpmyadmin（mysql）导入数据库大小限制"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-12-27 14:30:00" datetime="2017-12-27T06:30:00.000Z"  itemprop="datePublished">2017-12-27</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/12/27/phpmyadmin（mysql）导入数据库大小限制/">phpmyadmin（mysql）导入数据库大小限制</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-找到php的配置文件php.ini
-
-修改php.ini里面的上传文件的限制,数值根据你需要上传的数据库文件大小而定.
-
-
-upload_max_filesize
-memory_limit
-post_max_size
-
-
-
-重启apache          
-
-
-
-    
-
-        <a href="/2017/12/27/phpmyadmin（mysql）导入数据库大小限制/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-mysql创建新用户并给授权指定的数据库权限"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-11-19 11:25:42" datetime="2017-11-19T03:25:42.000Z"  itemprop="datePublished">2017-11-19</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/11/19/mysql创建新用户并给授权指定的数据库权限/">mysql创建新用户并给授权指定的数据库权限</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        mysql创建新用户并给授权指定的数据库权限一、要求:设置新用户为:new_user 密码为:123456
-二: 步骤:
-终端登录数据库mysql -uroot -p
-
-创建用户:CREATE USER &#39;新用户用户名&#39;@&#39;%&#39; IDENTIFIED BY &#39;密码&#39;;例如:CREATE USER &#39;new_user&#39;@&#39;...
-    
-
-        <a href="/2017/11/19/mysql创建新用户并给授权指定的数据库权限/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-composer下载安装"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-11-16 17:24:15" datetime="2017-11-16T09:24:15.000Z"  itemprop="datePublished">2017-11-16</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/11/16/composer下载安装/">Composer下载安装</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Composer是什么?
-简单来说，Composer 是一个新的安装包管理工具，服务于 PHP 生态系统。它实际上包含了两个部分：Composer 和 Packagist。
-1.Composer绿色安装下载 composer.phar1https://getcomposer.org/download/
-  
-下载完成后将composer.phar 拷贝到  wamp/php 目录下,然后目录...
-    
-
-        <a href="/2017/11/16/composer下载安装/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-上传本地代码到github"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-11-16 15:48:02" datetime="2017-11-16T07:48:02.000Z"  itemprop="datePublished">2017-11-16</time>
-
-        
-
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/11/16/上传本地代码到github/">上传本地代码到github</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        
-
- 第一步. 建立git仓库–在本地项目根目录下执行git命令
-
-git init
-
- 第二步. 将项目的所有文件添加到git仓库中
-
-git add .
-
- 第三步. 将add的文件commit到仓库
-
-git commit -m”注释”
-
- 第四步. 在github上创建自己的Repository，创建页面如下图所示：
-
-                
-               ...
-    
-
-        <a href="/2017/11/16/上传本地代码到github/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-</article>
-
-        </li>
-    
-    </ul>
-
-    
-
-</div>
-
-        <footer class="footer">
-    <div class="top">
-        
-<p>
-    <span id="busuanzi_container_site_uv" style='display:none'>
-        站点总访客数：<span id="busuanzi_value_site_uv"></span>
-    </span>
-    <span id="busuanzi_container_site_pv" style='display:none'>
-        站点总访问量：<span id="busuanzi_value_site_pv"></span>
-    </span>
-</p>
-
-
-        <p>
-            
-            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
-        </p>
-    </div>
-    <div class="bottom">
-        <p><span>perla &copy; 2015 - 2018</span>
-            <span>
-                
-                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
-            </span>
-        </p>
-    </div>
-</footer>
-
+      </div>
     </main>
-    <div class="mask" id="mask"></div>
-<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">perla</span>
 
-
-<div class="global-share" id="globalShare">
-    <ul class="reset share-icons">
-      <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/&title=yangxc&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
-          <i class="icon icon-weibo"></i>
-        </a>
-      </li>
-      <li>
-        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
-          <i class="icon icon-weixin"></i>
-        </a>
-      </li>
-      <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/&title=yangxc&source=橙子" data-title=" QQ">
-          <i class="icon icon-qq"></i>
-        </a>
-      </li>
-      <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/" data-title=" Facebook">
-          <i class="icon icon-facebook"></i>
-        </a>
-      </li>
-      <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=yangxc&url=http://yoursite.com/&via=http://yoursite.com" data-title=" Twitter">
-          <i class="icon icon-twitter"></i>
-        </a>
-      </li>
-      <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/" data-title=" Google+">
-          <i class="icon icon-google-plus"></i>
-        </a>
-      </li>
-    </ul>
- </div>
-
-
-<div class="page-modal wx-share" id="wxShare">
-    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/" alt="微信分享二维码">
+  
 </div>
 
 
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
-    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
-<script>
-var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+  <span class="post-meta-divider">|</span>
 
 
-</script>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
-<div class="search-panel" id="search-panel">
-    <ul class="search-result" id="search-result"></ul>
-</div>
-<template id="search-tpl">
-<li class="item">
-    <a href="{path}" class="waves-block waves-effect">
-        <div class="title ellipsis" title="{title}">{title}</div>
-        <div class="flex-row flex-middle">
-            <div class="tags ellipsis">
-                {tags}
-            </div>
-            <time class="flex-col time">{date}</time>
-        </div>
-    </a>
-</li>
-</template>
 
-<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+        
 
 
 
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+        
+      </div>
+    </footer>
 
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
 
-<script>
-(function() {
-    var OriginTitile = document.title, titleTime;
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            document.title = '死鬼去哪里了！';
-            clearTimeout(titleTime);
-        } else {
-            document.title = '(つェ⊂)咦!又好了!';
-            titleTime = setTimeout(function() {
-                document.title = OriginTitile;
-            },2000);
-        }
-    });
-})();
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
 </script>
 
 
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
 
 </body>
 </html>
