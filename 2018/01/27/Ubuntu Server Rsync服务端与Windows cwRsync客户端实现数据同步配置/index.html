@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置 | yangxc</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间 一. 需要的工具下载cwRsyncServ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置">
+<meta property="og:url" content="http://yoursite.com/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/index.html">
+<meta property="og:site_name" content="yangxc">
+<meta property="og:description" content="Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间 一. 需要的工具下载cwRsyncServer服务器端与客户端的安装文件： 服务端下载：cwRsyncServer_4.0">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/1.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/2.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/4.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/5.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/6.jpg">
+<meta property="og:updated_time" content="2018-03-05T08:07:47.322Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置">
+<meta name="twitter:description" content="Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间 一. 需要的工具下载cwRsyncServer服务器端与客户端的安装文件： 服务端下载：cwRsyncServer_4.0">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/puede/tupian/master/1.jpg">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">perla</h5>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yscoder" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-27T06:00:00.000Z" itemprop="datePublished" class="page-time">
+  2018-01-27
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一-需要的工具"><span class="post-toc-number">1.</span> <span class="post-toc-text">一. 需要的工具</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二-服务器端"><span class="post-toc-number">2.</span> <span class="post-toc-text">二. 服务器端</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#三-客户端"><span class="post-toc-number">3.</span> <span class="post-toc-text">三. 客户端</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#四-同步文件"><span class="post-toc-number">4.</span> <span class="post-toc-text">四. 同步文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#五-Rsync命令详解"><span class="post-toc-number">5.</span> <span class="post-toc-text">五. Rsync命令详解</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#六-部分错误的解决办法"><span class="post-toc-number">6.</span> <span class="post-toc-text">六. 部分错误的解决办法</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018-01-27 14:00:00" datetime="2018-01-27T06:00:00.000Z"  itemprop="datePublished">2018-01-27</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p>Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间</p>
+<h3 id="一-需要的工具"><a href="#一-需要的工具" class="headerlink" title="一. 需要的工具"></a>一. 需要的工具</h3><p>下载cwRsyncServer服务器端与客户端的安装文件：</p>
+<p>服务端下载：<a href="https://pan.baidu.com/share/link?shareid=901516432&amp;uk=118355419" title="服务端下载" target="_blank" rel="noopener">cwRsyncServer_4.0.5_Installer.zip</a></p>
+<p>客户端下载：<a href="https://pan.baidu.com/share/link?shareid=903891290&amp;uk=118355419" target="_blank" rel="noopener">cwRsync_4.0.5_Installer.zip</a></p>
+<p>server:111.111.111.111</p>
+<p>client:192.168.7.20</p>
+<h3 id="二-服务器端"><a href="#二-服务器端" class="headerlink" title="二. 服务器端"></a>二. 服务器端</h3><ol>
+<li><p>ubuntu server 默认已安装rsync，但是rsync服务默认不是启动的，我们要修改下面的文件$sudo vi /etc/default/rsync<br>RSYNC_ENABLE=false    #false改true</p>
+</li>
+<li><p>修改配置文件/etc/rsyncd.conf</p>
+</li>
+</ol>
+<p>我们先来查看一下这个文件<br>$sudo cat /etc/rsyncd.conf</p>
+<blockquote>
+<p> #sample rsyncd.conf configuration file</p>
+<p>#GLOBAL OPTIONS</p>
+<p>#motd file=/etc/motd #登录欢迎信息</p>
+<p>#log file=/var/log/rsyncd #日志文件</p>
+<p>#for pid file, do not use &gt;/var/run/rsync.pid if</p>
+<p>#you are going to run rsync out of the init.d script.<br>pid file=/var/run/rsyncd.pid #进程编号</p>
+<p>#指定rsync发送日志消息给syslog时的消息级别，常见的消息级别是：uth, authpriv, cron, daemon, ftp, kern, lpr, mail, news, security, sys-log, user, uucp, local0, local1, local2, local3,local4, local5, local6和local7。默认值是daemon。</p>
+<p>#syslog facility=daemon #执行系统日志记录活动</p>
+<p>#自定义tcp选项，默认是关闭的</p>
+<p>#socket options=</p>
+<p>#以下是模块信息，我们可以创建多个模块</p>
+<p>#MODULE OPTIONS</p>
+<p>[ftp]</p>
+<p>comment = public archive #模块描述</p>
+<p>path = /var/www/pub #需要同步的路径</p>
+<p>use chroot = yes #默认是yes|true，如果为true，那么在rsync在传输文件以前首先chroot到path参数指定的目录下。这样做的原因是实现额外的安全防护，但是缺点是需要root权限，并且不能备份指向外部的符号连接指向的目录文件。</p>
+<p>#max connections=10 #最大连接数</p>
+<p>lock file = /var/lock/rsyncd #指定支持max connections参数的锁文件。</p>
+<p>#the default for read only is yes<br>read only = yes #只读选项</p>
+<p>list = yes #客户请求时可用模块时是否列出该模块</p>
+<p>uid = nobody #设定该模块传输文件时守护进程应该具有的uid</p>
+<p>gid = nogroup #设定该模块传输文件时守护进程应具有的gid，此项与uid配合可以确定文件的访问权限</p>
+<p>#exclude = #用来指定多个由空格隔开的多个模式列表，并将其添加到exclude列表中。这等同于在客户端命令中使用–exclude来指定模式，不过配置文件中指定的exlude模式不会传递给客户端，而仅仅应用于服务器。一个模块只能指定一个exlude选项，但是可以在模式前面使用”-“和”+”来指定是exclude还是include    #这个我的理解是排除目录中不需同步的文件</p>
+<p>#exclude from = #可以指定一个包含exclude模式定义的文件名</p>
+<p>#include = #与exclude相似</p>
+<p>#include from = #可以指定一个包含include模式定义的文件名</p>
+<p>#auth users = #该选项指定由空格或逗号分隔的用户名列表，只有这些用户才允许连接该模块。这里的用户和系统用户没有任何关系。如果”auth users”被设置，那么客户端发出对该模块的连接请求以后会被rsync请求challenged进行验证身份这里使用的 challenge/response认证协议。用户的名和密码以明文方式存放在”secrets file”选项指定的文件中。默认情况下无需密码就可以连接模块(也就是匿名方式)</p>
+<p>#secrets file =/etc/rsyncd.secrets #该文件每行包含一个username:password对，以明文方式存储，只有在auth users被定义时，此选项才生效。同时我们需要将此文件权限设置为0600</p>
+<p>strict modes = yes #该选项指定是否监测密码文件的权限，如果该选项值为true那么密码文件只能被rsync服务器运行身份的用户访问，其他任何用户不可以访问该文件。默认值为true</p>
+<p>#hosts allow = #允许的主机</p>
+<p>#hosts deny = #拒绝访问的主机</p>
+<p>ignore errors = no #设定rsync服务器在运行delete操作时是否忽略I/O错误</p>
+<p>ignore nonreadable = yes #设定rysnc服务器忽略那些没有访问文件权限的用户</p>
+<p>transfer logging = no #使rsync服务器使用ftp格式的文件来记录下载和上载操作在自己单独的日志中</p>
+<p>#log format = %t: host %h (%a) %o %f (%l bytes). Total %b bytes. #设定日志格式<br>timeout = 600 #超时设置(秒)</p>
+<p>refuse options = checksum dry-run #定义一些不允许客户对该模块使用的命令选项列表</p>
+<p>dont compress = <em>.gz </em>.tgz <em>.zip </em>.z <em>.rpm </em>.deb <em>.iso </em>.bz2 *.tbz #告诉rysnc那些文件在传输前不用压缩，默认已设定压缩包不再进行压缩</p>
+</blockquote>
+<p>然后定义自己的conf文件</p>
+<p><img src="https://raw.githubusercontent.com/puede/tupian/master/1.jpg" alt="rsyncd.conf"></p>
+<p>配置完之后,ESC :wq保存退出</p>
+<ol>
+<li>创建一个密码文件<br><img src="https://raw.githubusercontent.com/puede/tupian/master/2.jpg" alt="rsyncd.secrets"></li>
+</ol>
+<p>$sudo vi /etc/rsyncd.secrets</p>
+<p>写入 ursy:123</p>
+<p>$sudo chmod 0600 /etc/rsyncd.secrets    </p>
+<ol>
+<li>启动rsync</li>
+</ol>
+<p>sudo /etc/init.d/rsync start</p>
+<h3 id="三-客户端"><a href="#三-客户端" class="headerlink" title="三. 客户端"></a>三. 客户端</h3><p>我们再来看一下客户端的操作，一般客户端不需要进行特殊的配置，直接同步即可.</p>
+<ol>
+<li>安装rsync</li>
+</ol>
+<p>将下载的客户端rsync解压安装在本地,另外必须配置环境变量</p>
+<ol>
+<li>创建一个密码文件<br>$vi tbu/rsync.pwd 输入123，保存 密码要与服务器端设置的一致</li>
+</ol>
+<p>chmod 0600 tbu/rsync.pwd</p>
+<p>chown 普通用户:普通用户组 tbu/rsync.pwd</p>
+<ol>
+<li>测试服务器rsync的连通性</li>
+</ol>
+<p><img src="https://raw.githubusercontent.com/puede/tupian/master/4.jpg" alt="telnet"></p>
+<p>出现@RSYNCD: 31.0 等类似文字，则说明客户端连接服务端正常。</p>
+<p><img src="https://raw.githubusercontent.com/puede/tupian/master/5.jpg" alt="telnet"></p>
+<h3 id="四-同步文件"><a href="#四-同步文件" class="headerlink" title="四. 同步文件"></a>四. 同步文件</h3><p>双向</p>
+<p>rsync -avzP . root@111.111.111.111:/var/www</p>
+<p> rsync -avzP src root@111.111.111.111:des</p>
+<p>想同步到哪 就在那个目录下面cmder</p>
+<p>同步线上的/var/www 目录到本地etc/目录下</p>
+<p>rsync -avz root@111.111.111.111:/var/www  tbu/  </p>
+<p><img src="https://raw.githubusercontent.com/puede/tupian/master/6.jpg" alt="tongbu">             </p>
+<h3 id="五-Rsync命令详解"><a href="#五-Rsync命令详解" class="headerlink" title="五. Rsync命令详解"></a>五. Rsync命令详解</h3><p>Rsync的命令格式可以为以下六种：</p>
+<p>　　rsync [OPTION]… SRC DEST</p>
+<p>　　rsync [OPTION]… SRC [USER@]HOST:DEST</p>
+<p>　　rsync [OPTION]… [USER@]HOST:SRC DEST</p>
+<p>　　rsync [OPTION]… [USER@]HOST::SRC DEST</p>
+<p>　　rsync [OPTION]… SRC [USER@]HOST::DEST</p>
+<p>　　rsync [OPTION]… rsync://[USER@]HOST[:PORT]/SRC [DEST]</p>
+<p>　　<br>对应于以上六种命令格式，rsync有六种不同的工作模式：</p>
+<p>　　(1)拷贝本地文件。当SRC和DES路径信息都不包含有单个冒号”:“分隔符时就启动这种工作模式。</p>
+<p>如：rsync -a /data /backup</p>
+<p>　　(2)使用一个远程shell程序(如rsh、ssh)来实现将本地机器的内容拷贝到远程机器。当DST路径地址包含单个冒号”:“分隔符时启动 该模式。</p>
+<p>如：rsync -avz *.c foo:src</p>
+<p>　　(3)使用一个远程shell程序(如rsh、ssh)来实现将远程机器的内容拷贝到本地机器。当SRC地址路径包含单个冒号”:“分隔符时启动 该模式。</p>
+<p>如：rsync -avz foo:src/bar /data</p>
+<p>　　(4)从远程rsync服务器中拷贝文件到本地机。当SRC路径信息包含”::“分隔符时启动该模式。</p>
+<p>如：rsync -av root@172.16.78.192::www /databack</p>
+<p>　　(5)从本地机器拷贝文件到远程rsync服务器中。当DST路径信息包含”::“分隔符时启动该模式。</p>
+<p>如：rsync -av /databack root@172.16.78.192::www</p>
+<p>　　(6)列远程机的文件列表。这类似于rsync传输，不过只要在命令中省略掉本地机信息即可。</p>
+<p>如：rsync -v rsync://172.16.78.192/www</p>
+<h3 id="六-部分错误的解决办法"><a href="#六-部分错误的解决办法" class="headerlink" title="六. 部分错误的解决办法"></a>六. 部分错误的解决办法</h3><p>1.’rsync’ 不是内部或外部命令，也不是可运行的程序或批处理文件。<br>加环境变量<br>path = e:\Program Files (x86)\cwRsync\bin</p>
+<p>2.rsync: failed to connect to 192.168.7.20: Connection timed out (116)<br>rsync error: error in socket IO (code 10) at clientserver.c(122) [Receiver=3.0.7]<br>网络通畅，服务器端允许访问端口 873</p>
+<p>3.@ERROR: invalid uid nobody<br>rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>指定uid gid<br>uid = 0<br>gid = 0</p>
+<p>4.@ERROR: chdir failed<br>rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>path目录配置的正确，得存在<br>解决：服务器端同步目录没有权限，cwrsync默认用户是Svcwrsync。为同步目录添加用户Svcwrsync权限。<br>也可以通过 菜单–cwRsyncServer–02. Prep a Dir for Upload 配置目录权限<br>除完全控制和特殊权限外的所有权限</p>
+<p>5.@ERROR: auth failed on module test<br>rsync error: error starting client-server protocol (code 5) at main.c(1506) [Receiver=3.0.7]<br>客户端设置<br>a.在命令上要指定好用户名<br>b.密码文件只写密码<br>rsyncd.secrets文件<br>rsyncpass<br>c.用户名密码都要正确</p>
+<p>6.Unexpected local arg: /cygdrive/d/rsyncBackup<br>If arg is a remote file/dir, prefix it with a colon (:).<br>rsync error: syntax or usage error (code 1) at main.c(1218) [Receiver=3.0.7]<br>不一定是这个路径有问题，可能是–password-file路径中有空格，服务器端没问题，客户端好像不行</p>
+<p>7.password file must be owned by root when running as root<br>continuing without password file<br>Password:<br>设置密码访问权限chown.exe可从服务器端拷贝过来<br>chmod -c 600 /cygdrive/c/etc/rsyncd.secrets<br>chown administrator /cygdrive/c/etc/rsyncd.secrets<br>服务器端不设也可以</p>
+<p>### </p>
+<ol>
+<li><p>将dirA的所有文件同步到dirB内，并删除dirB内多余的文件</p>
+<p>$ rsync -avz –delete  dirA/ dirB/</p>
+</li>
+</ol>
+<ol>
+<li>将dirA的所有文件同步到dirB，但是在dirB内除了fileB3.txt这个文件不删之外，其他的都删除。</li>
+</ol>
+<p>$ rsync -avz –delete –exclude “fileB3.txt”  dirA/  dirB/</p>
+<ol>
+<li>将dirA目录内的fileA1.txt和fileA2.txt不同步到dirB目录内。</li>
+</ol>
+<p>$ rsync -avz –exclude=”fileA1.txt” –exclude=”fileA2.txt” dirA/ dirB/</p>
+<ol>
+<li>将dirA目录内的fileA1.txt和fileA2.txt不同步到dirB目录内，并且在dirB目录内删除多余的文件。</li>
+</ol>
+<p>$ rsync -avz –exclude=”fileA1.txt” –exclude=”fileA2.txt” –delete  dirA/ dirB/</p>
+<ol>
+<li>将dirA目录内的fileA1.txt和fileA2.txt不同步到dirB目录内，并且在dirB目录内删除多余的文件，同时，如果dirB内有fileA2.txt和fileA1.txt这两个被排除同步的文件，仍然将其删除。</li>
+</ol>
+<p>$ rsync -avz –exclude=”fileA1.txt” –exclude=”fileA2.txt”  –delete-excluded  dirA/ dirB/</p>
+<p>rsyncd.conf</p>
+<p>#sample rsyncd.conf configuration file  </p>
+<p>#GLOBAL OPTIONS  </p>
+<p>#motd file=/etc/motd<br>log file=/var/log/rsyncd  </p>
+<p>#for pid file, do not use /var/run/rsync.pid if  </p>
+<p>#you are going to run rsync out of the init.d script.<br> pid file=/var/run/rsyncd.pid<br>syslog facility=daemon  </p>
+<p>#socket options=  </p>
+<p>#MODULE OPTIONS<br>[my_rsync_bk] #名字可以任意命名，只要客户端的rsync命令一致<br>        port = 873<br>        comment = public archive<br>        path = /my_rsync_bk   #指定路径，如果没有这个目录自己建。<br>        use chroot = no  </p>
+<pre><code>#max connections=10  
+lock file = /var/lock/rsyncd  
+#the default for read only is yes...  
+read only = yes  
+list = yes  
+uid = nobody  
+gid = nogroup  
+#exclude =   
+#exclude from =   
+#include =  
+#include from =  
+auth users = ursy   #rsync连接时的用户名，要和客户端rsync的命令一致  
+secrets file = /etc/rsyncd.secrets #这里是保存密码的地方，如果屏蔽掉就不用密码了  
+strict modes = yes  
+hosts allow = 192.168.7.20 111.111.111.111 123.160.246.142 #运行的客户端ip  
+#hosts deny =  
+ignore errors = yes  
+ignore nonreadable = yes  
+transfer logging = yes  
+log format = %t: host %h (%a) %o %f (%l bytes). Total %b bytes.  
+timeout = 600  
+refuse options = checksum dry-run  
+dont compress = *.gz *.tgz *.zip *.z *.rpm *.deb *.iso *.bz2 *.tbz  
+</code></pre>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-03-05T08:07:47.322Z" itemprop="dateUpdated">2018-03-05 16:07:47</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/" target="_blank" rel="external">http://yoursite.com/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="perla">
+            perla
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/&title=《Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置》 — yangxc&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/&title=《Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置》 — yangxc&source=practice makes perfect" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置》 — yangxc&url=http://yoursite.com/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/27/test/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>perla &copy; 2015 - 2018</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/&title=《Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置》 — yangxc&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/&title=《Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置》 — yangxc&source=practice makes perfect" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置》 — yangxc&url=http://yoursite.com/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
