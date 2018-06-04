@@ -1,105 +1,311 @@
+<!DOCTYPE html>
 
- <!DOCTYPE HTML>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8">
+
+
   
-    <title>Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置 | yangxc</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
-    
-    <meta name="author" content="perla">
-    
-    <meta name="description" content="Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间
-一. 需要的工具下载c">
-    
-    
-    
-    
-    <link rel="alternate" href="/atom.xml## RSS address." title="yangxc" type="application/atom+xml">
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/catman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/catman.jpg">
-    
-    <link rel="stylesheet" type="text/css" href="http://cdn.bootcss.com/font-awesome/4.2.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="/css/style.css">
-    
 
 
-<script type="text/javascript">
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "//hm.baidu.com/hm.js?";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间 一. 需要的工具下载cwRsyncServ">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置">
+<meta property="og:url" content="http://yoursite.com/2018/01/27/test/index.html">
+<meta property="og:site_name" content="yangxc">
+<meta property="og:description" content="Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间 一. 需要的工具下载cwRsyncServer服务器端与客户端的安装文件： 服务端下载：cwRsyncServer_4.0">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/1.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/2.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/4.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/5.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/tupian/master/6.jpg">
+<meta property="og:updated_time" content="2018-03-02T00:31:48.054Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置">
+<meta name="twitter:description" content="Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间 一. 需要的工具下载cwRsyncServer服务器端与客户端的安装文件： 服务端下载：cwRsyncServer_4.0">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/puede/tupian/master/1.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
 </script>
 
-    <link href='http://fonts.useso.com/css?family=Tangerine:700' rel='stylesheet' type='text/css'>
-<link href='http://fonts.useso.com/css?family=Covered+By+Your+Grace' rel='stylesheet' type='text/css'>
-<link href='http://fonts.useso.com/css?family=Philosopher' rel='stylesheet' type='text/css'>
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/27/test/"/>
+
+
+
+
+
+  <title>Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置 | yangxc</title>
+  
+
+
+
+
+
+
+
+
 </head>
 
-  <body>
-    <header>
-      <div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.svg" alt="yangxc" title="yangxc"/></a>
-			</div>
-			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="yangxc">yangxc</a></h1>
-				<h2 class="blog-motto"></h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-					<li>
-					
-					</li>
-				</ul>
-			</nav>			
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yangxc</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
 </div>
 
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
     </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
     
-      <a href="/2018/01/27/test/" title="Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置" itemprop="url">Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置</a>
-  </h1>
-  <p class="article-author">By
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/27/test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yxc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yangxc">
+    </span>
+
     
-      <a href="http://yoursite.com" title="perla">perla</a>
-    </p>
-  <p class="article-time">
-    <time datetime="2018-01-27T06:00:00.000Z" itemprop="datePublished">2018-01-27</time>
-    更新日期:<time datetime="2018-03-02T00:31:48.054Z" itemprop="dateModified">2018-03-02</time>
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-27T14:00:00+08:00">
+                2018-01-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
     
-  </p>
-</header>
-	<div class="article-content">
-		
-		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目录</strong>
-		<ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-需要的工具"><span class="toc-number">1.</span> <span class="toc-text">一. 需要的工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-服务器端"><span class="toc-number">2.</span> <span class="toc-text">二. 服务器端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三-客户端"><span class="toc-number">3.</span> <span class="toc-text">三. 客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四-同步文件"><span class="toc-number">4.</span> <span class="toc-text">四. 同步文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五-Rsync命令详解"><span class="toc-number">5.</span> <span class="toc-text">五. Rsync命令详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六-部分错误的解决办法"><span class="toc-number">6.</span> <span class="toc-text">六. 部分错误的解决办法</span></a></li></ol>
-		</div>
-		
-		<p>Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间</p>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间</p>
 <h3 id="一-需要的工具"><a href="#一-需要的工具" class="headerlink" title="一. 需要的工具"></a>一. 需要的工具</h3><p>下载cwRsyncServer服务器端与客户端的安装文件：</p>
 <p>服务端下载：<a href="https://pan.baidu.com/share/link?shareid=901516432&amp;uk=118355419" title="服务端下载" target="_blank" rel="noopener">cwRsyncServer_4.0.5_Installer.zip</a></p>
 <p>客户端下载：<a href="https://pan.baidu.com/share/link?shareid=903891290&amp;uk=118355419" target="_blank" rel="noopener">cwRsync_4.0.5_Installer.zip</a></p>
@@ -228,246 +434,360 @@ log format = %t: host %h (%a) %o %f (%l bytes). Total %b bytes.
 timeout = 600  
 refuse options = checksum dry-run  
 dont compress = *.gz *.tgz *.zip *.z *.rpm *.deb *.iso *.bz2 *.tbz  
-</code></pre>  
-	</div>
-		<footer class="article-footer clearfix">
-
-
-
-
-<div class="article-share" id="share">
-
-  <div data-url="http://yoursite.com/2018/01/27/test/" data-title="Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置 | yangxc" data-tsina="" class="share clearfix">
-  </div>
-
-</div>
-</footer>   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/" title="Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/2017/12/27/phpmyadmin（mysql）导入数据库大小限制/"  title="phpmyadmin（mysql）导入数据库大小限制">
- <strong>NEXT:</strong><br/> 
- <span>phpmyadmin（mysql）导入数据库大小限制
-</span>
-</a>
-</div>
-
-</nav>
-
-	
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目录</strong>
-  <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#一-需要的工具"><span class="toc-number">1.</span> <span class="toc-text">一. 需要的工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二-服务器端"><span class="toc-number">2.</span> <span class="toc-text">二. 服务器端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三-客户端"><span class="toc-number">3.</span> <span class="toc-text">三. 客户端</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#四-同步文件"><span class="toc-number">4.</span> <span class="toc-text">四. 同步文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#五-Rsync命令详解"><span class="toc-number">5.</span> <span class="toc-text">五. Rsync命令详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#六-部分错误的解决办法"><span class="toc-number">6.</span> <span class="toc-text">六. 部分错误的解决办法</span></a></li></ol>
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
-<aside class="clearfix">
-
-  
-
-  <div class="rsspart">
-	<a href="/atom.xml## RSS address." target="_blank" title="rss">RSS 订阅</a>
-</div>
-
-  
-
-  
-
-  <div class="linkslist">
-  <p class="asidetitle">友情链接</p>
-    <ul>
-      <li><a href="http://blog.leafh.pw" target="_blank" title="Leaf Hsiao">Leaf's Blog</a></li>
-      <li><a href="http://hexo.io" target="_blank" title="Hexo">Hexo</a></li>
-    </ul>
-</div>
-
-</aside>
-</div>
-    </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<div class="social-font clearfix">
-		
-		
-		
-		
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://zespia.tw/hexo/" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/leaf-hsiao/catman" target="_blank" title="Catman">Catman</a> © 2018 
-		
-		<a href="http://yoursite.com" target="_blank" title="perla">perla</a>
-		
-		</p>
-</div>
-</footer>
-    <div id="top" style="position:fixed;bottom:100px;right:30px;cursor: pointer;">
-        <a title="top"><img src="/img/top.png"/ width="50px"></a>
-    </div>
-    <script src="http://cdn.bootcss.com/jquery/2.1.3/jquery.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
+</code></pre>
       
-      $('#toc.toc-aside').css('display', 'none');
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/12/27/phpmyadmin（mysql）导入数据库大小限制/" rel="next" title="phpmyadmin（mysql）导入数据库大小限制">
+                <i class="fa fa-chevron-left"></i> phpmyadmin（mysql）导入数据库大小限制
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/01/27/Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置/" rel="prev" title="Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置">
+                Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
         
-    }
-  });
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,208-$(this).scrollTop()));
-  });
-});
-</script>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">yxc</p>
+              <p class="site-description motion-element" itemprop="description">practice makes perfect</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-需要的工具"><span class="nav-number">1.</span> <span class="nav-text">一. 需要的工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-服务器端"><span class="nav-number">2.</span> <span class="nav-text">二. 服务器端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-客户端"><span class="nav-number">3.</span> <span class="nav-text">三. 客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四-同步文件"><span class="nav-number">4.</span> <span class="nav-text">四. 同步文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五-Rsync命令详解"><span class="nav-number">5.</span> <span class="nav-text">五. Rsync命令详解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六-部分错误的解决办法"><span class="nav-number">6.</span> <span class="nav-text">六. 部分错误的解决办法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yxc</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
 
 <script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      m = $('#main'),
-      a = $('#asidepart'),
-      t  = $('#toc'),
-      h  = $('article h2')
-      ah = $('article h2'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside'),
-      w  = $(window).width();
-  if ( w>1070 ) {
-  	m.addClass('moveMain');
-  	a.css('display', 'none').addClass('fadeIn');
-  	o.css('display', 'block');
-  };
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  if(ah.length==0){
-    t.css('display','none');
-  }else{
-  	if ( w>1070 ) {
-  	  ta.css('display', 'block').addClass('fadeIn');
-  	};
-    c.click(function(){
-      ta.css('display', 'block').addClass('fadeIn');
-    });
-    o.click(function(){
-      ta.css('display', 'none');
-    });
-    $(window).scroll(function(){
-      ta.css("top",Math.max(140,250-$(this).scrollTop()));
-    });
-  };
-});
-</script>
-
-
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina');
-  var html = [
-  '<a href="#" class="overlay" id="qrcode"></a>',
-  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
-  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-  $('.article-share-qrcode').click(function(){
-    var imgSrc = $('#qrcode-pic').attr('data-src');
-    $('#qrcode-pic').attr('src', imgSrc);
-    $('#qrcode-pic').load(function(){
-        $('.qrcode strong').text(' ');
-    });
-  });
-});     
-</script>
-<script type="text/javascript">
-  (function($) {
-  var upperLimit = 1000;
-  var scrollElem = $('#top');
-  var scrollSpeed = 500;
-  scrollElem.hide();
-  $(window).scroll(function () {
-  var scrollTop = $(document).scrollTop();
-  if ( scrollTop > upperLimit ) {
-  $(scrollElem).stop().fadeTo(300, 1);
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
   }
-  else{
-    $(scrollElem).stop().fadeTo(300, 0);
-  }
-});
-$(scrollElem).click(function(){
-$('html, body').animate({scrollTop:0}, scrollSpeed); return false;
-});
-})(jQuery);
-</script> 
+</script>
 
 
 
 
 
 
-  </body>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
 </html>
