@@ -141,71 +141,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/01/27/test/">Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置</a>
-    </h1>
-  
-
-        
-        <a href="/2018/01/27/test/" class="archive-article-date">
-  	<time datetime="2018-01-27T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间<br>
-        
-          <a class="article-more-a" href="/2018/01/27/test/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/01/27/test/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -271,6 +206,71 @@
 
 
   
+    <article id="post-test" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/01/27/test/">Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置</a>
+    </h1>
+  
+
+        
+        <a href="/2018/01/27/test/" class="archive-article-date">
+  	<time datetime="2018-01-27T06:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-01-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Rsync(remote synchronize)是一个远程数据同步工具，可以使用“Rsync算法”同步本地和远程主机之间的文件。rsync的好处是只同步两个文件不同的部分，相同的部分不在传递。类似于增量备份，这使的在服务器传递备份文件或者同步文件，比起scp工具要省好多时间<br>
+        
+          <a class="article-more-a" href="/2018/01/27/test/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/01/27/test/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-phpmyadmin（mysql）导入数据库大小限制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -291,23 +291,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>默认情况下,phpMyAdmin导入MySQL数据库文件的大小为2M。</p>
+        <p>默认情况下,phpMyAdmin导入MySQL数据库文件的大小为2M。<br>当我们需要上传的MySQL数据库文件大于2M时,系统就会提示错误(Warning: POST Content-Length of 50874526 bytes exceeds the limit of 8388608 bytes in Unknown on line 0)<br>解决方法如下:</p>
 <ol>
-<li><p>找到php的配置文件php.ini</p>
-</li>
-<li><p>修改php.ini里面的上传文件的限制,数值根据你需要上传的数据库文件大小而定.</p>
-<blockquote>
-<ul>
+<li>找到php的配置文件php.ini</li>
+<li>修改php.ini里面的上传文件的限制,数值根据你需要上传的数据库文件大小而定。<ul>
 <li>upload_max_filesize 上传文件大小</li>
 <li>memory_limit 设置内存</li>
 <li>post_max_size 提交数据的最大值</li>
 </ul>
-</blockquote>
 </li>
-<li><p>重启apache</p>
-</li>
+<li>重启apache</li>
 </ol>
-
+        
+          <a class="article-more-a" href="/2017/12/27/phpmyadmin（mysql）导入数据库大小限制/#more">more >></a>
+        
       
 
       
@@ -331,6 +328,17 @@
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/php-mysql//" class="article-tag-list-link color5">php,mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -678,10 +686,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">phpmyadmin</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">数据库大小限制</a>
               </li>
              
               <li class="article-tag-list-item">
