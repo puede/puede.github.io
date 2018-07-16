@@ -17,7 +17,7 @@
 <meta property="og:description" content="字体使用是网页设计中不可或缺的一部分。经常地，我们希望在网页中使用某一特定字体，但是该字体并非主流操作系统的内置字体，这样用户在浏览页面的时候就有可能看不到真实的设计。美工设计师最常用的办法是把想要的文字做成图片，但这样做有几个明显的缺陷：  不能大范围地使用该字体 图片内容相对使用文字不易修改 不利于网站搜索引擎优化">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://raw.githubusercontent.com/puede/font/master/fzsek.jpg">
-<meta property="og:updated_time" content="2018-07-16T06:24:19.366Z">
+<meta property="og:updated_time" content="2018-07-16T06:26:46.469Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="页面字体@font-face的使用">
 <meta name="twitter:description" content="字体使用是网页设计中不可或缺的一部分。经常地，我们希望在网页中使用某一特定字体，但是该字体并非主流操作系统的内置字体，这样用户在浏览页面的时候就有可能看不到真实的设计。美工设计师最常用的办法是把想要的文字做成图片，但这样做有几个明显的缺陷：  不能大范围地使用该字体 图片内容相对使用文字不易修改 不利于网站搜索引擎优化">
@@ -177,7 +177,7 @@
 <li>SVG，适用于Chrome、iPhone</li>
 </ol>
 <p>@font-face规则在CSS3规范中属于字体模块，用较为专业的话来讲，@font-face能够加载服务器端的字体文件，让客户端浏览器显示客户端没有安装的字体。如果没有@font-face规则，浏览器只能够在客户端系统中寻找指定字体，这就给网页设计带来了很多限制，妨碍了设计师的创意设计，也就无法展现丰富多彩的字体艺术。<br>下面要解决的是如何获取某种字体的这3种格式文件。一般地，我们在手头上（或在设计资源站点已经找到）有该字体的某种格式文件，最常见的是TTF文件，我们需要通过对这种文件格式进行转换来得到其余两种文件格式。字体文件格式的转换可以通过网站FontsQuirrel或onlinefontconverter提供的在线字体转换服务实现。这里推荐第一个站点，它允许我们选择需要的字符生成字体文件（在服务的最后一个选项），从而大大缩减了字体文件的大小，使得本方案更具实用性。字体声明如下。</p>
-<pre><code>/*引入字体文件ttf/eot*/
+<pre><code>&lt;!-- 引入字体文件ttf/eot --&gt;
 @font-face{
    font-family: myFont;
    /*eot格式兼容IE*/
@@ -195,11 +195,11 @@ h1{
 </ol>
 <!--  -->
 <pre><code>@font-face{
-    font-family: &apos;yrzt&apos;
-    src: url(&apos;/fonts/fzsek.ttf&apos;)
+    font-family: &apos;yrzt&apos;;
+    src: url(&apos;/fonts/fzsek.ttf&apos;);
 }
 h1{
-    font-family: &apos;yrzt&apos;
+    font-family: &apos;yrzt&apos;;
 }
 </code></pre><p>页面效果:<br><img src="https://raw.githubusercontent.com/puede/font/master/fzsek.jpg" alt="字体图片"></p>
 <p>  参考:<br>  <a href="https://mp.weixin.qq.com/s/U3IzYblkfP2_qxg0nT_1Vw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/U3IzYblkfP2_qxg0nT_1Vw</a></p>
