@@ -165,42 +165,10 @@
 <ol>
 <li>不能大范围地使用该字体。</li>
 <li>图片内容相对使用文字不易修改。</li>
-<li>不利于网站搜索引擎优化</li>
-</ol>
-<p>下面要讲的是如何只通过CSS的@font-face属性来实现在网页中嵌入任意字体。<br>首先获取要使用字体的3种文件格式，确保在主流浏览器中都能正常显示该字体。</p>
-<ol>
-<li>TTF或OTF，适用于Firefox 3.5、Safari、Opera。</li>
-<li>EOT，适用于InternetExplorer 4.0+。</li>
-<li>SVG，适用于Chrome、iPhone</li>
-</ol>
-<p>@font-face规则在CSS3规范中属于字体模块，用较为专业的话来讲，@font-face能够加载服务器端的字体文件，让客户端浏览器显示客户端没有安装的字体。如果没有@font-face规则，浏览器只能够在客户端系统中寻找指定字体，这就给网页设计带来了很多限制，妨碍了设计师的创意设计，也就无法展现丰富多彩的字体艺术。<br>下面要解决的是如何获取某种字体的这3种格式文件。一般地，我们在手头上（或在设计资源站点已经找到）有该字体的某种格式文件，最常见的是TTF文件，我们需要通过对这种文件格式进行转换来得到其余两种文件格式。字体文件格式的转换可以通过网站FontsQuirrel或onlinefontconverter提供的在线字体转换服务实现。这里推荐第一个站点，它允许我们选择需要的字符生成字体文件（在服务的最后一个选项），从而大大缩减了字体文件的大小，使得本方案更具实用性。字体声明如下。</p>
-<pre><code>/*引入字体文件ttf/eot*/
-@font-face{
-   font-family: myFont;
-   /*eot格式兼容IE*/
-   src:url(fonts/hanyi.eot);
-   /*ttf格式兼容非IE*/
-   src:url(fonts/hanyi.ttf);
-}
-h1{
-   font-family: myFont;
-}
-</code></pre><p>举例:</p>
-<ol>
-<li>下载方正幼圆字体<a href="https://github.com/puede/font/blob/master/fzsek.ttf" target="_blank" rel="noopener">https://github.com/puede/font/blob/master/fzsek.ttf</a></li>
-<li>引入字体文件并使用</li>
-</ol>
-<!--  -->
-<pre><code>@font-face{
-    font-family: &apos;yrzt&apos;
-    src: url(&apos;/fonts/fzsek.ttf&apos;)
-}
-h1{
-    font-family: &apos;yrzt&apos;
-}
-</code></pre><p>页面效果:<br><img src="https://raw.githubusercontent.com/puede/font/master/fzsek.jpg" alt="字体图片"></p>
-<p>  参考:<br>  <a href="https://mp.weixin.qq.com/s/U3IzYblkfP2_qxg0nT_1Vw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/U3IzYblkfP2_qxg0nT_1Vw</a></p>
-
+<li><p>不利于网站搜索引擎优化</p>
+        
+          <a class="article-more-a" href="/2018/07/16/页面字体-font-face的使用/#more">more >></a>
+        
       
 
       
