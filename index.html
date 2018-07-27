@@ -154,54 +154,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="第一步-获取整个页面内容"><a href="#第一步-获取整个页面内容" class="headerlink" title="第一步:获取整个页面内容"></a>第一步:获取整个页面内容</h2><p>我们知道页面抓取最常用的两种方式file_get_contents()函数和curl抓取</p>
-<ol>
-<li>file_get_contents()</li>
-<li>curl抓取, curl是一个非常强大的开源库,支持很多协议,包括HTTP FTP TELNET等,我们使用它来发送HTTP请求.它给我们带来的好处是可以通过灵活的选项设置不同的HTTP协议参数,并且支持HTTPS,curl可以根据URL前缀是HTTP还是HTTPS自动选择是否加密发送内容 ,curl尤其是在api接口调用过程中用处广泛<br>我用的是file_get_contents(),这里我们先说file_get_contents(),以后有空再说curl</li>
-</ol>
-<p>废话不多说,看代码:<br>方法一:</p>
-<pre><code>$news=file_get_contents(&quot;http://news.baidu.com/&quot;);
-</code></pre><p>方法二:</p>
-<pre><code>$url=&quot;http://news.baidu.com/&quot;;
-$news=file_get_contents($url);
-</code></pre><p>就是这么简单.这样就把整个页面抓取下来了</p>
-<p>我们也可以把它存入另一个文件.不过在这没什么用</p>
-<pre><code>$file=fopen(&quot;./fwrite.php&quot;,&quot;w&quot;);
-fwrite($file,$youku);
-fclose($file);
-</code></pre><h2 id="第二步-利用正则匹配想要得到的内容"><a href="#第二步-利用正则匹配想要得到的内容" class="headerlink" title="第二步:利用正则匹配想要得到的内容"></a>第二步:利用正则匹配想要得到的内容</h2><p>这里我们以抓取百度新闻为例,那就要抓取代码<a>标签里面的内容<br>preg_match()和preg_match_all()的区别:<br>前者是在搜索到第一个匹配内容之后就停止搜索,而后者在搜索到第一个匹配内容之后还会一直搜索直到搜索到所有的匹配结果,所以我们这里用preg_match_all()</a></p>
-<pre><code>preg_match_all(&quot;/&lt;a.*?href.*?=.*?[\&quot;].*?[\&quot;].*&gt;.*&lt;\/a&gt;/&quot;,$news,$matches);// $matches是匹配到的结果
-</code></pre><p>这里是匹配到的部分结果</p>
-<pre><code>[9] =&gt; &lt;a href=&quot;/&quot;&gt;首页&lt;/a&gt;
-[10] =&gt; &lt;a href=&quot;/guonei&quot;&gt;国内&lt;/a&gt;
-[11] =&gt; &lt;a href=&quot;/guoji&quot;&gt;国际&lt;/a&gt;
-[12] =&gt; &lt;a href=&quot;/mil&quot;&gt;军事&lt;/a&gt;
-[13] =&gt; &lt;a href=&quot;/finance&quot;&gt;财经&lt;/a&gt;
-[14] =&gt; &lt;a href=&quot;/ent&quot;&gt;娱乐&lt;/a&gt;
-</code></pre><p> 我这里得到的$matches是一个二维数组,而且还带有<code>&lt;a href=&quot;&quot;&gt;&lt;/a&gt;</code>这样的标签,我们先把它转化为字符串,然后去除多余的标签,再转为数组</p>
-<pre><code>$str=implode(&quot;,&quot;,$matches1[0]);
-$striptag=strip_tags($str);
-$arr=explode(&quot;,&quot;,$stiptag);
-</code></pre><p>如下:</p>
-<pre><code>[0] =&gt; 网页
-[1] =&gt; 贴吧
-[2] =&gt; 知道
-[3] =&gt; 音乐
-[4] =&gt; 图片
-[5] =&gt; 视频
-[6] =&gt; 地图
-</code></pre><h2 id="第三步-存入数据库"><a href="#第三步-存入数据库" class="headerlink" title="第三步:存入数据库"></a>第三步:存入数据库</h2><p>首先连接数据库,如果连接成功,就把数据存入数据表table_news,table_news只有两个字段:自增id和content<br>mysqli_connect()参数说明:<br>mysqli_connect(‘连接地址’,’用户名’,’密码’,’数据库’,’端口’);</p>
-<pre><code>$connect= mysqli_connect(&apos;localhost&apos;,&apos;root&apos;,&apos;123456&apos;,&apos;regex&apos;,&apos;3306&apos;);
-if ($connect){
-    foreach ($arr as $key =&gt; $value) {
-        $sql =&quot;insert into table_news values (&apos;&apos;,&apos;$value&apos;)&quot;;
-        $res=$connect -&gt; query($sql);
-        if ($res){
-            echo $value.&apos;插入数据表成功&lt;br&gt;&apos;;
-        }
-    }
-}
-</code></pre><p>ok了</p>
-
+        
+          <a class="article-more-a" href="/2018/07/27/利用php正则表达式抓取页面内容存入数据库/#more">more >></a>
+        
       
 
       

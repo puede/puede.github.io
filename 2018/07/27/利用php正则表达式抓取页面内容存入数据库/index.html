@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>利用php正则表达式抓取页面内容存入数据库 | yangxc的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="第一步:获取整个页面内容我们知道页面抓取最常用的两种方式file_get_contents()函数和curl抓取  file_get_contents() curl抓取, curl是一个非常强大的开源库,支持很多协议,包括HTTP FTP TELNET等,我们使用它来发送HTTP请求.它给我们带来的好处是可以通过灵活的">
+  <meta name="description" content="第一步:获取整个页面内容我们知道页面抓取最常用的两种方式file_get_contents()函数和curl抓取">
 <meta name="keywords" content="正则表达式,数据库,php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="利用php正则表达式抓取页面内容存入数据库">
 <meta property="og:url" content="http://yoursite.com/2018/07/27/利用php正则表达式抓取页面内容存入数据库/index.html">
 <meta property="og:site_name" content="yangxc的博客">
-<meta property="og:description" content="第一步:获取整个页面内容我们知道页面抓取最常用的两种方式file_get_contents()函数和curl抓取  file_get_contents() curl抓取, curl是一个非常强大的开源库,支持很多协议,包括HTTP FTP TELNET等,我们使用它来发送HTTP请求.它给我们带来的好处是可以通过灵活的选项设置不同的HTTP协议参数,并且支持HTTPS,curl可以根据URL前缀是">
+<meta property="og:description" content="第一步:获取整个页面内容我们知道页面抓取最常用的两种方式file_get_contents()函数和curl抓取">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-27T10:44:39.095Z">
+<meta property="og:updated_time" content="2018-07-27T10:50:49.818Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="利用php正则表达式抓取页面内容存入数据库">
-<meta name="twitter:description" content="第一步:获取整个页面内容我们知道页面抓取最常用的两种方式file_get_contents()函数和curl抓取  file_get_contents() curl抓取, curl是一个非常强大的开源库,支持很多协议,包括HTTP FTP TELNET等,我们使用它来发送HTTP请求.它给我们带来的好处是可以通过灵活的选项设置不同的HTTP协议参数,并且支持HTTPS,curl可以根据URL前缀是">
+<meta name="twitter:description" content="第一步:获取整个页面内容我们知道页面抓取最常用的两种方式file_get_contents()函数和curl抓取">
   
     <link rel="alternative" href="/atom.xml" title="yangxc的博客" type="application/atom+xml">
   
@@ -154,6 +154,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="第一步-获取整个页面内容"><a href="#第一步-获取整个页面内容" class="headerlink" title="第一步:获取整个页面内容"></a>第一步:获取整个页面内容</h2><p>我们知道页面抓取最常用的两种方式file_get_contents()函数和curl抓取</p>
+<a id="more"></a>
 <ol>
 <li>file_get_contents()</li>
 <li>curl抓取, curl是一个非常强大的开源库,支持很多协议,包括HTTP FTP TELNET等,我们使用它来发送HTTP请求.它给我们带来的好处是可以通过灵活的选项设置不同的HTTP协议参数,并且支持HTTPS,curl可以根据URL前缀是HTTP还是HTTPS自动选择是否加密发送内容 ,curl尤其是在api接口调用过程中用处广泛<br>我用的是file_get_contents(),这里我们先说file_get_contents(),以后有空再说curl</li>
