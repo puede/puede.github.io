@@ -6,22 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>页面字体@font-face的使用 | yangxc的博客</title>
+  <title>Tag: 数据库 | yangxc的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="字体使用是网页设计中不可或缺的一部分。经常地，我们希望在网页中使用某一特定字体，但是该字体并非主流操作系统的内置字体，这样用户在浏览页面的时候就有可能看不到真实的设计。美工设计师最常用的办法是把想要的文字做成图片，但这样做有几个明显的缺陷：  不能大范围地使用该字体 图片内容相对使用文字不易修改 不利于网站搜索引擎优化">
-<meta name="keywords" content="font-face,font-family">
-<meta property="og:type" content="article">
-<meta property="og:title" content="页面字体@font-face的使用">
-<meta property="og:url" content="http://yoursite.com/2018/07/16/页面字体-font-face的使用/index.html">
+  <meta name="description" content="practice makes perfect">
+<meta property="og:type" content="website">
+<meta property="og:title" content="yangxc的博客">
+<meta property="og:url" content="http://yoursite.com/tags/数据库/index.html">
 <meta property="og:site_name" content="yangxc的博客">
-<meta property="og:description" content="字体使用是网页设计中不可或缺的一部分。经常地，我们希望在网页中使用某一特定字体，但是该字体并非主流操作系统的内置字体，这样用户在浏览页面的时候就有可能看不到真实的设计。美工设计师最常用的办法是把想要的文字做成图片，但这样做有几个明显的缺陷：  不能大范围地使用该字体 图片内容相对使用文字不易修改 不利于网站搜索引擎优化">
+<meta property="og:description" content="practice makes perfect">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://raw.githubusercontent.com/puede/font/master/zcool.jpg">
-<meta property="og:updated_time" content="2018-07-19T01:25:34.638Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="页面字体@font-face的使用">
-<meta name="twitter:description" content="字体使用是网页设计中不可或缺的一部分。经常地，我们希望在网页中使用某一特定字体，但是该字体并非主流操作系统的内置字体，这样用户在浏览页面的时候就有可能看不到真实的设计。美工设计师最常用的办法是把想要的文字做成图片，但这样做有几个明显的缺陷：  不能大范围地使用该字体 图片内容相对使用文字不易修改 不利于网站搜索引擎优化">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/puede/font/master/zcool.jpg">
+<meta name="twitter:title" content="yangxc的博客">
+<meta name="twitter:description" content="practice makes perfect">
   
     <link rel="alternative" href="/atom.xml" title="yangxc的博客" type="application/atom+xml">
   
@@ -135,230 +131,79 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-页面字体-font-face的使用" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      页面字体@font-face的使用
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018/07/27/利用php正则表达式抓取页面内容存入数据库/" class="archive-article-date">
+  	<time datetime="2018-07-27T02:43:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-27</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2018/07/27/利用php正则表达式抓取页面内容存入数据库/">利用php正则表达式抓取页面内容存入数据库</a>
     </h1>
   
 
-        
-        <a href="/2018/07/16/页面字体-font-face的使用/" class="archive-article-date">
-  	<time datetime="2018-07-16T01:38:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-07-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>字体使用是网页设计中不可或缺的一部分。经常地，我们希望在网页中使用某一特定字体，但是该字体并非主流操作系统的内置字体，这样用户在浏览页面的时候就有可能看不到真实的设计。美工设计师最常用的办法是把想要的文字做成图片，但这样做有几个明显的缺陷：</p>
-<ol>
-<li>不能大范围地使用该字体</li>
-<li>图片内容相对使用文字不易修改</li>
-<li>不利于网站搜索引擎优化</li>
-</ol>
- <a id="more"></a>
-<p>下面要讲的是如何只通过CSS的@font-face属性来实现在网页中嵌入任意字体。<br>首先获取要使用字体的3种文件格式，确保在主流浏览器中都能正常显示该字体。</p>
-<ol>
-<li>TTF或OTF，适用于Firefox 3.5、Safari、Opera。</li>
-<li>EOT，适用于InternetExplorer 4.0+。</li>
-<li>SVG，适用于Chrome、iPhone</li>
-</ol>
-<p>@font-face规则在CSS3规范中属于字体模块，用较为专业的话来讲，@font-face能够加载服务器端的字体文件，让客户端浏览器显示客户端没有安装的字体。如果没有@font-face规则，浏览器只能够在客户端系统中寻找指定字体，这就给网页设计带来了很多限制，妨碍了设计师的创意设计，也就无法展现丰富多彩的字体艺术。<br>下面要解决的是如何获取某种字体的这3种格式文件。一般地，我们在手头上（或在设计资源站点已经找到）有该字体的某种格式文件，最常见的是TTF文件，我们需要通过对这种文件格式进行转换来得到其余两种文件格式。字体文件格式的转换可以通过网站FontsQuirrel或onlinefontconverter提供的在线字体转换服务实现。这里推荐第一个站点，它允许我们选择需要的字符生成字体文件（在服务的最后一个选项），从而大大缩减了字体文件的大小，使得本方案更具实用性。字体声明如下。</p>
-<pre><code>&lt;!-- 引入字体文件ttf/eot --&gt;
-@font-face{
-   font-family: myFont;
-   /*eot格式兼容IE*/
-   src:url(fonts/zdy.eot);
-   /*ttf格式兼容非IE*/
-   src:url(fonts/zdy.ttf);
-}
-h1{
-   font-family: myFont;
-}
-</code></pre><p>举例:</p>
-<ol>
-<li>下载字体<a href="https://github.com/puede/font/blob/master/zcool.ttf" target="_blank" rel="noopener">https://github.com/puede/font/blob/master/zcool.ttf</a></li>
-<li>引入字体文件并使用</li>
-</ol>
-<!--  -->
-<pre><code>@font-face{
-    font-family: &apos;yrzt&apos;;
-    src: url(&apos;/fonts/zcool.ttf&apos;);
-}
-h1{
-    font-family: &apos;yrzt&apos;;
-}
-</code></pre><p>页面效果:<br><img src="https://raw.githubusercontent.com/puede/font/master/zcool.jpg" alt="字体图片"></p>
-<p>  参考:<br>  <a href="https://mp.weixin.qq.com/s/U3IzYblkfP2_qxg0nT_1Vw" target="_blank" rel="noopener">https://mp.weixin.qq.com/s/U3IzYblkfP2_qxg0nT_1Vw</a></p>
-
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">font-face</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">font-family</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">php</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/css//" class="article-tag-list-link color4">css</a>
+        			<a href="/categories/php//" class="article-tag-list-link color4">php</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/07/16/页面字体-font-face的使用/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2018/07/19/用css伪元素before和after在标题左右加横线/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          用css伪元素before和after在标题左右加横线
-        
-      </div>
-    </a>
   
   
-    <a href="/2018/01/27/test/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Ubuntu Server Rsync服务端与Windows cwRsync客户端实现数据同步配置</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-
-  
+    
 
 
           </div>
@@ -381,9 +226,9 @@ h1{
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
