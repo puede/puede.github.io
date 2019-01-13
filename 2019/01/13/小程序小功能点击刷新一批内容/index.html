@@ -96,25 +96,25 @@
 
 
 
-  <meta name="description" content="首先说一下GD库是什么?我们为什么要用GD库? GD库是php的一个扩展,用来做动态图片的处理(验证码 剪切 水印 翻转 缩略图)">
-<meta name="keywords" content="GD库,验证码,水印,动态图片,php">
+  <meta name="keywords" content="小程序">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP图形图像操作(GD库的使用)">
-<meta property="og:url" content="http://yoursite.com/2018/08/02/PHP图形图像操作-GD库的使用/index.html">
+<meta property="og:title" content="小程序小功能点击刷新一批内容">
+<meta property="og:url" content="http://yoursite.com/2019/01/13/小程序小功能点击刷新一批内容/index.html">
 <meta property="og:site_name" content="yangxc的博客">
-<meta property="og:description" content="首先说一下GD库是什么?我们为什么要用GD库? GD库是php的一个扩展,用来做动态图片的处理(验证码 剪切 水印 翻转 缩略图)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-08-03T00:43:55.900Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/font/master/refresh.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/font/master/refresh.gif">
+<meta property="og:updated_time" content="2019-01-13T08:37:39.971Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP图形图像操作(GD库的使用)">
-<meta name="twitter:description" content="首先说一下GD库是什么?我们为什么要用GD库? GD库是php的一个扩展,用来做动态图片的处理(验证码 剪切 水印 翻转 缩略图)">
+<meta name="twitter:title" content="小程序小功能点击刷新一批内容">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/puede/font/master/refresh.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/02/PHP图形图像操作-GD库的使用/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/01/13/小程序小功能点击刷新一批内容/"/>
 
 
 
@@ -124,7 +124,7 @@
   };
 </script>
 
-  <title>PHP图形图像操作(GD库的使用) | yangxc的博客</title>
+  <title>小程序小功能点击刷新一批内容 | yangxc的博客</title>
   
 
 
@@ -293,7 +293,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/02/PHP图形图像操作-GD库的使用/"/>
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/13/小程序小功能点击刷新一批内容/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yangxc"/>
@@ -310,7 +310,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PHP图形图像操作(GD库的使用)
+          <h1 class="post-title" itemprop="name headline">小程序小功能点击刷新一批内容
 
               
             
@@ -336,46 +336,16 @@
                 
               
 
-              <time title="创建时间：2018-08-02 17:33:25" itemprop="dateCreated datePublished" datetime="2018-08-02T17:33:25+08:00">2018-08-02</time>
+              <time title="创建时间：2019-01-13 16:16:41 / 修改时间：16:37:39" itemprop="dateCreated datePublished" datetime="2019-01-13T16:16:41+08:00">2019-01-13</time>
             
 
             
               
 
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-08-03 08:43:55" itemprop="dateModified" datetime="2018-08-03T08:43:55+08:00">2018-08-03</time>
               
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/php/" itemprop="url" rel="index"><span itemprop="name">php</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -404,9 +374,16 @@
       
 
       
-        <p>首先说一下GD库是什么?我们为什么要用GD库?</p>
-<p>GD库是php的一个扩展,用来做动态图片的处理(验证码 剪切 水印 翻转 缩略图)</p>
+        <p><img src="https://raw.githubusercontent.com/puede/font/master/refresh.jpg" alt="refresh刷新"></p>
 <a id="more"></a>
+<p>如图,要实现点击换一下就换一批内容的功能<br>具体代码如下:</p>
+<p>wxml:</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">view</span> <span class="attr">wx:for</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123;productList&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">wx:for-item</span>=<span class="string">"item"</span> <span class="attr">wx:key</span>=<span class="string">"unique"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">data-id</span>=<span class="string">'</span></span></span><span class="template-variable">&#123;&#123;item._id&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">'</span> <span class="attr">bindtap</span>=<span class="string">'getProduct'</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123;url&#125;&#125;</span><span class="xml"><span class="tag"><span class="string"></span></span></span><span class="template-variable">&#123;&#123;item.list_img&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">class</span>=<span class="string">'proimg'</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">'proname'</span>&gt;</span></span><span class="template-variable">&#123;&#123;item.title&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">image</span> <span class="attr">mode</span>=<span class="string">"widthFix"</span> <span class="attr">src</span>=<span class="string">'/image/index/titlebottom.jpg'</span> <span class="attr">class</span>=<span class="string">'titlebottom'</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">view</span> <span class="attr">bindtap</span>=<span class="string">'refreshEvent'</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">view</span> <span class="attr">class</span>=<span class="string">'refresh'</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span>=<span class="string">'../../image/index/shuaxin.png'</span> <span class="attr">class</span>=<span class="string">'shuaxin'</span>&gt;</span><span class="tag">&lt;/<span class="name">image</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">view</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">text</span> <span class="attr">class</span>=<span class="string">'huan'</span>&gt;</span>换一批<span class="tag">&lt;/<span class="name">text</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">view</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>js:</p>
+<figure class="highlight zephir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> num = <span class="number">0</span>;</span><br><span class="line">data: &#123;</span><br><span class="line">    productList: [],</span><br><span class="line">    currentIndex: <span class="number">0</span>,</span><br><span class="line">    url: app.globalData.api_uri,</span><br><span class="line">&#125;,</span><br><span class="line">onLoad: <span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">self</span> = this</span><br><span class="line">    wx.request(&#123;</span><br><span class="line">      url: app.globalData.api_uri + <span class="string">'product/'</span> ,</span><br><span class="line">      method: <span class="string">'GET'</span>,</span><br><span class="line">      success: <span class="function"><span class="keyword">function</span> <span class="params">(res)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (res.data.errno === <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">self</span>.setData(&#123;</span><br><span class="line">            productList: res.data.data.data.slice(<span class="number">0</span>,<span class="number">2</span>) <span class="comment">//onload的时候取前两个</span></span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">/* 点击换一批 */</span></span><br><span class="line">refreshEvent: <span class="function"><span class="keyword">function</span> <span class="params">(e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> <span class="keyword">self</span> = this</span><br><span class="line">    wx.request(&#123;</span><br><span class="line">        url: app.globalData.api_uri + <span class="string">'product/'</span>,</span><br><span class="line">        method: <span class="string">'GET'</span>,</span><br><span class="line">        success: <span class="function"><span class="keyword">function</span> <span class="params">(res)</span> </span>&#123;</span><br><span class="line">            <span class="keyword">let</span> count = res.data.data.count</span><br><span class="line">            <span class="keyword">self</span>.setData(&#123;</span><br><span class="line">                productList: res.data.data.data.slice(num, num + <span class="number">2</span>)</span><br><span class="line">            &#125;)</span><br><span class="line">            <span class="keyword">if</span> (num+<span class="number">2</span> &lt; count) &#123;</span><br><span class="line">                num += <span class="number">2</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                num = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最终效果如下:</p>
+<p><img src="https://raw.githubusercontent.com/puede/font/master/refresh.gif" alt="效果"></p>
+
       
     </div>
 
@@ -429,11 +406,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/GD库/" rel="tag"><i class="fa fa-tag"></i> GD库</a>
-          
-            <a href="/tags/验证码-水印-动态图片/" rel="tag"><i class="fa fa-tag"></i> 验证码,水印,动态图片</a>
-          
-            <a href="/tags/php/" rel="tag"><i class="fa fa-tag"></i> php</a>
+            <a href="/tags/小程序/" rel="tag"><i class="fa fa-tag"></i> 小程序</a>
           
         </div>
       
@@ -446,8 +419,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/30/php数组遍历的几种方式/" rel="next" title="php数组遍历的几种方式">
-                <i class="fa fa-chevron-left"></i> php数组遍历的几种方式
+              <a href="/2019/01/13/小程序使用swiper组件实现3d轮播效果/" rel="next" title="小程序使用swiper组件实现3d轮播效果">
+                <i class="fa fa-chevron-left"></i> 小程序使用swiper组件实现3d轮播效果
               </a>
             
           </div>
@@ -455,10 +428,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/07/Bootstrap框架梳理/" rel="prev" title="Bootstrap框架梳理">
-                Bootstrap框架梳理 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
