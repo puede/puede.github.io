@@ -96,28 +96,27 @@
 
 
 
-  <meta name="description" content="小程序导航栏navigationStyle属性值有default和custom,默认default 1. default导航栏 2. custom导航栏navigationStyle设置为custom后,所有页面都没有导航栏,其他页面如果用导航栏,需要自己添加,开发者可以对小程序除右上角胶囊菜单栏外所有页面进行控制,全">
-<meta name="keywords" content="小程序,navigationStyle">
+  <meta name="description" content="或许是每次解决一个小问题,一点点的记录着我的小生活,回过头有处可寻,大概就是我想要的充实吧!">
+<meta name="keywords" content="小程序,swiper">
 <meta property="og:type" content="article">
-<meta property="og:title" content="小程序navigationStyle自定义导航栏">
-<meta property="og:url" content="http://yoursite.com/2019/01/13/小程序navigationStyle自定义导航栏/index.html">
+<meta property="og:title" content="小程序使用swiper组件实现3d轮播效果">
+<meta property="og:url" content="http://yoursite.com/2019/01/13/小程序使用swiper组件实现3d轮播效果/index.html">
 <meta property="og:site_name" content="yangxc的博客">
-<meta property="og:description" content="小程序导航栏navigationStyle属性值有default和custom,默认default 1. default导航栏 2. custom导航栏navigationStyle设置为custom后,所有页面都没有导航栏,其他页面如果用导航栏,需要自己添加,开发者可以对小程序除右上角胶囊菜单栏外所有页面进行控制,全屏开发小程序,但是目前并不支持单页面设置navigationStyle">
+<meta property="og:description" content="或许是每次解决一个小问题,一点点的记录着我的小生活,回过头有处可寻,大概就是我想要的充实吧!">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/puede/font/master/default.jpg">
-<meta property="og:image" content="https://raw.githubusercontent.com/puede/font/master/custom.jpg">
-<meta property="og:updated_time" content="2019-01-13T01:43:44.421Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/font/master/swiper.jpg">
+<meta property="og:updated_time" content="2019-01-13T06:03:31.927Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="小程序navigationStyle自定义导航栏">
-<meta name="twitter:description" content="小程序导航栏navigationStyle属性值有default和custom,默认default 1. default导航栏 2. custom导航栏navigationStyle设置为custom后,所有页面都没有导航栏,其他页面如果用导航栏,需要自己添加,开发者可以对小程序除右上角胶囊菜单栏外所有页面进行控制,全屏开发小程序,但是目前并不支持单页面设置navigationStyle">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/puede/font/master/default.jpg">
+<meta name="twitter:title" content="小程序使用swiper组件实现3d轮播效果">
+<meta name="twitter:description" content="或许是每次解决一个小问题,一点点的记录着我的小生活,回过头有处可寻,大概就是我想要的充实吧!">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/puede/font/master/swiper.jpg">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/01/13/小程序navigationStyle自定义导航栏/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/01/13/小程序使用swiper组件实现3d轮播效果/"/>
 
 
 
@@ -127,7 +126,7 @@
   };
 </script>
 
-  <title>小程序navigationStyle自定义导航栏 | yangxc的博客</title>
+  <title>小程序使用swiper组件实现3d轮播效果 | yangxc的博客</title>
   
 
 
@@ -296,7 +295,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/13/小程序navigationStyle自定义导航栏/"/>
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/13/小程序使用swiper组件实现3d轮播效果/"/>
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="yangxc"/>
@@ -313,7 +312,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">小程序navigationStyle自定义导航栏
+          <h1 class="post-title" itemprop="name headline">小程序使用swiper组件实现3d轮播效果
 
               
             
@@ -339,7 +338,7 @@
                 
               
 
-              <time title="创建时间：2019-01-13 09:17:14 / 修改时间：09:43:44" itemprop="dateCreated datePublished" datetime="2019-01-13T09:17:14+08:00">2019-01-13</time>
+              <time title="创建时间：2019-01-13 13:31:49 / 修改时间：14:03:31" itemprop="dateCreated datePublished" datetime="2019-01-13T13:31:49+08:00">2019-01-13</time>
             
 
             
@@ -377,13 +376,16 @@
       
 
       
-        <p>小程序导航栏navigationStyle属性值有default和custom,默认default</p>
-<h3 id="1-default导航栏"><a href="#1-default导航栏" class="headerlink" title="1. default导航栏"></a>1. default导航栏</h3><p><img src="https://raw.githubusercontent.com/puede/font/master/default.jpg" alt="default"></p>
-<h3 id="2-custom导航栏"><a href="#2-custom导航栏" class="headerlink" title="2. custom导航栏"></a>2. custom导航栏</h3><p>navigationStyle设置为custom后,所有页面都没有导航栏,其他页面如果用导航栏,需要自己添加,开发者可以对小程序除右上角胶囊菜单栏外所有页面进行控制,全屏开发小程序,但是目前并不支持单页面设置navigationStyle</p>
+        <p>或许是每次解决一个小问题,一点点的记录着我的小生活,回过头有处可寻,大概就是我想要的充实吧!</p>
+<p><img src="https://raw.githubusercontent.com/puede/font/master/swiper.jpg" alt="swiper轮播"></p>
 <a id="more"></a>
-<p><img src="https://raw.githubusercontent.com/puede/font/master/custom.jpg" alt="custom"></p>
-<p>app.json:</p>
-<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"window"</span>:&#123;</span><br><span class="line">    <span class="string">"navigationStyle"</span>: <span class="string">"custom"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面效果的实现:</p>
+<p>wxml:</p>
+<figure class="highlight django"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">swiper</span> <span class="attr">autoplay</span> <span class="attr">circular</span> <span class="attr">previous-margin</span>=<span class="string">"50rpx"</span> <span class="attr">next-margin</span>=<span class="string">"50rpx"</span> <span class="attr">class</span>=<span class="string">'imagelist'</span> <span class="attr">bindchange</span>=<span class="string">"handleChange"</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">swiper-item</span> <span class="attr">wx:for</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123;indexcase&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">wx:key</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123;index&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span>&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">image</span> <span class="attr">src</span>=<span class="string">"</span></span></span><span class="template-variable">&#123;&#123;item.imgurl&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">class</span>=<span class="string">"slide-image dimg </span></span></span><span class="template-variable">&#123;&#123;currentIndex == index ? 'active': ''&#125;&#125;</span><span class="xml"><span class="tag"><span class="string">"</span> <span class="attr">width</span>=<span class="string">"355"</span> <span class="attr">height</span>=<span class="string">"150"</span> /&gt;</span></span></span><br><span class="line"><span class="xml">        <span class="tag">&lt;<span class="name">text</span>&gt;</span></span><span class="template-variable">&#123;&#123;item.title&#125;&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">text</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">swiper-item</span>&gt;</span></span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">swiper</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>js:</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">data</span>: &#123;</span><br><span class="line">    <span class="attribute">currentIndex</span>: <span class="number">0</span>,</span><br><span class="line">    <span class="attribute">indexcase</span>: [</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attribute">title</span>: <span class="string">'aaaaaaaaaaaaa'</span>,</span><br><span class="line">        <span class="attribute">imgurl</span>: <span class="string">'../../image/1.jpg'</span></span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        <span class="attribute">title</span>: <span class="string">'bbbbbbbbbbbbb'</span>,</span><br><span class="line">        <span class="attribute">imgurl</span>: <span class="string">'../../image/2.jpg'</span></span><br><span class="line">      &#125;, &#123;</span><br><span class="line">        <span class="attribute">title</span>: <span class="string">'ccccccccccccc'</span>,</span><br><span class="line">        <span class="attribute">imgurl</span>: <span class="string">'../../image/3.jpg'</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;,</span><br><span class="line"><span class="attribute">handleChange</span>: function(e)&#123;</span><br><span class="line">    this.setData(&#123;</span><br><span class="line">         <span class="attribute">currentIndex</span>: e.detail.current</span><br><span class="line">     &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>wxss: </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">swiper-item</span>&#123;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">15px</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.active</span>&#123;</span><br><span class="line"> <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line"> <span class="attribute">z-index</span>: <span class="number">10</span>;</span><br><span class="line"> <span class="attribute">height</span>: <span class="number">430</span>rpx;</span><br><span class="line"> <span class="attribute">top</span>: <span class="number">7%</span>;</span><br><span class="line"> <span class="attribute">transition</span>:all .<span class="number">2s</span> ease-in <span class="number">0s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.imagelist</span>&#123;</span><br><span class="line"> <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line"> <span class="attribute">background</span>: <span class="number">#fff</span>;</span><br><span class="line"> <span class="attribute">box-shadow</span>: <span class="number">0px</span> <span class="number">0px</span> <span class="number">6px</span> <span class="built_in">rgba</span>(79,154,211,0.5);</span><br><span class="line"> <span class="attribute">padding</span>: <span class="number">15</span>rpx <span class="number">0</span>;</span><br><span class="line"> <span class="attribute">height</span>: <span class="number">350</span>rpx;</span><br><span class="line"> <span class="attribute">margin</span>: <span class="number">15</span>rpx <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.idimg</span>&#123;</span><br><span class="line"> <span class="attribute">position</span>: absolute;</span><br><span class="line"> <span class="attribute">width</span>: <span class="number">97%</span>;</span><br><span class="line"> <span class="attribute">height</span>: <span class="number">245</span>rpx;</span><br><span class="line"> <span class="attribute">border-radius</span>: <span class="number">25</span>rpx;</span><br><span class="line"> <span class="attribute">z-index</span>: <span class="number">5</span>;</span><br><span class="line"> <span class="attribute">opacity</span>: <span class="number">0.7</span>;</span><br><span class="line"> <span class="attribute">top</span>: <span class="number">13%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.active</span>&#123;</span><br><span class="line"> <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line"> <span class="attribute">z-index</span>: <span class="number">10</span>;</span><br><span class="line"> <span class="attribute">height</span>: <span class="number">280</span>rpx;</span><br><span class="line"> <span class="attribute">top</span>: <span class="number">7%</span>;</span><br><span class="line"> <span class="attribute">transition</span>:all .<span class="number">2s</span> ease-in <span class="number">0s</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">text</span>&#123;</span><br><span class="line">  <span class="attribute">position</span>:absolute;</span><br><span class="line">  <span class="attribute">bottom</span>:-<span class="number">26</span>rpx;</span><br><span class="line">  <span class="attribute">z-index</span>:<span class="number">35</span>;</span><br><span class="line">  <span class="attribute">padding</span>:<span class="number">10px</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">width</span>:<span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">text-align</span>:center;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -408,7 +410,7 @@
           
             <a href="/tags/小程序/" rel="tag"><i class="fa fa-tag"></i> 小程序</a>
           
-            <a href="/tags/navigationStyle/" rel="tag"><i class="fa fa-tag"></i> navigationStyle</a>
+            <a href="/tags/swiper/" rel="tag"><i class="fa fa-tag"></i> swiper</a>
           
         </div>
       
@@ -421,8 +423,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/12/小程序navigator和tabbar页面链接/" rel="next" title="小程序navigator和tabbar页面链接">
-                <i class="fa fa-chevron-left"></i> 小程序navigator和tabbar页面链接
+              <a href="/2019/01/13/小程序navigationStyle自定义导航栏/" rel="next" title="小程序navigationStyle自定义导航栏">
+                <i class="fa fa-chevron-left"></i> 小程序navigationStyle自定义导航栏
               </a>
             
           </div>
@@ -430,10 +432,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/13/小程序使用swiper组件实现3d轮播效果/" rel="prev" title="小程序使用swiper组件实现3d轮播效果">
-                小程序使用swiper组件实现3d轮播效果 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -488,17 +486,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <div class="site-overview-wrap sidebar-panel">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -668,23 +657,6 @@
         </div>
       </div>
 
-      
-      <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-            
-            
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-default导航栏"><span class="nav-number">1.</span> <span class="nav-text">1. default导航栏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-custom导航栏"><span class="nav-number">2.</span> <span class="nav-text">2. custom导航栏</span></a></li></ol></div>
-            
-
-          </div>
-        </div>
-      <!--/noindex-->
       
 
       
