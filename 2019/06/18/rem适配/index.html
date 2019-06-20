@@ -105,7 +105,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://raw.githubusercontent.com/puede/font/master/pingfang.jpg">
 <meta property="og:image" content="https://raw.githubusercontent.com/puede/font/master/heiti.jpg">
-<meta property="og:updated_time" content="2019-06-20T03:09:47.633Z">
+<meta property="og:updated_time" content="2019-06-20T03:14:52.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="rem适配">
 <meta name="twitter:description" content="remrem 的官方定义『The font size of the root element.』，即以根节点的字体大小作为基准值进行长度计算。一般认为网页中的根节点是 html 元素，所以采用的方式也是通过设置 html 元素的 font-size 来做屏幕适配使用 rem 前端开发者可以很方便的在各种屏幕尺寸下，通过等比缩放的方式达到设计图要求的效果。首先我们来看看使用 rem 实现手机屏幕适配">
@@ -355,7 +355,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-06-20 11:09:47" itemprop="dateModified" datetime="2019-06-20T11:09:47+08:00">2019-06-20</time>
+                <time title="修改时间：2019-06-20 11:14:52" itemprop="dateModified" datetime="2019-06-20T11:14:52+08:00">2019-06-20</time>
               
             
           </span>
@@ -632,8 +632,7 @@
 <p>计算rem:<br>rem=ps上元素宽度/当前html尺寸下的fontsize<br>假如设计稿640 ,设计稿上一元素大小20px<br>640时,rem=元素宽20/625%=3.2<br>320时,rem=元素宽10/312.5%=3.2<br>360时,rem=元素宽11.25/351.5625%=3.2</p>
 <p>方案3:<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> designWidth = <span class="number">640</span>, rem2px = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">document</span>.documentElement.style.fontSize = ((<span class="built_in">window</span>.innerWidth / designWidth) * rem2px) + <span class="string">'px'</span>;</span><br></pre></td></tr></table></figure></p>
 <p>方案4:<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> designWidth = <span class="number">640</span>, rem2px = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">document</span>.documentElement.style.fontSize = ((((<span class="built_in">window</span>.innerWidth / designWidth) * rem2px) / <span class="number">16</span>) * <span class="number">100</span>) + <span class="string">'%'</span>;</span><br></pre></td></tr></table></figure></p>
-<p>rem 的计算的时候，px 的方式会有一个16不随系统字体大小改变，所以我们采用百分比的方案，绕开这个问题。</p>
-<p>采用百分比的方案4因为在计算时写死了默认字体大小 16px。所以它的偏差在于没能动态的获取默认字体大小。</p>
+<p>rem 的计算的时候，px 的方式会有一个16不随系统字体大小改变，所以我们采用百分比的方案，绕开这个问题。<br>采用百分比的方案4因为在计算时写死了默认字体大小 16px。所以它的偏差在于没能动态的获取默认字体大小。<br>特别强调：绝不是每个地方都要用rem，rem只适用于固定尺寸！<br>在相当数量的布局情境中（比如底部导航元素平分屏幕宽，大尺寸元素），你必须使用百分比或者flex才能完美布局！</p>
 <h2 id="移动端字体设置"><a href="#移动端字体设置" class="headerlink" title="移动端字体设置:"></a>移动端字体设置:</h2><p>各个手机系统有自己的默认字体，一般不支持我们常用字体，例如微软雅黑等；<br>如无特殊需求，手机端无需定义中文字体，使用系统默认即可。</p>
 <table>
 <thead>
