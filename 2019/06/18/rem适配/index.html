@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2"/>
+
+<link rel="stylesheet" href="/css/main.css?v=6.7.0"/>
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="https://www.yangxc.xyz/font/avatar.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://www.yangxc.xyz/font/avatar.png?v=6.7.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="https://www.yangxc.xyz/font/avatar.png?v=6.7.0">
+
+
+  <link rel="mask-icon" href="https://www.yangxc.xyz/font/avatar.png?v=6.7.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.7.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="remrem 的官方定义『The font size of the root element.』，即以根节点的字体大小作为基准值进行长度计算。一般认为网页中的根节点是 html 元素，所以采用的方式也是通过设置 html 元素的 font-size 来做屏幕适配使用 rem 前端开发者可以很方便的在各种屏幕尺寸下，通过">
+<meta property="og:type" content="article">
+<meta property="og:title" content="rem适配">
+<meta property="og:url" content="http://yoursite.com/2019/06/18/rem适配/index.html">
+<meta property="og:site_name" content="yangxc的博客">
+<meta property="og:description" content="remrem 的官方定义『The font size of the root element.』，即以根节点的字体大小作为基准值进行长度计算。一般认为网页中的根节点是 html 元素，所以采用的方式也是通过设置 html 元素的 font-size 来做屏幕适配使用 rem 前端开发者可以很方便的在各种屏幕尺寸下，通过等比缩放的方式达到设计图要求的效果。首先我们来看看使用 rem 实现手机屏幕适配">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/font/master/pingfang.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/font/master/heiti.jpg">
+<meta property="og:updated_time" content="2019-06-20T03:09:47.633Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="rem适配">
+<meta name="twitter:description" content="remrem 的官方定义『The font size of the root element.』，即以根节点的字体大小作为基准值进行长度计算。一般认为网页中的根节点是 html 元素，所以采用的方式也是通过设置 html 元素的 font-size 来做屏幕适配使用 rem 前端开发者可以很方便的在各种屏幕尺寸下，通过等比缩放的方式达到设计图要求的效果。首先我们来看看使用 rem 实现手机屏幕适配">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/puede/font/master/pingfang.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/06/18/rem适配/"/>
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>rem适配 | yangxc的博客</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+<a href="https://github.com/puede" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">yangxc的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">To improve is to change, to be perfect is to change often</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br/>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br/>归档</a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/18/rem适配/"/>
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="yangxc"/>
+      <meta itemprop="description" content="practice makes perfect"/>
+      <meta itemprop="image" content="https://www.yangxc.xyz/font/avatar.png"/>
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="yangxc的博客"/>
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">rem适配
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-18 09:11:59" itemprop="dateCreated datePublished" datetime="2019-06-18T09:11:59+08:00">2019-06-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-06-20 11:09:47" itemprop="dateModified" datetime="2019-06-20T11:09:47+08:00">2019-06-20</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="rem"><a href="#rem" class="headerlink" title="rem"></a>rem</h2><p>rem 的官方定义『The font size of the root element.』，即以根节点的字体大小作为基准值进行长度计算。一般认为网页中的根节点是 html 元素，所以采用的方式也是通过设置 html 元素的 font-size 来做屏幕适配使用 rem 前端开发者可以很方便的在各种屏幕尺寸下，通过等比缩放的方式达到设计图要求的效果。<br>首先我们来看看使用 rem 实现手机屏幕适配的常用方案。</p>
+<h2 id="rem字体适配-750为基准"><a href="#rem字体适配-750为基准" class="headerlink" title="rem字体适配(750为基准)"></a>rem字体适配(750为基准)</h2><p>以设计稿的宽度为750px，即：designWidth = 750，同时设定在750px屏宽下 1rem=100px ，即：rem2px = 100。(rem to px   就是 1rem 等于 100px)<br>方案1:不考虑浏览器默认字体大小</p>
+<a id="more"></a>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">公式: 当前屏幕尺寸下的fzpx=当前尺寸大小/设计稿宽度 * <span class="number">100</span>px</span><br><span class="line">即<span class="symbol">:fz=window</span>.innerWidth / designWidth * rem2px + <span class="string">'px'</span></span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">宽度</th>
+<th style="text-align:center">320</th>
+<th style="text-align:center">360</th>
+<th style="text-align:center">375</th>
+<th style="text-align:center">400</th>
+<th style="text-align:center">414</th>
+<th style="text-align:center">450</th>
+<th style="text-align:center">480</th>
+<th style="text-align:center">510</th>
+<th style="text-align:center">540</th>
+<th style="text-align:center">570</th>
+<th style="text-align:center">600</th>
+<th style="text-align:center">630</th>
+<th style="text-align:center">660</th>
+<th style="text-align:center">690</th>
+<th style="text-align:center">720</th>
+<th style="text-align:center">750</th>
+<th style="text-align:center">780</th>
+<th style="text-align:center">810</th>
+<th style="text-align:center">960</th>
+<th style="text-align:center">1125</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">屏幕对比比例</td>
+<td style="text-align:center">0.4266666666666667</td>
+<td style="text-align:center">0.48</td>
+<td style="text-align:center">0.5</td>
+<td style="text-align:center">0.5333333333333333</td>
+<td style="text-align:center">0.552</td>
+<td style="text-align:center">0.6</td>
+<td style="text-align:center">0.64</td>
+<td style="text-align:center">0.68</td>
+<td style="text-align:center">0.72</td>
+<td style="text-align:center">0.76</td>
+<td style="text-align:center">0.8</td>
+<td style="text-align:center">0.84</td>
+<td style="text-align:center">0.88</td>
+<td style="text-align:center">0.92</td>
+<td style="text-align:center">0.96</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1.04</td>
+<td style="text-align:center">1.08</td>
+<td style="text-align:center">1.28</td>
+<td style="text-align:center">1.5</td>
+</tr>
+<tr>
+<td style="text-align:center">html fontsize</td>
+<td style="text-align:center">42.66666666666667</td>
+<td style="text-align:center">48</td>
+<td style="text-align:center">50px</td>
+<td style="text-align:center">53.33333333333333</td>
+<td style="text-align:center">55.2</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">68</td>
+<td style="text-align:center">72</td>
+<td style="text-align:center">76</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">84</td>
+<td style="text-align:center">88</td>
+<td style="text-align:center">92</td>
+<td style="text-align:center">96</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">104</td>
+<td style="text-align:center">108</td>
+<td style="text-align:center">128</td>
+<td style="text-align:center">150</td>
+</tr>
+<tr>
+<td style="text-align:center">元素宽度(px)</td>
+<td style="text-align:center">42.66666666666667</td>
+<td style="text-align:center">48</td>
+<td style="text-align:center">50px</td>
+<td style="text-align:center">53.33333333333333</td>
+<td style="text-align:center">55.2</td>
+<td style="text-align:center">60</td>
+<td style="text-align:center">64</td>
+<td style="text-align:center">68</td>
+<td style="text-align:center">72</td>
+<td style="text-align:center">76</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">84</td>
+<td style="text-align:center">88</td>
+<td style="text-align:center">92</td>
+<td style="text-align:center">96</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">104</td>
+<td style="text-align:center">108</td>
+<td style="text-align:center">128</td>
+<td style="text-align:center">150</td>
+</tr>
+<tr>
+<td style="text-align:center">元素宽度(rem)</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">320px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">42.66666666666667px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">360px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">48px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">375px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">50px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">400px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">53.33333333333333px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">414px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">55.2px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">450px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">60px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">480px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">64px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">510px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">68px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">540px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">72px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">570px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">76px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">600px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">80px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">630px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">84px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">660px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">88px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">690px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">92px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">720px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">96px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">750px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">100px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">780px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">104px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">810px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">108px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">960px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">128px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">1125px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">150px</span>;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>rem=ps上元素宽度/当前html尺寸下的fontsize<br>假如设计稿750 ,设计稿上一元素大小200px<br>750时,rem=元素宽200/100=2<br>375时,rem=元素宽100/50=2<br>360时,rem=元素宽96/48=2</p>
+<h2 id="rem字体适配-640为基准"><a href="#rem字体适配-640为基准" class="headerlink" title="rem字体适配(640为基准)"></a>rem字体适配(640为基准)</h2><p>以设计稿的宽度为640px，即：designWidth = 640，同时设定在640px屏宽下 1rem=100px ，即：rem2px = 100。(rem to px   就是 1rem 等于 100px)<br>设置 1rem=100px 的优点不言而喻。前端开发者在切图、重构页面的时候，通过直接位移小数点的方式，就可以将UI图中测量到的 px 值换算成对应的 rem 值，方便快捷。</p>
+<p>此外，在 head 中我们还设置了：viewport 的作用很重要，但不是本文的重点所以不展开，有兴趣的同学可以自行搜索。<br>一般我们做页面，肯定都会有设计图，移动端页面，一般情况下，UI出图都会定宽为640px，这也是移动端的标准尺寸；但是，我们也不能排除可能有其他特殊的情况可能需要做其他大小的设计图。所以，我们可以先定一个基准1rem=100px</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">宽度</th>
+<th style="text-align:center">320</th>
+<th style="text-align:center">360</th>
+<th style="text-align:center">375</th>
+<th style="text-align:center">400</th>
+<th style="text-align:center">414</th>
+<th style="text-align:center">440</th>
+<th style="text-align:center">480</th>
+<th style="text-align:center">520</th>
+<th style="text-align:center">560</th>
+<th style="text-align:center">600</th>
+<th style="text-align:center">640</th>
+<th style="text-align:center">680</th>
+<th style="text-align:center">720</th>
+<th style="text-align:center">760</th>
+<th style="text-align:center">800</th>
+<th style="text-align:center">960</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">屏幕对比比例</td>
+<td style="text-align:center">0.5</td>
+<td style="text-align:center">0.5625</td>
+<td style="text-align:center">0.5859375</td>
+<td style="text-align:center">0.625</td>
+<td style="text-align:center">0.646875</td>
+<td style="text-align:center">0.6875</td>
+<td style="text-align:center">0.75</td>
+<td style="text-align:center">0.8125</td>
+<td style="text-align:center">0.875</td>
+<td style="text-align:center">0.9375</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1.0625</td>
+<td style="text-align:center">1.125</td>
+<td style="text-align:center">1.1875</td>
+<td style="text-align:center">1.25</td>
+<td style="text-align:center">1.5</td>
+</tr>
+<tr>
+<td style="text-align:center">html fontsize</td>
+<td style="text-align:center">50</td>
+<td style="text-align:center">56.25</td>
+<td style="text-align:center">58.59375</td>
+<td style="text-align:center">62.5</td>
+<td style="text-align:center">64.6875</td>
+<td style="text-align:center">68.75</td>
+<td style="text-align:center">75</td>
+<td style="text-align:center">81.25</td>
+<td style="text-align:center">87.5</td>
+<td style="text-align:center">93.75</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">106.25</td>
+<td style="text-align:center">112.5</td>
+<td style="text-align:center">118.75</td>
+<td style="text-align:center">125</td>
+<td style="text-align:center">150</td>
+</tr>
+<tr>
+<td style="text-align:center">元素宽度(px)</td>
+<td style="text-align:center">50</td>
+<td style="text-align:center">56.25</td>
+<td style="text-align:center">58.59375</td>
+<td style="text-align:center">62.5</td>
+<td style="text-align:center">64.6875</td>
+<td style="text-align:center">68.75</td>
+<td style="text-align:center">75</td>
+<td style="text-align:center">81.25</td>
+<td style="text-align:center">87.5</td>
+<td style="text-align:center">93.75</td>
+<td style="text-align:center">100</td>
+<td style="text-align:center">106.25</td>
+<td style="text-align:center">112.5</td>
+<td style="text-align:center">118.75</td>
+<td style="text-align:center">125</td>
+<td style="text-align:center">150</td>
+</tr>
+<tr>
+<td style="text-align:center">元素宽度(rem)</td>
+<td style="text-align:center">1rem</td>
+<td style="text-align:center">1rem</td>
+<td style="text-align:center">1rem</td>
+<td style="text-align:center">1rem</td>
+<td style="text-align:center">1rem</td>
+<td style="text-align:center">1rem</td>
+<td style="text-align:center">1rem</td>
+<td style="text-align:center">1rem</td>
+<td style="text-align:center">1rem</td>
+<td style="text-align:center">1rem</td>
+<td style="text-align:center">1rem</td>
+<td style="text-align:center">1rem</td>
+<td style="text-align:center">1rem</td>
+<td style="text-align:center">1rem</td>
+<td style="text-align:center">1rem</td>
+<td style="text-align:center">1rem</td>
+</tr>
+</tbody>
+</table>
+<p>方案1:不考虑浏览器默认字体大小<br>公式: </p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">当前屏幕尺寸下的fzpx=当前尺寸大小/设计稿宽度 * <span class="number">100</span>px</span><br><span class="line">即<span class="symbol">:fz=window</span>.innerWidth / designWidth * rem2px + <span class="string">'px'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">320px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">50px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">360px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">56.25px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">375px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">58.59375px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">400px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">62.5px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">414px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">64.6875px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">440px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">68.75px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">480px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">75px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">520px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">81.25px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">560px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">87.5px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">600px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">93.75px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">640px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">100px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">680px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">106.25px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">720px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">112.5px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">760px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">118.75px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">800px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">125px</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">960px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">150px</span>;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>rem=ps上元素宽度/当前html尺寸下的fontsize<br>假如设计稿640 ,设计稿上一元素大小200px<br>640时,rem=元素宽200/100=2<br>320时,rem=元素宽100/50=2<br>360时,rem=元素宽112.5/56.25=2</p>
+<p>方案2:<br>由于浏览器默认字体大小为 16px，所以当我们使用百分比作为根节点 html 的字体大小时，即html元素的font-size值设置为一个百分比值，rem 的计算方式就会改为：</p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">defaultFontSize</span> = <span class="number">16</span>px</span><br><span class="line"><span class="attr">1rem</span> = <span class="number">1</span> * htmlFontSize * defaultFontSize</span><br></pre></td></tr></table></figure>
+<p>在屏宽为640px情况下的设置：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rem2px</span>=100</span><br><span class="line">所以: <span class="attribute">htmlFZ</span>=1rem/1 * <span class="attribute">16px</span>=100px/1 * 16px * 100%=625%</span><br><span class="line">即@media<span class="built_in"> screen </span><span class="keyword">and</span> (min-width: 640px) &#123;html&#123;font-size:625%;&#125;&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>rem = <span class="number">1</span> * <span class="number">625</span>% * <span class="number">16</span>px</span><br><span class="line">其中：<span class="number">625</span>% * <span class="number">16</span> = <span class="number">6.25</span> * <span class="number">16</span> = <span class="number">100</span></span><br><span class="line">所以：<span class="number">1</span>rem = <span class="number">1</span> * <span class="number">100</span>px</span><br></pre></td></tr></table></figure>
+<p>同样的可以得到所有屏幕大小下，html 的 font-size 值的计算公式，即为方案4：</p>
+<p><code>window.innerWidth / designWidth * rem2px / 16 * 100%</code><br>由此可得:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">320px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">312.5%</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">360px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">351.5625%</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">375px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">366.211%</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">400px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">390.625%</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">414px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">404.2969%</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">440px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">429.6875%</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">480px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">468.75%</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">520px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">507.8125%</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">560px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">546.875%</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">600px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">585.9375%</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">640px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">625%</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">680px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">664.0625%</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">720px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">703.125%</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">760px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">742.1875%</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">800px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">781.25%</span>;&#125;&#125;</span><br><span class="line">@<span class="keyword">media</span> screen and (min-width: <span class="number">960px</span>) &#123;<span class="selector-tag">html</span>&#123;<span class="attribute">font-size</span>:<span class="number">937.5%</span>;&#125;&#125;</span><br></pre></td></tr></table></figure>
+<p>计算rem:<br>rem=ps上元素宽度/当前html尺寸下的fontsize<br>假如设计稿640 ,设计稿上一元素大小20px<br>640时,rem=元素宽20/625%=3.2<br>320时,rem=元素宽10/312.5%=3.2<br>360时,rem=元素宽11.25/351.5625%=3.2</p>
+<p>方案3:<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> designWidth = <span class="number">640</span>, rem2px = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">document</span>.documentElement.style.fontSize = ((<span class="built_in">window</span>.innerWidth / designWidth) * rem2px) + <span class="string">'px'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>方案4:<br><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> designWidth = <span class="number">640</span>, rem2px = <span class="number">100</span>;</span><br><span class="line"><span class="built_in">document</span>.documentElement.style.fontSize = ((((<span class="built_in">window</span>.innerWidth / designWidth) * rem2px) / <span class="number">16</span>) * <span class="number">100</span>) + <span class="string">'%'</span>;</span><br></pre></td></tr></table></figure></p>
+<p>rem 的计算的时候，px 的方式会有一个16不随系统字体大小改变，所以我们采用百分比的方案，绕开这个问题。</p>
+<p>采用百分比的方案4因为在计算时写死了默认字体大小 16px。所以它的偏差在于没能动态的获取默认字体大小。</p>
+<h2 id="移动端字体设置"><a href="#移动端字体设置" class="headerlink" title="移动端字体设置:"></a>移动端字体设置:</h2><p>各个手机系统有自己的默认字体，一般不支持我们常用字体，例如微软雅黑等；<br>如无特殊需求，手机端无需定义中文字体，使用系统默认即可。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">系统支持</th>
+<th style="text-align:center">默认中文字体</th>
+<th style="text-align:center">英文字体</th>
+<th style="text-align:center">数字字体</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">android(较老版本)</td>
+<td style="text-align:center">Droidsansfallback</td>
+<td style="text-align:center">Droid Sans</td>
+<td style="text-align:center">Droid Sans</td>
+</tr>
+<tr>
+<td style="text-align:center">android(安卓5.0之后)</td>
+<td style="text-align:center">思源黑体</td>
+<td style="text-align:center">Helvetica</td>
+<td style="text-align:center">Helvetica</td>
+</tr>
+<tr>
+<td style="text-align:center">ios</td>
+<td style="text-align:center">Heiti SC黑体</td>
+<td style="text-align:center">Helvetica</td>
+<td style="text-align:center">HelveticaNeue</td>
+</tr>
+<tr>
+<td style="text-align:center">ios9之后</td>
+<td style="text-align:center">PingFangSC</td>
+<td style="text-align:center">Helvetica</td>
+<td style="text-align:center">HelveticaNeue</td>
+</tr>
+<tr>
+<td style="text-align:center">winphone</td>
+<td style="text-align:center">Dengxian(方正等线体)</td>
+<td style="text-align:center">Segoe</td>
+<td style="text-align:center">Segoe</td>
+</tr>
+</tbody>
+</table>
+<p>安卓:(较老版本)<br>font-family: <code>&#39;DroidSansFallback&#39;,&#39;DroidSans&#39;</code></p>
+<p>(安卓5.0之后)思源黑体14种字体粗细：包括Google自有版本Noto Sans CJK SC字体和SourceHanSansCN简体中文版<br>SourceHanSansCN简体中文版:<br>纤细体ExtraLight: <code>font-family: SourceHanSansCN-ExtraLight</code><br>细黑Light: <code>font-family: SourceHanSansCN-Light</code><br>标准体Normal: <code>font-family: SourceHanSansCN-Normal</code><br>常规体Regular: <code>font-family: SourceHanSansCN-Regular</code><br>中黑体Medium: <code>font-family: SourceHanSansCN-Medium</code><br>粗黑Bold: <code>font-family: SourceHanSansCN-Bold</code><br>特粗Heavy: <code>font-family: SourceHanSansCN-Heavy</code></p>
+<p>苹果手机字体默认苹方(ios9):<br>常规体: <code>font-family: PingFangSC-Regular, sans-serif;</code><br>极细体: <code>font-family: PingFangSC-Ultralight, sans-serif;</code><br>细体: <code>font-family: PingFangSC-Light, sans-serif;</code><br>纤细体: <code>font-family: PingFangSC-Thin, sans-serif;</code><br>中黑体: <code>font-family: PingFangSC-Medium, sans-serif;</code><br>中粗体: <code>font-family: PingFangSC-Semibold, sans-serif;</code></p>
+<p>两种字体比较:<br><img src="https://raw.githubusercontent.com/puede/font/master/pingfang.jpg" alt="苹方"><br><img src="https://raw.githubusercontent.com/puede/font/master/heiti.jpg" alt="思源黑体"></p>
+<h4 id="点击获取相对应的字体文件"><a href="#点击获取相对应的字体文件" class="headerlink" title="点击获取相对应的字体文件"></a><a href="https://github.com/puede/mobilefont-family" target="_blank" rel="noopener">点击获取相对应的字体文件</a></h4><p>font-family 设置规则:优先设置英文字体，原因是中文字体基本上都能表示英文，但是英文不一定能表示中文，这样能最大程度的保证中文使用中文字体渲染，英文使用英文字体渲染,具体的字体名在前，字体族名在后防止出现前面的字体都没有的情况。英文字体和数字字体可使用 Helvetica 西文字体<code>font-family:&#39;Helvetica&#39;</code>，三种系统都支持</p>
+<p>推荐设置方式:<br><code>font-family : &quot;PingFangSC-Regular&quot;,&quot;Noto Sans CJK SC Thin&quot;, &quot;Source Han Sans CN&quot;,&quot;Helvetica Neue&quot;</code></p>
+<p>在网页中自定义字体:</p>
+<pre><code>@font-face{
+  font-family: SourceHanSansCN-Regular
+  src: url(&apos;./heiti/SourceHanSansCN-Regular.otf&apos;)
+}
+
+*{
+  font-family: &quot;Helvetica Neue&quot;,&quot;Helvetica&quot;,&quot;PingFangSC-xianxi&quot;,&quot;DroidSansFallback&quot;,&quot;DroidSans&quot;,&quot;SourceHanSansCN-Regular&quot;
+}
+</code></pre><h2 id="关于font-weight"><a href="#关于font-weight" class="headerlink" title="关于font-weight:"></a>关于font-weight:</h2><p>浏览器默认font-weight:400<br>100-500变化不大<br>600=bold</p>
+<h2 id="物理像素-physical-pixel"><a href="#物理像素-physical-pixel" class="headerlink" title="物理像素(physical pixel)"></a>物理像素(physical pixel)</h2><p>一个物理像素是显示器(手机屏幕)上最小的物理显示单元，在操作系统的调度下，每一个设备像素都有自己的颜色值和亮度值。<br>设备独立像素(density-independent pixel)<br>设备独立像素(也叫密度无关像素)，可以认为是计算机坐标系统中得一个点，这个点代表一个可以由程序使用的虚拟像素(比如: css像素)，然后由相关系统转换为物理像素。<br>设备像素比(device pixel ratio )<br>设备像素比(简称dpr)定义了物理像素和设备独立像素的对应关系，它的值可以按如下的公式的得到：<br><code>设备像素比 = 物理像素 / 设备独立像素</code><br>在javascript中，可以通过<code>window.devicePixelRatio</code>获取到当前设备的dpr<br>在不同的屏幕上(普通屏幕 vs retina屏幕)，css像素所呈现的大小(物理尺寸)是一致的，不同的是1个css像素所对应的物理像素个数是不一致的</p>
+<h3 id="在普通屏幕下，1个css像素-对应-1个物理像素-1-1-。-在retina-屏幕下，1个css像素对应-4个物理像素-1-4-。"><a href="#在普通屏幕下，1个css像素-对应-1个物理像素-1-1-。-在retina-屏幕下，1个css像素对应-4个物理像素-1-4-。" class="headerlink" title="在普通屏幕下，1个css像素 对应 1个物理像素(1:1)。 在retina 屏幕下，1个css像素对应 4个物理像素(1:4)。"></a>在普通屏幕下，1个css像素 对应 1个物理像素(1:1)。 在retina 屏幕下，1个css像素对应 4个物理像素(1:4)。</h3><h4 id="位图像素"><a href="#位图像素" class="headerlink" title="位图像素"></a>位图像素</h4><p>一个位图像素是栅格图像(如：png, jpg, gif等)最小的数据单元。每一个位图像素都包含着一些自身的显示信息(如：显示位置，颜色值，透明度等)。</p>
+<h3 id="在普通屏幕下-1个位图像素对应于1个物理像素，"><a href="#在普通屏幕下-1个位图像素对应于1个物理像素，" class="headerlink" title="在普通屏幕下,1个位图像素对应于1个物理像素，"></a>在普通屏幕下,1个位图像素对应于1个物理像素，</h3><p>但是在retina屏幕下就会出现位图像素点不够，从而导致图片模糊的情况。</p>
+<h3 id="对于dpr-2的retina屏幕而言，1个位图像素对应于4个物理像素"><a href="#对于dpr-2的retina屏幕而言，1个位图像素对应于4个物理像素" class="headerlink" title="对于dpr=2的retina屏幕而言，1个位图像素对应于4个物理像素"></a>对于dpr=2的retina屏幕而言，1个位图像素对应于4个物理像素</h3><p>所以，对于图片高清问题，比较好的方案就是两倍图片(@2x)。<br>如：200×300(css pixel)img标签，就需要提供400×600的图片。<br>如此一来，位图像素点个数就是原来的4倍，在retina屏幕下，位图像素点个数就可以跟物理像素点个数形成 1 : 1的比例，图片自然就清晰了<br>如果普通屏幕下，也用了两倍图片，会怎样呢？<br>很明显，在普通屏幕下，200×300(css pixel)img标签，所对应的物理像素个数就是200×300个，而两倍图片的位图像素个数则是200×300*4，所以就出现一个物理像素点对应4个位图像素点，所以它的取色也只能通过一定的算法(显示结果就是一张只有原图像素总数四分之一，我们称这个过程叫做downsampling)，肉眼看上去虽然图片不会模糊，但是会觉得图片缺少一些锐利度，或者是有点色差(但还是可以接受的)。</p>
+<p>相关链接:<br><a href="http://www.html-js.com/article/Mobile-terminal-H5-mobile-terminal-HD-multi-screen-adaptation-scheme%203041" target="_blank" rel="noopener">http://www.html-js.com/article/Mobile-terminal-H5-mobile-terminal-HD-multi-screen-adaptation-scheme%203041</a><br><a href="https://juejin.im/entry/5833f572128fe1006ccda98b" target="_blank" rel="noopener">https://juejin.im/entry/5833f572128fe1006ccda98b</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/24/两数之和/" rel="next" title="两数之和">
+                <i class="fa fa-chevron-left"></i> 两数之和
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  <div>
+    
+    <div>
+
+    <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+
+</div>
+
+    
+  </div>
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="https://www.yangxc.xyz/font/avatar.png"
+                alt="yangxc"/>
+            
+              <p class="site-author-name" itemprop="name">yangxc</p>
+              <p class="site-description motion-element" itemprop="description">practice makes perfect</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">36</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/puede" title="GitHub &rarr; https://github.com/puede" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://juejin.im/" title="掘金 &rarr; https://juejin.im/" rel="noopener" target="_blank"><i class="fa fa-fw fa-spinner"></i>掘金</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#rem"><span class="nav-number">1.</span> <span class="nav-text">rem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rem字体适配-750为基准"><span class="nav-number">2.</span> <span class="nav-text">rem字体适配(750为基准)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#rem字体适配-640为基准"><span class="nav-number">3.</span> <span class="nav-text">rem字体适配(640为基准)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#移动端字体设置"><span class="nav-number">4.</span> <span class="nav-text">移动端字体设置:</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#点击获取相对应的字体文件"><span class="nav-number">4.0.1.</span> <span class="nav-text">点击获取相对应的字体文件</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于font-weight"><span class="nav-number">5.</span> <span class="nav-text">关于font-weight:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#物理像素-physical-pixel"><span class="nav-number">6.</span> <span class="nav-text">物理像素(physical pixel)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#在普通屏幕下，1个css像素-对应-1个物理像素-1-1-。-在retina-屏幕下，1个css像素对应-4个物理像素-1-4-。"><span class="nav-number">6.1.</span> <span class="nav-text">在普通屏幕下，1个css像素 对应 1个物理像素(1:1)。 在retina 屏幕下，1个css像素对应 4个物理像素(1:4)。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#位图像素"><span class="nav-number">6.1.1.</span> <span class="nav-text">位图像素</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在普通屏幕下-1个位图像素对应于1个物理像素，"><span class="nav-number">6.2.</span> <span class="nav-text">在普通屏幕下,1个位图像素对应于1个物理像素，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对于dpr-2的retina屏幕而言，1个位图像素对应于4个物理像素"><span class="nav-number">6.3.</span> <span class="nav-text">对于dpr=2的retina屏幕而言，1个位图像素对应于4个物理像素</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">yangxc</span>
+
+  
+
+  
+</div>
+
+
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=6.7.0"></script>
+
+  <script src="/js/src/motion.js?v=6.7.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=6.7.0"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=6.7.0"></script>
+
+
+
+  
+  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
+<script src="/js/src/post-details.js?v=6.7.0"></script>
+
+
+
+  
+
+
+  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+   <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+   <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+   <script type="text/javascript" src="/js/src/fireworks.js"></script>
+  
+</body>
+</html>
