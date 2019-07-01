@@ -96,17 +96,20 @@
 
 
 
-  <meta name="description" content="安装vue-cli cnpm install –global vue-cli 初始化项目 vue init webpack my-project 进入项目 cd my-project 安装依赖 npm install 启动项目 npm run dev">
+  <meta name="description" content="首先需要node环境Vue-cli是Vue.js的脚手架工具,用于自动生成vue.js+webpack的项目模板,主要作用：目录结构、本地调试、代码部署、热加载、单元测试  安装vue-cli cnpm install --global vue-cli安装之后可以使用vue list查看常用的项目模板名称">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue快速入门">
 <meta property="og:url" content="http://yoursite.com/2019/04/11/vue快速入门/index.html">
 <meta property="og:site_name" content="yangxc的博客">
-<meta property="og:description" content="安装vue-cli cnpm install –global vue-cli 初始化项目 vue init webpack my-project 进入项目 cd my-project 安装依赖 npm install 启动项目 npm run dev">
+<meta property="og:description" content="首先需要node环境Vue-cli是Vue.js的脚手架工具,用于自动生成vue.js+webpack的项目模板,主要作用：目录结构、本地调试、代码部署、热加载、单元测试  安装vue-cli cnpm install --global vue-cli安装之后可以使用vue list查看常用的项目模板名称">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-24T06:22:19.315Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/font/master/2vue-cli查看项目模板.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/puede/font/master/目录结构.jpg">
+<meta property="og:updated_time" content="2019-07-01T09:45:49.931Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue快速入门">
-<meta name="twitter:description" content="安装vue-cli cnpm install –global vue-cli 初始化项目 vue init webpack my-project 进入项目 cd my-project 安装依赖 npm install 启动项目 npm run dev">
+<meta name="twitter:description" content="首先需要node环境Vue-cli是Vue.js的脚手架工具,用于自动生成vue.js+webpack的项目模板,主要作用：目录结构、本地调试、代码部署、热加载、单元测试  安装vue-cli cnpm install --global vue-cli安装之后可以使用vue list查看常用的项目模板名称">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/puede/font/master/2vue-cli查看项目模板.jpg">
 
 
 
@@ -352,7 +355,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-24 14:22:19" itemprop="dateModified" datetime="2019-04-24T14:22:19+08:00">2019-04-24</time>
+                <time title="修改时间：2019-07-01 17:45:49" itemprop="dateModified" datetime="2019-07-01T17:45:49+08:00">2019-07-01</time>
               
             
           </span>
@@ -385,16 +388,23 @@
       
 
       
-        <ol>
-<li>安装vue-cli cnpm install –global vue-cli</li>
-<li>初始化项目 vue init webpack my-project</li>
-<li>进入项目 cd my-project</li>
-<li>安装依赖 npm install</li>
-<li>启动项目 npm run dev</li>
+        <p>首先需要node环境<br>Vue-cli是Vue.js的脚手架工具,用于自动生成vue.js+webpack的项目模板,主要作用：目录结构、本地调试、代码部署、热加载、单元测试</p>
+<ol>
+<li>安装<code>vue-cli cnpm install --global vue-cli</code><br>安装之后可以使用<code>vue list</code>查看常用的项目模板名称<br><img src="https://raw.githubusercontent.com/puede/font/master/2vue-cli查看项目模板.jpg" alt="项目模板"></li>
 </ol>
 <a id="more"></a>
-<p>项目目录结构:<br>index.html:项目根视图<br>.postcssrc.js:postcss配置文件<br>static: 静态文件目录<br>index.js: 配置  autoOpenBrowser浏览器自动打开</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">. </span>webpack</span><br><span class="line"><span class="bullet">. </span>webpack-simple  // 一个简单webpack+vue-loader的模板,不包含其他功能。</span><br><span class="line"><span class="bullet">. </span>browserify     //  一个全面的Browserify+vueify 的模板,功能包括热加载,linting,单元检测。</span><br><span class="line"><span class="bullet">. </span>browserify-simple  // 一个简单Browserify+vueify的模板,不包含其他功能。</span><br><span class="line"><span class="bullet">. </span>pwa           // 基于webpack模板的vue-cli的PWA模板</span><br><span class="line"><span class="bullet">. </span>simple      //  一个最简单的单页应用模板</span><br></pre></td></tr></table></figure>
+<ol>
+<li><p>初始化项目/安装webpack项目模板,项目名称不能大写 <code>vue init webpack my-project</code>,<br><code>Project name</code> :项目名称 ,如果不需要更改直接回车就可以了。注意：这里不能使用大写。<br><code>Project description</code>:项目描述,默认为A Vue.js project,直接回车,不用编写。<br><code>Author</code>：作者,如果你有配置git,他会读取.ssh文件中的user。<br><code>Install vue-router?</code> 是否安装vue的路由插件,Y代表安装,N无需安装,下面的命令也是一样的。<br><code>Use ESLint to lint your code?</code> 是否用ESLint来限制你的代码错误和风格<br><code>setup unit tests with Karma + Mocha?</code> 是否需要安装单元测试工具Karma+Mocha。<br><code>Setup e2e tests with Nightwatch?</code>是否安装e2e来进行用户行为模拟测试。</p>
+</li>
+<li><p>进入项目 <code>cd my-project</code></p>
+</li>
+<li>安装依赖 <code>npm install</code></li>
+<li>启动项目 <code>npm run dev</code><br><code>npm run dev</code>就是去执行<code>webpack-dev-server --inline --progress --config build/webpack.dev.conf.js</code>这句话的意思是利用 webpack-dev-server 读取 webpack.dev.conf.js 信息并启动一个本地服务器</li>
+</ol>
+<p>项目目录结构:<br><img src="https://raw.githubusercontent.com/puede/font/master/目录结构.jpg" alt="项目目录结构"><br><code>.babelrc babel</code>配置文件，把我们ES2105的代码通过它编译成ES5的。<br><code>.editorconfig</code>编辑器配置<br><code>.eslintignore</code> 忽略语法检查的目录文件配置<br><code>.eslintrc.js</code>eslint的配置文件<br><code>.gitignore</code> 配置git仓库的忽略<br><code>index.html</code>项目根视图,入口模板文件<br><code>package.json</code> 项目配置文件,定义了项目的相关信息及项目的相关包依赖,npm运行命令等<br><code>.postcssrc.js</code>:postcss配置文件<br><code>static</code>: 静态文件目录<br><code>src/router/index.js</code>: 路由文件,配置路由<br><code>src/main.js</code>是入口文件，主要作用是初始化vue实例并使用需要的插件,在main.js文件中定义了一个vue对象,其中el为实例提供挂载元素<br><code>/config/index.js</code>: 配置autoOpenBrowser:true设置在浏览器自动打开</p>
 <p>模板语法:<br>vue组件:template script style</p>
+<p>lang=”sass”<br>cnpm install node-sass –save-dev<br>安装element<br>cnpm i element-ui -S<br>按需引入cnpm install babel-plugin-component -D<br>参考element-ui手册<a href="https://element.eleme.cn/#/zh-CN/component" target="_blank" rel="noopener">https://element.eleme.cn/#/zh-CN/component</a></p>
 
       
     </div>
